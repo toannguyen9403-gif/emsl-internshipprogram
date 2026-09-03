@@ -1,0 +1,477 @@
+{
+  "config": {
+    "cohortLabel": "Summer 2027",
+    "cohortBadge": "Summer 2027 · COMING SOON",
+    "cohortHeading": "Summer 2027 Research Internship",
+    "deadlineText": "15 June 2027",
+    "applicationDeadline": "2027-06-15T23:00",
+    "applicationOpenDate": "2027-05-15T08:00",
+    "links": {
+      "apply": "",
+      "guide": "",
+      "lab": "https://sites.google.com/view/emsl-ssu/introduction",
+      "dept": "",
+      "univ": "",
+      "instagram": "",
+      "linkedin": "",
+      "youtube": "",
+      "privacy": "",
+      "a11y": ""
+    },
+    "images": {
+      "hero": "assets/working-1.jpg",
+      "upcomingBanner": "assets/campus-lab-environment.jpg",
+      "topicsDiagram": "assets/research-fields.png",
+      "eligibility": "assets/group-dinner.jpg",
+      "benefits": "assets/machine-5.jpg",
+      "selection": "assets/selection-process.png",
+      "labMain": "assets/campus-lab.jpg",
+      "labEquip": "assets/machine-4.jpg",
+      "labTeam": "assets/group-dinner.jpg",
+      "campus": "assets/campus-view.jpg",
+      "map": "",
+      "qr": "",
+      "logoUniv": "assets/logo.png",
+      "logoDept": "",
+      "logoLab": "",
+      "seoul0": "assets/campus-view.jpg",
+      "seoul1": "assets/campus-library.jpg",
+      "seoul2": "assets/campus-map.jpg",
+      "seoul3": "assets/campus-residence-hall.jpg",
+      "seoul4": "assets/campus-baird-hall.jpg",
+      "summer-2026-g0": "assets/group-dinner.jpg",
+      "summer-2026-g1": "assets/machine-1.jpg",
+      "summer-2026-g2": "assets/working-1.jpg",
+      "summer-2026-g3": "assets/machine-3.jpg",
+      "summer-2026-g4": "assets/machine-2.jpg",
+      "summer-2026-g5": "assets/campus-lab.jpg",
+      "summer-2026-g6": "assets/working-2.jpg",
+      "summer-2026-g7": "assets/working-3.jpg"
+    },
+    "stats": [
+      {
+        "n": "4",
+        "k": "statTotal"
+      },
+      {
+        "n": "2",
+        "k": "statIntl"
+      },
+      {
+        "n": "2",
+        "k": "statKorean"
+      }
+    ],
+    "upcoming": {
+      "program": "Summer 2027 Research Internship",
+      "dates": "01 July – 20 Aug",
+      "venue": "EMSLab, Department of Physics, Soongsil University, Seoul",
+      "open": "15 May 2027",
+      "eligible": "Senior Student",
+      "format": "",
+      "seats": "4 (2 International/ 2 Korean)",
+      "language": "English/ Korean"
+    },
+    "eligibility": {
+      "level": "Final-year undergraduate students",
+      "major": "Physics",
+      "lang": "English (Conversational proficiency)",
+      "other": "[Other Requirements]"
+    },
+    "dates": {
+      "open": "[Date]",
+      "close": "[Date]",
+      "interview": "[Date]",
+      "result": "[Date]",
+      "period": "[Date]"
+    },
+    "contact": {
+      "room": "Baird Hall 01433",
+      "email": "ylee(at)ssu.ac.kr",
+      "phone": "+82-2-820-0404 (Tel/Fax)",
+      "web": "sites.google.com/view/emsl-ssu",
+      "hours": ""
+    },
+    "mapEmbed": "https://www.google.com/maps?q=37.4963538,126.9572222&z=17&output=embed",
+    "layout": {
+      "maxWidth": 1200,
+      "topicCols": 3,
+      "peopleCols": 4,
+      "valueCols": 4,
+      "heroRatio": "4 / 3",
+      "bannerMin": 340,
+      "secScale": 1
+    }
+  },
+  "programs": [
+    {
+      "id": "summer-2026",
+      "season": "summer",
+      "year": 2026,
+      "state": "completed",
+      "archived": true,
+      "name": "Summer 2026 Research Internship",
+      "dates": "2026.07.01 – 2026.08.20",
+      "participants": "4",
+      "countries": "[Participating Universities and Countries]",
+      "topic": "[Research Topic]",
+      "activities": "[Main Activities]",
+      "outcomes": "[Results and Achievements]",
+      "quote": "[Insert Student Testimonial]",
+      "quoteBy": "[Student Name] — [University, Country]",
+      "image": "assets/group-dinner.jpg",
+      "story": ""
+    },
+    {
+      "id": "summer-2027",
+      "season": "summer",
+      "year": 2027,
+      "state": "open",
+      "archived": false,
+      "name": "Summer 2027 Research Internship",
+      "dates": "01 July – 20 Aug 2027",
+      "participants": "4 (2 International / 2 Korean)",
+      "topic": "[Research Topic]",
+      "image": "assets/campus-view.jpg"
+    }
+  ],
+  "people": [
+    {
+      "name": "Prof. Y. S. Lee",
+      "roleKey": "rolePI",
+      "field": "Luminescent materials and spectroscopy",
+      "mail": "ylee(at)ssu.ac.kr",
+      "photo": ""
+    },
+    {
+      "name": "[Professor's Name]",
+      "roleKey": "roleProf",
+      "field": "[Research Field]",
+      "mail": "[Email]",
+      "photo": ""
+    },
+    {
+      "name": "[Researcher's Name]",
+      "roleKey": "roleFellow",
+      "field": "[Research Field]",
+      "mail": "[Email]",
+      "photo": ""
+    },
+    {
+      "name": "[Mentor's Name]",
+      "roleKey": "roleMentor",
+      "field": "[Research Field]",
+      "mail": "[Email]",
+      "photo": ""
+    },
+    {
+      "name": "[Coordinator's Name]",
+      "roleKey": "roleCoord",
+      "field": "[Program Administration]",
+      "mail": "[Program Email]",
+      "photo": ""
+    }
+  ],
+  "testimonials": [
+    {
+      "name": "[Student Name]",
+      "from": "[University and Country]",
+      "cohort": "[Summer 20XX Participant]",
+      "text": "[Insert Student Testimonial]",
+      "photo": ""
+    },
+    {
+      "name": "[Student Name]",
+      "from": "[University and Country]",
+      "cohort": "[Summer 20XX Participant]",
+      "text": "[Insert Student Testimonial]",
+      "photo": ""
+    },
+    {
+      "name": "[Student Name]",
+      "from": "[University and Country]",
+      "cohort": "[Summer 20XX Participant]",
+      "text": "[Insert Student Testimonial]",
+      "photo": ""
+    },
+    {
+      "name": "[Student Name]",
+      "from": "[University and Country]",
+      "cohort": "[Summer 20XX Participant]",
+      "text": "[Insert Student Testimonial]",
+      "photo": ""
+    }
+  ],
+  "topics": [
+    {
+      "icon": "beam",
+      "t": {
+        "en": "Novel phosphors",
+        "vi": "Vật liệu phát quang mới",
+        "ko": "신규 형광체"
+      },
+      "b": {
+        "en": [
+          "High efficiency and colour tunability",
+          "Low-cost synthesis",
+          "New host materials"
+        ],
+        "vi": [
+          "Hiệu suất cao, điều chỉnh được màu phát xạ",
+          "Quy trình chế tạo chi phí thấp",
+          "Vật liệu nền mới"
+        ],
+        "ko": [
+          "고효율 및 발광색 조절",
+          "저비용 합성 공정",
+          "신규 호스트 소재"
+        ]
+      }
+    },
+    {
+      "icon": "wave",
+      "t": {
+        "en": "Luminescent sensors",
+        "vi": "Cảm biến phát quang",
+        "ko": "발광 센서"
+      },
+      "b": {
+        "en": [
+          "Optical thermometry",
+          "Bio-imaging",
+          "Dosimetry",
+          "Encryption and anti-counterfeiting"
+        ],
+        "vi": [
+          "Đo nhiệt độ bằng quang học",
+          "Ảnh sinh học",
+          "Đo liều bức xạ",
+          "Mã hoá và chống hàng giả"
+        ],
+        "ko": [
+          "광학 온도 측정",
+          "바이오 이미징",
+          "선량 측정",
+          "암호화 및 위조 방지"
+        ]
+      }
+    },
+    {
+      "icon": "cube",
+      "t": {
+        "en": "Luminescent memory",
+        "vi": "Bộ nhớ phát quang",
+        "ko": "발광 메모리"
+      },
+      "b": {
+        "en": [
+          "Optically stimulated luminescence",
+          "Thermoluminescence",
+          "Photochromic behaviour",
+          "Defect-related mechanisms"
+        ],
+        "vi": [
+          "Phát quang kích thích quang (OSL)",
+          "Nhiệt phát quang (TL)",
+          "Hiệu ứng quang sắc",
+          "Cơ chế liên quan đến khuyết tật"
+        ],
+        "ko": [
+          "광자극 발광 (OSL)",
+          "열자극 발광 (TL)",
+          "광변색 특성",
+          "결함 관련 메커니즘"
+        ]
+      }
+    },
+    {
+      "icon": "crystal",
+      "t": {
+        "en": "Multi-functionality",
+        "vi": "Đa chức năng",
+        "ko": "다기능성"
+      },
+      "b": {
+        "en": [
+          "Luminescent ferroelectrics and high-K dielectrics",
+          "Probing local lattice properties"
+        ],
+        "vi": [
+          "Sắt điện phát quang và điện môi high-K",
+          "Khảo sát tính chất mạng cục bộ"
+        ],
+        "ko": [
+          "발광 강유전체 및 high-K 유전체",
+          "국소 격자 특성 규명"
+        ]
+      }
+    },
+    {
+      "icon": "atom",
+      "t": {
+        "en": "Synaptic devices",
+        "vi": "Linh kiện synapse",
+        "ko": "시냅스 소자"
+      },
+      "b": {
+        "en": [
+          "Luminescent synapse",
+          "Neuromorphic computing"
+        ],
+        "vi": [
+          "Synapse phát quang",
+          "Tính toán phỏng thần kinh"
+        ],
+        "ko": [
+          "발광 시냅스",
+          "뉴로모픽 컴퓨팅"
+        ]
+      }
+    }
+  ],
+  "faq": [
+    {
+      "en": "Who can apply?",
+      "vi": "Ai có thể đăng ký?",
+      "ko": "누가 지원할 수 있습니까?",
+      "a": {
+        "en": "",
+        "vi": "",
+        "ko": ""
+      }
+    },
+    {
+      "en": "Is the internship conducted in English?",
+      "vi": "Chương trình có sử dụng tiếng Anh không?",
+      "ko": "인턴십은 영어로 진행됩니까?",
+      "a": {
+        "en": "",
+        "vi": "",
+        "ko": ""
+      }
+    },
+    {
+      "en": "Is financial support available?",
+      "vi": "Có hỗ trợ tài chính không?",
+      "ko": "재정 지원이 있습니까?",
+      "a": {
+        "en": "",
+        "vi": "",
+        "ko": ""
+      }
+    },
+    {
+      "en": "Is accommodation provided?",
+      "vi": "Chương trình có bố trí chỗ ở không?",
+      "ko": "숙소가 제공됩니까?",
+      "a": {
+        "en": "",
+        "vi": "",
+        "ko": ""
+      }
+    },
+    {
+      "en": "Do I need previous research experience?",
+      "vi": "Có cần kinh nghiệm nghiên cứu trước đó không?",
+      "ko": "사전 연구 경험이 필요합니까?",
+      "a": {
+        "en": "",
+        "vi": "",
+        "ko": ""
+      }
+    },
+    {
+      "en": "What documents are required?",
+      "vi": "Cần nộp những giấy tờ nào?",
+      "ko": "어떤 서류가 필요합니까?",
+      "a": {
+        "en": "",
+        "vi": "",
+        "ko": ""
+      }
+    },
+    {
+      "en": "How are participants selected?",
+      "vi": "Ứng viên được tuyển chọn như thế nào?",
+      "ko": "참가자는 어떻게 선발됩니까?",
+      "a": {
+        "en": "",
+        "vi": "",
+        "ko": ""
+      }
+    },
+    {
+      "en": "Will participants receive a certificate?",
+      "vi": "Người tham gia có nhận chứng nhận không?",
+      "ko": "수료증이 발급됩니까?",
+      "a": {
+        "en": "",
+        "vi": "",
+        "ko": ""
+      }
+    },
+    {
+      "en": "Who should I contact for further information?",
+      "vi": "Liên hệ với ai để biết thêm thông tin?",
+      "ko": "추가 문의는 어디로 하면 됩니까?",
+      "a": {
+        "en": "",
+        "vi": "",
+        "ko": ""
+      }
+    }
+  ],
+  "seoul": [
+    {
+      "cls": "g-third",
+      "ratio": "4x3",
+      "label": "[Insert Campus Photo]",
+      "hint": "Soongsil campus",
+      "src": ""
+    },
+    {
+      "cls": "g-third",
+      "ratio": "4x3",
+      "label": "[Insert Seoul City Photo]",
+      "hint": "City and transport",
+      "src": ""
+    },
+    {
+      "cls": "g-third",
+      "ratio": "4x3",
+      "label": "[Insert Korean Culture Photo]",
+      "hint": "Culture and food",
+      "src": ""
+    },
+    {
+      "cls": "g-half",
+      "ratio": "3x2",
+      "label": "[Insert Student Community Photo]",
+      "hint": "International students",
+      "src": ""
+    },
+    {
+      "cls": "g-half",
+      "ratio": "3x2",
+      "label": "[Insert Daily Life Photo]",
+      "hint": "Daily life and travel",
+      "src": ""
+    }
+  ],
+  "text": {
+    "en": {
+      "heroCaption": "",
+      "abMissionBody": "abc",
+      "abEnvBody": "abc",
+      "abTitle": "About EMSL",
+      "imTitle": "Program highlights 2026",
+      "bannerNote": ""
+    },
+    "vi": {
+      "imTitle": "Kết quả nổi bật 2026"
+    },
+    "ko": {
+      "imTitle": "프로그램 성과 2026"
+    }
+  }
+}
