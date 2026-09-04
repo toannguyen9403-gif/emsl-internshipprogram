@@ -17,9 +17,6 @@
     "images": {
       "upcomingBanner": "assets/campus-baird-hall.jpg",
       "topicsDiagram": "assets/research-fields.png",
-      "eligibility": "",
-      "benefits": "assets/machine-5.jpg",
-      "selection": "assets/selection-process.png",
       "map": "",
       "qr": "assets/qr-placeholder.svg",
       "logoUniv": "assets/logo.png",
@@ -45,19 +42,6 @@
       "format": "",
       "seats": "2 (Vietnamese)",
       "language": "English/ Korean"
-    },
-    "eligibility": {
-      "level": "Final-year undergraduate students",
-      "major": "Physics",
-      "lang": "English (Conversational proficiency)",
-      "other": "[Other Requirements]"
-    },
-    "dates": {
-      "open": "[Date]",
-      "close": "[Date]",
-      "interview": "[Date]",
-      "result": "[Date]",
-      "period": "[Date]"
     },
     "contact": {
       "room": "Baird Hall 01433",
