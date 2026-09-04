@@ -16,7 +16,6 @@
       "a11y": ""
     },
     "images": {
-      "hero": "",
       "upcomingBanner": "assets/campus-baird-hall.jpg",
       "topicsDiagram": "assets/research-fields.png",
       "eligibility": "",
@@ -42,8 +41,7 @@
       "summer-2026-g3": "assets/machine-3.jpg",
       "summer-2026-g4": "assets/machine-2.jpg",
       "summer-2026-g5": "assets/campus-lab.jpg",
-      "summer-2026-g6": "assets/working-2.jpg",
-      "summer-2026-g7": ""
+      "summer-2026-g6": "assets/working-2.jpg"
     },
     "stats": [
       {
@@ -96,7 +94,6 @@
       "topicCols": 3,
       "peopleCols": 4,
       "valueCols": 4,
-      "heroRatio": "4 / 3",
       "bannerMin": 340,
       "secScale": 1
     }
@@ -115,8 +112,6 @@
       "topic": "[Research Topic]",
       "activities": "[Main Activities]",
       "outcomes": "[Results and Achievements]",
-      "quote": "[Insert Student Testimonial]",
-      "quoteBy": "[Student Name] — [University, Country]",
       "image": "assets/group-dinner.jpg",
       "story": ""
     },
@@ -172,31 +167,31 @@
   ],
   "testimonials": [
     {
-      "name": "[Student Name]",
-      "from": "[University and Country]",
-      "cohort": "[Summer 20XX Participant]",
-      "text": "[Insert Student Testimonial]",
+      "name": "Gil Hojun",
+      "from": "Soongsil University, Seoul, Korea",
+      "cohort": "Summer 2026 Participant",
+      "text": "",
       "photo": ""
     },
     {
-      "name": "[Student Name]",
-      "from": "[University and Country]",
-      "cohort": "[Summer 20XX Participant]",
-      "text": "[Insert Student Testimonial]",
+      "name": "Lee Minjong",
+      "from": "Soongsil University, Seoul, Korea",
+      "cohort": "Summer 2026 Participant",
+      "text": "",
       "photo": ""
     },
     {
-      "name": "[Student Name]",
-      "from": "[University and Country]",
-      "cohort": "[Summer 20XX Participant]",
-      "text": "[Insert Student Testimonial]",
+      "name": "Ha Phuc Tue Quang",
+      "from": "The University of Science and Education, Danang, Vietnam",
+      "cohort": "Summer 2026 Participant",
+      "text": "",
       "photo": ""
     },
     {
-      "name": "[Student Name]",
-      "from": "[University and Country]",
-      "cohort": "[Summer 20XX Participant]",
-      "text": "[Insert Student Testimonial]",
+      "name": "Dang Vi Thai",
+      "from": "The University of Science and Education, Danang, Vietnam",
+      "cohort": "Summer 2026 Participant",
+      "text": "",
       "photo": ""
     }
   ],
@@ -458,9 +453,6 @@
   ],
   "text": {
     "en": {
-      "heroCaption": "",
-      "abMissionBody": "abc",
-      "abEnvBody": "abc",
       "abTitle": "About EMSL",
       "imTitle": "Program highlights 2026",
       "bannerNote": ""

@@ -206,27 +206,24 @@ html[data-lang="vi"] .menu a.btn--apply,html[data-lang="ko"] .menu a.btn--apply{
 .hero__lattice{position:absolute;inset:0;opacity:.5;pointer-events:none}
 .hero__glow{position:absolute;width:760px;height:760px;right:-18%;top:-32%;pointer-events:none;
   background:radial-gradient(circle,rgba(27,167,188,.28),transparent 62%)}
-.hero__grid{position:relative;display:grid;grid-template-columns:1.08fr .92fr;gap:clamp(2rem,4vw,3.5rem);align-items:center}
+.hero__grid{position:relative;display:grid;justify-items:center;text-align:center}
+.hero__inner{max-width:64ch}
+.hero__accent{width:96px;margin:0 auto 1.5rem;border-radius:2px}
 .hero__badge{display:inline-flex;align-items:center;gap:.55rem;background:rgba(242,179,61,.14);
   border:1px solid rgba(242,179,61,.5);color:var(--apply);border-radius:999px;padding:.4rem .9rem;
   font-size:var(--t-xs);font-weight:600;margin-bottom:1.4rem}
 .hero__badge .dot{width:7px;height:7px;border-radius:50%;background:var(--apply)}
-.hero h1{max-width:18ch}
+.hero h1{max-width:20ch;margin-inline:auto}
 .hero__tag{font-family:var(--display);font-weight:500;font-size:clamp(1.05rem,2vw,var(--t-md));
   color:var(--data);margin:1.1rem 0 .9rem;letter-spacing:-.01em}
-.hero__lede{color:#C3D4E8;max-width:52ch;font-size:var(--t-md);line-height:1.55}
-.hero .btn-row{margin:2rem 0 2.2rem}
-.hero__facts{display:flex;flex-wrap:wrap;align-items:center;gap:.55rem 1rem;padding-top:1.4rem;
-  border-top:1px solid rgba(255,255,255,.14);font-size:var(--t-sm);color:#B9CADF}
+.hero__lede{color:#C3D4E8;max-width:56ch;margin-inline:auto;font-size:var(--t-md);line-height:1.55}
+.hero .btn-row{margin:2.2rem 0 2.4rem;justify-content:center}
+.hero__facts{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:.55rem 1rem;
+  padding-top:1.4rem;border-top:1px solid rgba(255,255,255,.14);font-size:var(--t-sm);color:#B9CADF}
 .hero__facts b{color:#fff;font-weight:600}
 .hero__facts .sep{color:rgba(255,255,255,.3)}
-.hero__figure{position:relative}
-.hero__figure .frame{aspect-ratio:var(--hero-ratio,4/5)}
 .spectrum-strip{height:5px;background:var(--spectrum);border-radius:0 0 2px 2px}
-.hero__caption{font-size:var(--t-xs);color:#8FA9C8;margin-top:.6rem}
 .hero__scroll{position:absolute;bottom:1rem;left:50%;transform:translateX(-50%);color:#7B96B8;font-size:var(--t-xs)}
-.hero__grid--solo{grid-template-columns:minmax(0,780px)}
-@media (max-width:900px){.hero__grid{grid-template-columns:1fr}.hero__figure .frame{aspect-ratio:16/10}}
 
 /* PL curve drawn once on load */
 .pl-curve path{stroke-dasharray:1200;stroke-dashoffset:1200;animation:draw 1.9s .35s cubic-bezier(.6,.05,.2,1) forwards}
@@ -287,6 +284,7 @@ html[data-lang="vi"] .menu a.btn--apply,html[data-lang="ko"] .menu a.btn--apply{
 /* ---------- Value cards / research tiles ---------- */
 .grid-4{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.5rem}
 .grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
+.about__grid{align-items:start}
 .grid-2{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:clamp(1.5rem,3vw,2.5rem)}
 .grid-2 h3,.panel h3,.archive__body h4{margin-bottom:.6rem}
 .value{display:flex;flex-direction:column;gap:.6rem}
@@ -628,7 +626,8 @@ body.ed-on{padding-right:0}
   <div class="hero__glow" aria-hidden="true"></div>
 
   <div class="wrap hero__grid">
-    <div>
+    <div class="hero__inner">
+      <div class="spectrum-strip hero__accent" aria-hidden="true"></div>
       <p class="hero__badge"><span class="dot"></span><span id="heroBadge">Summer 2027 · [Application Status]</span></p>
       <h1 data-i18n="heroTitle">EMSLab International Research Internship</h1>
       <p class="hero__tag" data-i18n="heroTag">Explore Physics. Experience Research. Connect Globally.</p>
@@ -644,18 +643,6 @@ body.ed-on{padding-right:0}
         <span class="sep">|</span>
         <span class="fact"><span data-i18n="factHost">Host:</span> <b>EMSLab, Soongsil University</b></span>
       </p>
-    </div>
-
-    <div class="hero__figure">
-      <figure class="frame" data-slot="hero">
-        <img alt="" hidden>
-        <span class="frame__meta">
-          <span class="frame__label">[HERO IMAGE — Replace with internship group or laboratory photo]</span>
-          <span class="frame__hint">Portrait 4:5 · recommended 1400 × 1750 px</span>
-        </span>
-      </figure>
-      <div class="spectrum-strip" aria-hidden="true"></div>
-      <p class="hero__caption" data-i18n="heroCaption">Visible emission range, 400–700 nm — the working window of the laboratory.</p>
     </div>
   </div>
 
@@ -899,7 +886,7 @@ body.ed-on{padding-right:0}
     <div class="sec-head">
       <div class="rule" aria-hidden="true"></div>
       <h2 data-i18n="tsTitle">Student experiences</h2>
-      <p data-i18n="tsDeck">In the words of former participants.</p>
+      <p data-i18n="tsDeck">The students who have taken part in the programme.</p>
     </div>
     <div class="carousel">
       <div class="track" id="track" tabindex="0" aria-label="Student testimonials"></div>
@@ -914,16 +901,15 @@ body.ed-on{padding-right:0}
 <!-- ==================== ABOUT EMSLAB ==================== -->
 <section class="sec sec--mist" id="lab">
   <div class="wrap">
-    <div class="sec-head">
-      <div class="rule" aria-hidden="true"></div>
-      <h2 data-i18n="abTitle">About EMSLab</h2>
-      <p data-i18n="abDeck">The Electronic Materials Spectroscopy Laboratory belongs to the Department of Physics, Soongsil University, Seoul, Republic of Korea.</p>
-    </div>
-
-    <div class="grid-2">
+    <div class="grid-2 about__grid">
       <div>
+        <div class="sec-head">
+          <div class="rule" aria-hidden="true"></div>
+          <h2 data-i18n="abTitle">About EMSLab</h2>
+          <p data-i18n="abDeck">The Electronic Materials Spectroscopy Laboratory belongs to the Department of Physics, Soongsil University, Seoul, Republic of Korea.</p>
+        </div>
         <h3 data-i18n="abMission">Mission</h3>
-        <p data-i18n="abMissionBody">[Add the laboratory mission statement here.] The group studies the relationship between crystal structure and optical response in solid-state materials, and trains students to carry a sample from synthesis through to a complete spectroscopic characterisation.</p>
+        <p data-i18n="abMissionBody">The group studies the relationship between crystal structure and optical response in solid-state materials, and trains students to carry a sample from synthesis through to a complete spectroscopic characterisation.</p>
         <h3 style="margin-top:1.75rem" data-i18n="abEnv">Working environment</h3>
         <p data-i18n="abEnvBody">Members work in small project teams with direct access to the instruments. Group meetings, literature seminars and data reviews are held in English when international participants are present.</p>
         <div class="btn-row" style="margin-top:1.5rem">
@@ -1122,7 +1108,7 @@ const CONFIG = {
   /* Photographs. Put files in an /assets folder and write the path here.
      A frame with an empty path keeps its labelled placeholder.               */
   images: {
-    hero:"", upcomingBanner:"", topicsDiagram:"", eligibility:"", benefits:"", selection:"",
+    upcomingBanner:"", topicsDiagram:"", eligibility:"", benefits:"", selection:"",
     labMain:"", labEquip:"", labTeam:"", campus:"", map:"", qr:"",
     /* Logo ở chân trang. Ô nào bỏ trống thì logo đó không hiện.                 */
     logoUniv:"", logoDept:"", logoLab:""
@@ -1130,7 +1116,7 @@ const CONFIG = {
 
   /* Bố cục: đổi số cột, tỷ lệ khung ảnh, độ rộng trang, khoảng cách section.   */
   layout: { maxWidth:1200, topicCols:3, peopleCols:4, valueCols:4,
-            heroRatio:"4 / 5", bannerMin:340, secScale:1 },
+            bannerMin:340, secScale:1 },
 
   /* Nội dung của kỳ sắp tới, hiển thị ở bảng thông tin.                       */
   upcoming: {
@@ -1267,7 +1253,6 @@ const PROGRAMS = [
     name:"Summer 2026 Research Internship", dates:"[Start Date – End Date]",
     participants:"[XX]", countries:"[Participating Universities and Countries]",
     topic:"[Research Topic]", activities:"[Main Activities]", outcomes:"[Results and Achievements]",
-    quote:"[Insert Student Testimonial]", quoteBy:"[Student Name] — [University, Country]",
     image:"", story:"" },
   { id:"summer-2027", season:"summer", year:2027, state:"open", archived:false,
     name:"Summer 2027 Research Internship", dates:"[Start Date – End Date]",
@@ -1276,10 +1261,10 @@ const PROGRAMS = [
 
 
 const TESTIMONIALS = [
-  { name:"[Student Name]", from:"[University and Country]", cohort:"[Summer 20XX Participant]", text:"[Insert Student Testimonial]", photo:"" },
-  { name:"[Student Name]", from:"[University and Country]", cohort:"[Summer 20XX Participant]", text:"[Insert Student Testimonial]", photo:"" },
-  { name:"[Student Name]", from:"[University and Country]", cohort:"[Summer 20XX Participant]", text:"[Insert Student Testimonial]", photo:"" },
-  { name:"[Student Name]", from:"[University and Country]", cohort:"[Summer 20XX Participant]", text:"[Insert Student Testimonial]", photo:"" }
+  { name:"Gil Hojun",         from:"Soongsil University, Seoul, Korea", cohort:"Summer 2026 Participant", text:"", photo:"" },
+  { name:"Lee Minjong",       from:"Soongsil University, Seoul, Korea", cohort:"Summer 2026 Participant", text:"", photo:"" },
+  { name:"Ha Phuc Tue Quang", from:"The University of Science and Education, Danang, Vietnam", cohort:"Summer 2026 Participant", text:"", photo:"" },
+  { name:"Dang Vi Thai",      from:"The University of Science and Education, Danang, Vietnam", cohort:"Summer 2026 Participant", text:"", photo:"" }
 ];
 
 const PEOPLE = [
@@ -1331,8 +1316,7 @@ const ARCHIVE_FRAMES = [
   { cls:"g-third", ratio:"4x3",  label:"[LAB ACTIVITY — Insert Image Here]" },
   { cls:"g-third", ratio:"4x3",  label:"[CULTURAL ACTIVITY — Insert Image Here]" },
   { cls:"g-third", ratio:"4x3",  label:"[CULTURAL ACTIVITY — Insert Image Here]" },
-  { cls:"g-third", ratio:"4x3",  label:"[FINAL PRESENTATION — Insert Image Here]" },
-  { cls:"g-half",  ratio:"16x9", label:"[POSTER OR PRESENTATION — Insert Image Here]" }
+  { cls:"g-third", ratio:"4x3",  label:"[FINAL PRESENTATION — Insert Image Here]" }
 ];
 
 /* ============================================================================
@@ -1351,7 +1335,6 @@ heroTitle:"EMSLab International Research Internship",
 heroTag:"Explore Physics. Experience Research. Connect Globally.",
 heroLede:"A six-week research internship hosted by EMSLab, Department of Physics & IIBS, Soongsil University.",
 factDuration:"Duration:", factLocation:"Location:", factHost:"Host:",
-heroCaption:"Visible emission range, 400–700 nm — the working window of the laboratory.",
 upcomingDeck:"Applications for the next cohort are handled by the EMSLab program office. Key dates and requirements are listed below.",
 days:"Days", hours:"Hours", minutes:"Minutes", seconds:"Seconds",
 untilDeadline:"Remaining until the application deadline",
@@ -1395,10 +1378,10 @@ imTitle:"Program highlights", imDeck:"Figures are updated by the program office 
 statTotal:"Participants in total", statIntl:"International students", statKorean:"Korean students",
 rtTitle:"Research topics",
 rtDeck:"Every topic builds on one core subject — luminescent materials. Internship projects are assigned from the five directions below.",
-tsTitle:"Student experiences", tsDeck:"In the words of former participants.",
+tsTitle:"Student experiences", tsDeck:"The students who have taken part in the programme.",
 abTitle:"About EMSLab", abDeck:"The Electronic Materials Spectroscopy Laboratory belongs to the Department of Physics & IIBS, Soongsil University, Seoul, Republic of Korea.",
 abMission:"Mission",
-abMissionBody:"[Add the laboratory mission statement here.] The group studies the relationship between crystal structure and optical response in solid-state materials, and trains students to carry a sample from synthesis through to a complete spectroscopic characterisation.",
+abMissionBody:"The group studies the relationship between crystal structure and optical response in solid-state materials, and trains students to carry a sample from synthesis through to a complete spectroscopic characterisation.",
 abEnv:"Working environment",
 abEnvBody:"Members work in small project teams with direct access to the instruments. Group meetings, literature seminars and data reviews are held in English when international participants are present.",
 abBtnLab:"Learn More About EMSLab", abBtnDept:"Visit the Department of Physics", abBtnUniv:"Visit Soongsil University",
@@ -1439,7 +1422,6 @@ heroTitle:"Chương trình thực tập nghiên cứu quốc tế EMSLab",
 heroTag:"Khám phá vật lý. Trải nghiệm nghiên cứu. Kết nối quốc tế.",
 heroLede:"Chương trình thực tập nghiên cứu sáu tuần do EMSLab, Khoa Vật lý & IIBS, Đại học Soongsil tổ chức.",
 factDuration:"Thời lượng:", factLocation:"Địa điểm:", factHost:"Đơn vị tổ chức:",
-heroCaption:"Vùng phát xạ khả kiến 400–700 nm — dải làm việc của phòng thí nghiệm.",
 upcomingDeck:"Việc tiếp nhận hồ sơ do văn phòng chương trình EMSLab phụ trách. Các mốc thời gian và yêu cầu chính được liệt kê dưới đây.",
 days:"Ngày", hours:"Giờ", minutes:"Phút", seconds:"Giây",
 untilDeadline:"Thời gian còn lại đến hạn nộp hồ sơ",
@@ -1483,10 +1465,10 @@ imTitle:"Kết quả nổi bật", imDeck:"Số liệu được văn phòng chư
 statTotal:"Tổng số sinh viên tham gia", statIntl:"Sinh viên quốc tế", statKorean:"Sinh viên Hàn Quốc",
 rtTitle:"Chủ đề nghiên cứu",
 rtDeck:"Mọi chủ đề đều xoay quanh vật liệu phát quang. Đề tài thực tập được phân công từ năm hướng dưới đây.",
-tsTitle:"Trải nghiệm của sinh viên", tsDeck:"Chia sẻ từ những người đã tham gia.",
+tsTitle:"Trải nghiệm của sinh viên", tsDeck:"Những sinh viên đã tham gia chương trình.",
 abTitle:"Giới thiệu EMSLab", abDeck:"Electronic Materials Spectroscopy Laboratory trực thuộc Khoa Vật lý & IIBS, Đại học Soongsil, Seoul, Hàn Quốc.",
 abMission:"Định hướng",
-abMissionBody:"[Bổ sung tuyên bố sứ mệnh của phòng thí nghiệm.] Nhóm nghiên cứu mối liên hệ giữa cấu trúc tinh thể và đáp ứng quang học của vật liệu rắn, đồng thời đào tạo sinh viên thực hiện trọn quy trình từ tổng hợp mẫu đến khảo sát phổ đầy đủ.",
+abMissionBody:"Nhóm nghiên cứu mối liên hệ giữa cấu trúc tinh thể và đáp ứng quang học của vật liệu rắn, đồng thời đào tạo sinh viên thực hiện trọn quy trình từ tổng hợp mẫu đến khảo sát phổ đầy đủ.",
 abEnv:"Môi trường làm việc",
 abEnvBody:"Thành viên làm việc theo nhóm nhỏ và được trực tiếp sử dụng thiết bị. Các buổi họp nhóm, seminar tài liệu và thảo luận dữ liệu được tiến hành bằng tiếng Anh khi có thành viên quốc tế.",
 abBtnLab:"Tìm hiểu thêm về EMSLab", abBtnDept:"Truy cập Khoa Vật lý", abBtnUniv:"Truy cập Đại học Soongsil",
@@ -1527,7 +1509,6 @@ heroTitle:"EMSLab 국제 연구 인턴십",
 heroTag:"물리를 탐구하고, 연구를 경험하고, 세계와 연결됩니다.",
 heroLede:"숭실대학교 물리학과 및 IIBS 소속 EMSLab이 운영하는 6주 연구 인턴십입니다.",
 factDuration:"기간:", factLocation:"장소:", factHost:"주관:",
-heroCaption:"가시광 발광 영역 400–700 nm — 본 연구실의 측정 범위입니다.",
 upcomingDeck:"다음 기수의 지원 접수는 EMSLab 프로그램 사무국이 담당합니다. 주요 일정과 요건은 아래와 같습니다.",
 days:"일", hours:"시간", minutes:"분", seconds:"초",
 untilDeadline:"지원 마감까지 남은 시간",
@@ -1571,10 +1552,10 @@ imTitle:"프로그램 성과", imDeck:"수치는 각 기수 종료 후 사무국
 statTotal:"총 참가 인원", statIntl:"외국인 학생", statKorean:"한국인 학생",
 rtTitle:"연구 주제",
 rtDeck:"모든 주제는 발광 재료를 중심으로 합니다. 인턴십 과제는 아래 다섯 방향에서 배정됩니다.",
-tsTitle:"참가자 후기", tsDeck:"이전 기수 참가자들의 이야기입니다.",
+tsTitle:"참가자 후기", tsDeck:"프로그램에 참여한 학생들입니다.",
 abTitle:"EMSLab 소개", abDeck:"Electronic Materials Spectroscopy Laboratory는 대한민국 서울, 숭실대학교 물리학과 및 IIBS 소속 연구실입니다.",
 abMission:"연구 목표",
-abMissionBody:"[연구실 소개 문구를 입력하십시오.] 본 연구실은 고체 재료의 결정 구조와 광학적 응답의 상관관계를 연구하며, 시료 합성부터 분광 특성 평가까지 전 과정을 수행할 수 있도록 학생을 교육합니다.",
+abMissionBody:"본 연구실은 고체 재료의 결정 구조와 광학적 응답의 상관관계를 연구하며, 시료 합성부터 분광 특성 평가까지 전 과정을 수행할 수 있도록 학생을 교육합니다.",
 abEnv:"연구 환경",
 abEnvBody:"소규모 과제 팀으로 운영되며 장비를 직접 사용합니다. 국제 참가자가 있을 경우 그룹 미팅과 논문 세미나, 데이터 검토는 영어로 진행합니다.",
 abBtnLab:"EMSLab 자세히 보기", abBtnDept:"물리학과 바로가기", abBtnUniv:"숭실대학교 바로가기",
@@ -1737,10 +1718,9 @@ function renderArchive(){
                   [t("lActivities"),   pr.activities || "[Main Activities]"],
                   [t("lOutcomes"),     pr.outcomes   || "[Results and Achievements]"]]
                  .filter(r=> !isBlank(r[1]));
-    const hasQuote = !isBlank(pr.quote);
     /* Cột thông tin ít nội dung thì xếp dọc, để thư viện ảnh trải hết chiều ngang
        thay vì bỏ trống nửa trang.                                                */
-    const slim = rows.length <= 3 && !hasQuote;
+    const slim = rows.length <= 3;
     return '<article class="archive" id="archive-'+pr.id+'" data-edit-ref="programs.'+PROGRAMS.indexOf(pr)+'">'+
       '<div class="archive__head"><div><span class="tag tag--completed">'+t("stCompleted")+'</span>'+
         '<h3 style="margin-top:.4rem">'+pr.name+'</h3></div>'+
@@ -1750,7 +1730,7 @@ function renderArchive(){
           '<table class="dates"><tbody>'+
             rows.map(r=> '<tr><th>'+r[0]+'</th><td>'+val(r[1])+'</td></tr>').join("")+
           '</tbody></table></dl>'+
-          (hasQuote ? '<blockquote class="quote">'+val(pr.quote)+'<footer>'+val(pr.quoteBy)+'</footer></blockquote>' : '')+'</div>'+
+          '</div>'+
         '<div><h4 style="margin-bottom:.75rem">'+t("lGallery")+'</h4><div class="gal">'+
           ARCHIVE_FRAMES.map((g,gi)=>
             frame({ratio:g.ratio, cls:g.cls, label:g.label, slot:pr.id+"-g"+gi})).join("")+
@@ -1768,10 +1748,11 @@ function renderStats(){
 }
 function renderTestimonials(){
   $("#track").innerHTML = TESTIMONIALS.map((x,i)=>
-    dropIfBlank(x.text) ? "" :
+    dropIfBlank(x.name) ? "" :
     '<article class="tcard" data-edit-ref="testimonials.'+i+'">'+frame({ratio:"circle",label:"[Photo]",src:x.photo})+
-      '<blockquote>'+x.text+'</blockquote>'+
-      '<div class="who"><b>'+x.name+'</b>'+x.from+'<br>'+x.cohort+'</div></article>').join("");
+      (isBlank(x.text) ? '' : '<blockquote>'+esc(val(x.text))+'</blockquote>')+
+      '<div class="who"><b>'+esc(val(x.name))+'</b>'+esc(val(x.from))+
+      (isBlank(x.cohort) ? '' : '<br>'+esc(val(x.cohort)))+'</div></article>').join("");
   hydrateFrames($("#track"));
 }
 function renderPeople(){
@@ -1799,15 +1780,6 @@ function renderGalleries(){
   hydrateFrames($("#seoul-grid"));
 }
 
-/* Cột ảnh ở đầu trang gồm ảnh, dải màu quang phổ và dòng chú thích. Chưa có ảnh
-   thì bỏ cả cột đi, không để dải màu với dòng chú thích lơ lửng một mình.       */
-function applyHeroLayout(){
-  const fig = $(".hero__figure"), grid = $(".hero__grid");
-  if(!fig || !grid) return;
-  const has = !!(CONFIG.images.hero || (ED.previews && ED.previews.hero));
-  fig.hidden = !has && !EDIT_MODE;
-  grid.classList.toggle("hero__grid--solo", fig.hidden);
-}
 
 /* Nhiều khối trên trang chia hai cột: bên trái là chữ, bên phải là ảnh. Khi ảnh
    bị ẩn vì chưa có, gộp về một cột để chữ không bị dồn vào nửa trang.           */
@@ -1865,7 +1837,6 @@ function applyConfig(){
   hydrateFrames();
   renderLogos();
   renderWebLinks();
-  applyHeroLayout();
   collapseSoloLayouts();
   applyEmbeds();
   renderFacts();
@@ -1885,7 +1856,6 @@ function applyLayout(){
   if(L.topicCols)  r.setProperty("--topic-cols", L.topicCols);
   if(L.peopleCols) r.setProperty("--people-cols", L.peopleCols);
   if(L.valueCols)  r.setProperty("--value-cols", L.valueCols);
-  if(L.heroRatio)  r.setProperty("--hero-ratio", L.heroRatio);
   if(L.bannerMin)  r.setProperty("--banner-min", L.bannerMin + "px");
   if(L.secScale)   r.setProperty("--sec-scale", L.secScale);
 }
@@ -2156,7 +2126,7 @@ const CFIELD = (label, path, type) => F(label, 'data-cfg="'+path+'"', dig(CONFIG
 
 function panelHTML(){
   const L = CONFIG.links, IM = CONFIG.images;
-  const imgLabels = { hero:"Ảnh hero", upcomingBanner:"Banner kỳ sắp tới",
+  const imgLabels = { upcomingBanner:"Banner kỳ sắp tới",
     topicsDiagram:"Sơ đồ chủ đề nghiên cứu", eligibility:"Ảnh mục Điều kiện",
     benefits:"Ảnh mục Quyền lợi", selection:"Ảnh mục Tuyển chọn", labMain:"Ảnh phòng thí nghiệm",
     labEquip:"Ảnh thiết bị", labTeam:"Ảnh nhóm", campus:"Ảnh khuôn viên trường", map:"Ảnh bản đồ", qr:"Mã QR",
@@ -2185,8 +2155,6 @@ function panelHTML(){
       F("Trường và quốc gia",'data-arr="programs.'+i+'.countries"',pr.countries)+
       F("Hoạt động chính",'data-arr="programs.'+i+'.activities"',pr.activities,"area")+
       F("Kết quả",'data-arr="programs.'+i+'.outcomes"',pr.outcomes,"area")+
-      F("Trích dẫn sinh viên",'data-arr="programs.'+i+'.quote"',pr.quote,"area")+
-      F("Tên người trích dẫn",'data-arr="programs.'+i+'.quoteBy"',pr.quoteBy)+
       F("Link bài viết đầy đủ",'data-arr="programs.'+i+'.story"',pr.story)+
       '<div class="row"><button class="mini" data-dup="programs.'+i+'">Nhân bản kỳ này</button>'+
       '<button class="mini mini--danger" data-del="programs.'+i+'">Xoá kỳ này</button></div>'+
@@ -2299,11 +2267,6 @@ function panelHTML(){
     CFIELD("Số cột — Chủ đề nghiên cứu","layout.topicCols","number")+
     CFIELD("Số cột — Nhân sự","layout.peopleCols","number")+
     CFIELD("Số cột — Thẻ tổng quan","layout.valueCols","number")+
-    '<label>Tỷ lệ ảnh hero<select data-cfg="layout.heroRatio">'+
-      ["4 / 5:Dọc 4:5","1 / 1:Vuông","3 / 4:Dọc 3:4","16 / 10:Ngang 16:10","16 / 9:Ngang 16:9"]
-      .map(o=>{const i=o.indexOf(":");const v=o.slice(0,i),tx=o.slice(i+1);
-        return '<option value="'+v+'"'+(CONFIG.layout.heroRatio===v?" selected":"")+'>'+tx+'</option>';}).join("")+
-    '</select></label>'+
     CFIELD("Chiều cao tối thiểu ảnh banner (px)","layout.bannerMin","number")+
     CFIELD("Khoảng cách giữa các mục (1 = mặc định)","layout.secScale","number"));
 }
