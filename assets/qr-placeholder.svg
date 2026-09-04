@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" role="img" aria-label="Application form QR code, to be added">
+  <rect width="400" height="400" fill="#ffffff"/>
+
+  <!-- ba o dinh vi goc, dac trung cua ma QR -->
+  <g fill="#061527">
+    <path d="M32 32h96v96H32zm16 16v64h64V48z"/><rect x="64" y="64" width="32" height="32"/>
+    <path d="M272 32h96v96h-96zm16 16v64h64V48z"/><rect x="304" y="64" width="32" height="32"/>
+    <path d="M32 272h96v96H32zm16 16v64h64v-64z"/><rect x="64" y="304" width="32" height="32"/>
+  </g>
+
+  <!-- vai o nho cho giong ma that -->
+  <g fill="#061527" opacity=".82">
+    <rect x="160" y="32"  width="16" height="16"/><rect x="192" y="48"  width="16" height="16"/>
+    <rect x="224" y="32"  width="16" height="16"/><rect x="160" y="80"  width="16" height="16"/>
+    <rect x="208" y="96"  width="16" height="16"/><rect x="240" y="80"  width="16" height="16"/>
+    <rect x="32"  y="176" width="16" height="16"/><rect x="64"  y="208" width="16" height="16"/>
+    <rect x="96"  y="176" width="16" height="16"/><rect x="48"  y="240" width="16" height="16"/>
+    <rect x="304" y="176" width="16" height="16"/><rect x="336" y="208" width="16" height="16"/>
+    <rect x="272" y="240" width="16" height="16"/><rect x="352" y="272" width="16" height="16"/>
+    <rect x="176" y="304" width="16" height="16"/><rect x="208" y="336" width="16" height="16"/>
+    <rect x="240" y="304" width="16" height="16"/><rect x="288" y="336" width="16" height="16"/>
+    <rect x="320" y="304" width="16" height="16"/><rect x="272" y="352" width="16" height="16"/>
+  </g>
+
+  <!-- nhan ro rang day chi la cho giu cho -->
+  <rect x="128" y="168" width="144" height="64" rx="8" fill="#ffffff" stroke="#061527" stroke-width="2"/>
+  <text x="200" y="195" font-family="'Segoe UI', Roboto, Arial, sans-serif"
+        font-size="17" font-weight="700" fill="#061527" text-anchor="middle">QR CODE</text>
+  <text x="200" y="216" font-family="'Segoe UI', Roboto, Arial, sans-serif"
+        font-size="12" fill="#5C7085" text-anchor="middle">to be added</text>
+</svg>

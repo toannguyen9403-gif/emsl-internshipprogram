@@ -1,8 +1,8 @@
 {
   "config": {
-    "cohortLabel": "Summer 2027",
-    "cohortBadge": "Summer 2027 · COMING SOON",
-    "cohortHeading": "Summer 2027 Research Internship",
+    "cohortLabel": "SSU-UED IRIP 2027",
+    "cohortBadge": "[SSU-UED IRIP 2027 PLANNING]",
+    "cohortHeading": "SSU-UED IRIP 2027",
     "deadlineText": "15 June 2027",
     "applicationDeadline": "2027-06-15T23:00",
     "applicationOpenDate": "2027-05-15T08:00",
@@ -20,14 +20,8 @@
       "eligibility": "",
       "benefits": "assets/machine-5.jpg",
       "selection": "assets/selection-process.png",
-      "labMain": "assets/campus-lab-environment.jpg",
-      "labEquip": "assets/machine-4.jpg",
-      "labEquip2": "assets/machine-5.jpg",
-      "labEquip3": "assets/working-3.jpg",
-      "labTeam": "assets/group-dinner-2.jpg",
-      "campus": "assets/campus-logo.jpg",
       "map": "",
-      "qr": "",
+      "qr": "assets/qr-placeholder.svg",
       "logoUniv": "assets/logo.png",
       "seoul0": "assets/campus-view.jpg",
       "seoul1": "assets/campus-library.jpg",
@@ -42,28 +36,14 @@
       "summer-2026-g5": "assets/campus-lab.jpg",
       "summer-2026-g6": "assets/working-2.jpg"
     },
-    "stats": [
-      {
-        "n": "4",
-        "k": "statTotal"
-      },
-      {
-        "n": "2",
-        "k": "statIntl"
-      },
-      {
-        "n": "2",
-        "k": "statKorean"
-      }
-    ],
     "upcoming": {
-      "program": "Summer 2027 Research Internship",
+      "program": "SSU-UED IRIP 2027",
       "dates": "01 July – 20 Aug",
-      "venue": "EMSL, Department of Physics, Soongsil University, Seoul",
+      "venue": "Soongsil University, Seoul",
       "open": "15 May 2027",
       "eligible": "Senior Student",
       "format": "",
-      "seats": "4 (2 International/ 2 Korean)",
+      "seats": "2 (Vietnamese)",
       "language": "English/ Korean"
     },
     "eligibility": {
@@ -106,7 +86,7 @@
       "archived": true,
       "name": "Summer 2026 Research Internship",
       "dates": "2026.07.01 – 2026.08.20",
-      "participants": "4",
+      "participants": "2 (Vietnamese)",
       "countries": "[Participating Universities and Countries]",
       "topic": "[Research Topic]",
       "activities": "[Main Activities]",
@@ -120,9 +100,9 @@
       "year": 2027,
       "state": "open",
       "archived": false,
-      "name": "Summer 2027 Research Internship",
+      "name": "SSU-UED IRIP 2027",
       "dates": "01 July – 20 Aug 2027",
-      "participants": "4 (2 International / 2 Korean)",
+      "participants": "2 (Vietnamese)",
       "topic": "[Research Topic]",
       "image": "assets/coming-soon.svg"
     }
@@ -160,20 +140,6 @@
     }
   ],
   "testimonials": [
-    {
-      "name": "Gil Hojun",
-      "from": "Soongsil University, Seoul, Korea",
-      "cohort": "Summer 2026 Participant",
-      "text": "",
-      "photo": ""
-    },
-    {
-      "name": "Lee Minjong",
-      "from": "Soongsil University, Seoul, Korea",
-      "cohort": "Summer 2026 Participant",
-      "text": "",
-      "photo": ""
-    },
     {
       "name": "Ha Phuc Tue Quang",
       "from": "The University of Science and Education, Danang, Vietnam",
@@ -446,16 +412,8 @@
     }
   ],
   "text": {
-    "en": {
-      "abTitle": "About EMSL",
-      "imTitle": "Program highlights 2026",
-      "bannerNote": ""
-    },
-    "vi": {
-      "imTitle": "Kết quả nổi bật 2026"
-    },
-    "ko": {
-      "imTitle": "프로그램 성과 2026"
-    }
+    "en": {},
+    "vi": {},
+    "ko": {}
   }
 }
