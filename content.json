@@ -67,7 +67,7 @@
       "year": 2026,
       "state": "completed",
       "archived": true,
-      "name": "Summer 2026 Research Internship",
+      "name": "SSU-UED IRIP 2026",
       "dates": "2026.07.01 – 2026.08.20",
       "participants": "2 (Vietnamese)",
       "countries": "University of Science and Education - The University of Danang, Vietnam.",
@@ -90,7 +90,7 @@
     {
       "name": "Ha Phuc Tue Quang",
       "from": "The University of Science and Education, Danang, Vietnam",
-      "cohort": "SSU-UED IRIP 2026 Participant",
+      "programId": "summer-2026",
       "project": "Optical Properties and Energy Transfer in Cr³⁺/Nd³⁺ Co-doped Sr₂GaNbO₆ Double Perovskite",
       "activities": "Preparation of Cr³⁺/Nd³⁺ co-doped SGNO samples and investigation of their structural and optical properties.",
       "results": "Successfully obtained the SGNO double-perovskite phosphor and investigated the sensitization of Nd³⁺ emission via Cr³⁺ → Nd³⁺ energy transfer.",
@@ -100,7 +100,7 @@
     {
       "name": "Dang Vi Thai",
       "from": "The University of Science and Education, Danang, Vietnam",
-      "cohort": "SSU-UED IRIP 2026 Participant",
+      "programId": "summer-2026",
       "project": "Synthesis and Luminescence Characterization of Cr³⁺/Nd³⁺ Co-doped Ca₂GaNbO₆ Double Perovskite",
       "activities": "Sample synthesis, structural characterization, and photoluminescence analysis of Cr³⁺/Nd³⁺ co-doped CGNO phosphors.",
       "results": "Successfully synthesized CGNO:Cr³⁺/Nd³⁺ phosphors and demonstrated Cr³⁺ → Nd³⁺ energy transfer through their luminescence behavior.",

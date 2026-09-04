@@ -352,11 +352,29 @@ html[data-lang="vi"] .menu a.btn--apply,html[data-lang="ko"] .menu a.btn--apply{
 .dates td{font-weight:600}
 
 /* ---------- Archive ---------- */
-.archive{border:1px solid var(--line);border-radius:var(--r-md);background:#fff;overflow:hidden;margin-bottom:2.5rem}
+.archive{border:1px solid var(--line);border-radius:var(--r-md);background:#fff;overflow:hidden}
 .archive__head{display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:space-between;
   padding:1.25rem 1.5rem;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#fff,#F8FAFD)}
 .archive__head h3{font-size:var(--t-lg)}
-.archive__body{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,3vw,2.5rem);padding:1.5rem}
+.archive__body{padding:1.75rem}
+/* Thanh chọn kỳ: kỳ đang xem tô đậm, có vạch quang phổ bên dưới. */
+.cohorts{display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:2.25rem}
+.cohorts button{position:relative;background:#fff;border:1px solid var(--line);border-radius:999px;
+  padding:.6rem 1.25rem;font:600 var(--t-sm)/1.1 var(--display);color:var(--muted);cursor:pointer;
+  transition:color .18s,background .18s,border-color .18s,box-shadow .18s}
+.cohorts button:hover{color:var(--navy-800);border-color:var(--cobalt)}
+.cohorts button[aria-selected="true"]{color:#fff;background:var(--navy-800);border-color:var(--navy-800);
+  box-shadow:0 8px 20px rgba(10,30,60,.20)}
+.cohorts button[aria-selected="true"]::after{content:"";position:absolute;left:1.25rem;right:1.25rem;
+  bottom:-9px;height:3px;border-radius:2px;background:var(--spectrum)}
+/* Bảng thông tin kỳ, dàn ngang nên chữ dài không bị bẻ vụn. */
+.cofacts{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.25rem 2rem;
+  margin:0 0 1.75rem;padding-bottom:1.5rem;border-bottom:1px solid var(--line)}
+.cofacts dt{font-size:var(--t-xs);font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+.cofacts dd{margin:.35rem 0 0;font-size:var(--t-sm);font-weight:600;color:var(--ink);line-height:1.45}
+.archive__sub{margin:0 0 1rem;font-size:var(--t-base)}
+.gal + .archive__sub{margin-top:2rem}
+.students{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.25rem}
 @media (max-width:860px){.archive__body{grid-template-columns:1fr}}
 .archive__body--slim{grid-template-columns:1fr;gap:1.5rem}
 .archive__body--slim .dates{max-width:520px}
@@ -772,27 +790,11 @@ body.ed-on{padding-right:0}
     <div class="sec-head">
       <div class="rule" aria-hidden="true"></div>
       <h2 data-i18n="arTitle">Past programs</h2>
-      <p data-i18n="arDeck">A record of every cohort: participants, topics, results and photographs.</p>
+      <p data-i18n="arDeck">A record of every cohort: participants, projects, results and photographs.</p>
     </div>
+    <!-- Thanh chọn kỳ. Danh sách sinh ra từ mảng PROGRAMS, kỳ cũ nhất đứng đầu. -->
+    <div class="cohorts" id="cohort-tabs" role="tablist" aria-label="Cohorts"></div>
     <div id="archive-list"></div>
-  </div>
-</section>
-
-<!-- ==================== TESTIMONIALS ==================== -->
-<section class="sec" id="testimonials">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="rule" aria-hidden="true"></div>
-      <h2 data-i18n="tsTitle">Student experiences</h2>
-      <p data-i18n="tsDeck">The students who have taken part in the programme.</p>
-    </div>
-    <div class="carousel">
-      <div class="track" id="track" tabindex="0" aria-label="Student testimonials"></div>
-      <div class="car-nav">
-        <button type="button" id="prev" aria-label="Previous"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 5 8 12l7 7"/></svg></button>
-        <button type="button" id="next" aria-label="Next"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 5 7 7-7 7"/></svg></button>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -1046,7 +1048,7 @@ const TOPICS = [
        in the archive (when archived:true) and in the navigation list. --- */
 const PROGRAMS = [
   { id:"summer-2026", season:"summer", year:2026, state:"completed", archived:true,
-    name:"Summer 2026 Research Internship", dates:"[Start Date – End Date]",
+    name:"SSU-UED IRIP 2026", dates:"[Start Date – End Date]",
     participants:"[XX]", countries:"[Participating Universities and Countries]",
     image:"", story:"" },
   { id:"summer-2027", season:"summer", year:2027, state:"open", archived:false,
@@ -1056,7 +1058,7 @@ const PROGRAMS = [
 
 
 const TESTIMONIALS = [
-  { name:"[Student Name]", from:"[University and Country]", cohort:"[Cohort]", project:"", activities:"", results:"", goal:"", photo:"" }
+  { name:"[Student Name]", from:"[University and Country]", programId:"", project:"", activities:"", results:"", goal:"", photo:"" }
 ];
 
 /* Each question carries its own answer object. Leave a language empty and the
@@ -1131,7 +1133,7 @@ railDeck:"The internship runs each summer. Select a cohort to open its report, p
 fAll:"All Programs", fSummer:"Summer", fUpcoming:"Upcoming", fCompleted:"Completed",
 stCompleted:"Completed", stOpen:"Applications Open", stUpcoming:"Upcoming", stPlanned:"Planned",
 viewProgram:"View Program", viewStory:"View Full Story",
-lProject:"Project", lActs:"Activities", lKeyResults:"Key results", lGoal:"Goal",
+lProject:"Project", lActs:"Activities", lKeyResults:"Key results", lGoal:"Goal", lStudents:"Participants and their projects",
 lDates:"Dates", lParticipants:"Participants", lTopic:"Research topic", lCountries:"Universities and countries",
 lActivities:"Main activities", lOutcomes:"Results", lGallery:"Cohort gallery",
 ovTitle:"Program overview",
@@ -1220,7 +1222,7 @@ railDeck:"Chương trình tổ chức vào mùa hè hằng năm. Chọn một k�
 fAll:"Tất cả", fSummer:"Mùa hè", fUpcoming:"Sắp diễn ra", fCompleted:"Đã hoàn thành",
 stCompleted:"Đã hoàn thành", stOpen:"Đang nhận hồ sơ", stUpcoming:"Sắp diễn ra", stPlanned:"Dự kiến",
 viewProgram:"Xem kỳ này", viewStory:"Xem toàn bộ",
-lProject:"Đề tài", lActs:"Nội dung thực hiện", lKeyResults:"Kết quả chính", lGoal:"Mục tiêu",
+lProject:"Đề tài", lActs:"Nội dung thực hiện", lKeyResults:"Kết quả chính", lGoal:"Mục tiêu", lStudents:"Sinh viên tham gia và đề tài",
 lDates:"Thời gian", lParticipants:"Số người tham gia", lTopic:"Chủ đề nghiên cứu", lCountries:"Trường và quốc gia",
 lActivities:"Hoạt động chính", lOutcomes:"Kết quả", lGallery:"Hình ảnh của kỳ",
 ovTitle:"Tổng quan chương trình",
@@ -1309,7 +1311,7 @@ railDeck:"매년 여름에 운영됩니다. 기수를 선택하면 해당 기수
 fAll:"전체", fSummer:"여름학기", fUpcoming:"예정", fCompleted:"종료",
 stCompleted:"종료", stOpen:"모집 중", stUpcoming:"예정", stPlanned:"계획",
 viewProgram:"기수 보기", viewStory:"전체 보기",
-lProject:"연구 주제", lActs:"수행 내용", lKeyResults:"주요 결과", lGoal:"목표",
+lProject:"연구 주제", lActs:"수행 내용", lKeyResults:"주요 결과", lGoal:"목표", lStudents:"참가자 및 연구 주제",
 lDates:"기간", lParticipants:"참가 인원", lTopic:"연구 주제", lCountries:"참가 대학 및 국가",
 lActivities:"주요 활동", lOutcomes:"성과", lGallery:"기수 갤러리",
 ovTitle:"프로그램 개요",
@@ -1492,50 +1494,64 @@ function applyFilter(f){
 }
 
 /* ---------- archive ---------- */
+/* Bốn dòng thông tin đề tài trên thẻ sinh viên. */
+const TCARD_ROWS = [["project","lProject"],["activities","lActs"],["results","lKeyResults"],["goal","lGoal"]];
+
+/* Một thẻ sinh viên: tên, trường, rồi bốn dòng đề tài. Dòng nào trống thì bỏ. */
+function studentCard(x, i){
+  return '<article class="tcard" data-edit-ref="testimonials.'+i+'">'+
+    '<div class="who"><b>'+esc(val(x.name))+'</b>'+esc(val(x.from))+'</div>'+
+    '<dl class="tcard__facts">'+
+      TCARD_ROWS.filter(([k])=> !isBlank(x[k]))
+        .map(([k,lab])=> '<dt>'+t(lab)+'</dt><dd>'+esc(val(x[k]))+'</dd>').join("")+
+    '</dl></article>';
+}
+
+/* Mục "Past programs": thanh chọn kỳ ở trên, mỗi kỳ là một khối gồm bảng thông
+   tin, thư viện ảnh và danh sách sinh viên cùng đề tài của họ.                  */
 function renderArchive(){
-  $("#archive-list").innerHTML = PROGRAMS.filter(x=>x.archived).map(pr=>{
-    const rows = [[t("lDates"),        pr.dates],
-                  [t("lParticipants"), pr.participants],
-                  [t("lCountries"),    pr.countries]]
-                 .filter(r=> String(r[1] == null ? "" : r[1]).trim());
-    /* Cột thông tin ít nội dung thì xếp dọc, để thư viện ảnh trải hết chiều ngang
-       thay vì bỏ trống nửa trang.                                                */
-    const slim = rows.length <= 3;
-    return '<article class="archive" id="archive-'+pr.id+'" data-edit-ref="programs.'+PROGRAMS.indexOf(pr)+'">'+
-      '<div class="archive__head"><div><span class="tag tag--completed">'+t("stCompleted")+'</span>'+
-        '<h3 style="margin-top:.4rem">'+pr.name+'</h3></div>'+
+  const list = PROGRAMS.slice().sort((a,b)=> (a.year||0) - (b.year||0));
+
+  $("#cohort-tabs").innerHTML = list.map((pr,i)=>
+    '<button type="button" role="tab" data-cohort="'+pr.id+'" aria-selected="'+(i===0)+'">'+
+      esc(pr.name)+'</button>').join("");
+
+  $("#archive-list").innerHTML = list.map((pr,i)=>{
+    const facts = [[t("lDates"),        pr.dates],
+                   [t("lParticipants"), pr.participants],
+                   [t("lCountries"),    pr.countries]]
+                  .filter(r=> String(r[1] == null ? "" : r[1]).trim());
+
+    const hasGallery = ARCHIVE_FRAMES.some((g,gi)=> CONFIG.images[pr.id+"-g"+gi]);
+    const students = TESTIMONIALS.map((s,si)=> [s,si])
+                                 .filter(([s])=> s.programId === pr.id && !dropIfBlank(s.name));
+
+    return '<article class="archive" id="archive-'+pr.id+'" role="tabpanel"'+
+      ' data-edit-ref="programs.'+PROGRAMS.indexOf(pr)+'"'+(i === 0 ? '' : ' hidden')+'>'+
+      '<div class="archive__head"><div><span class="tag tag--'+pr.state+'">'+t(stateLabel(pr.state))+'</span>'+
+        '<h3 style="margin-top:.4rem">'+esc(val(pr.name))+'</h3></div>'+
         (pr.story ? '<a class="btn btn--ghost btn--sm" href="'+pr.story+'" target="_blank" rel="noopener">'+t("viewStory")+'</a>' : '')+'</div>'+
-      '<div class="archive__body'+(slim ? ' archive__body--slim' : '')+'">'+
-        '<div><dl class="dates-dl" style="margin:0">'+
-          '<table class="dates"><tbody>'+
-            rows.map(r=> '<tr><th>'+r[0]+'</th><td>'+esc(r[1])+'</td></tr>').join("")+
-          '</tbody></table></dl>'+
-          '</div>'+
-        '<div><h4 style="margin-bottom:.75rem">'+t("lGallery")+'</h4><div class="gal">'+
+      '<div class="archive__body">'+
+        (facts.length ? '<dl class="cofacts">'+
+          facts.map(r=> '<div><dt>'+r[0]+'</dt><dd>'+esc(r[1])+'</dd></div>').join("")+'</dl>' : '')+
+        (hasGallery ? '<h4 class="archive__sub">'+t("lGallery")+'</h4><div class="gal">'+
           ARCHIVE_FRAMES.map((g,gi)=>
             frame({ratio:g.ratio, cls:g.cls, label:g.label, slot:pr.id+"-g"+gi})).join("")+
-        '</div></div>'+
+        '</div>' : '')+
+        (students.length ? '<h4 class="archive__sub">'+t("lStudents")+'</h4>'+
+          '<div class="students">'+students.map(([s,si])=> studentCard(s,si)).join("")+'</div>' : '')+
       '</div>'+
     '</article>';
   }).join("");
   hydrateFrames($("#archive-list"));
 }
 
-/* ---------- impact, testimonials, people, faq, galleries ---------- */
-/* Mỗi thẻ giới thiệu một sinh viên và đề tài của bạn ấy. Dòng nào chưa điền
-   thì tự ẩn, nên thẻ luôn gọn dù thiếu thông tin.                              */
-const TCARD_ROWS = [["project","lProject"],["activities","lActs"],["results","lKeyResults"],["goal","lGoal"]];
-function renderTestimonials(){
-  $("#track").innerHTML = TESTIMONIALS.map((x,i)=>
-    dropIfBlank(x.name) ? "" :
-    '<article class="tcard" data-edit-ref="testimonials.'+i+'">'+
-      '<div class="who"><b>'+esc(val(x.name))+'</b>'+esc(val(x.from))+
-      (isBlank(x.cohort) ? '' : '<br>'+esc(val(x.cohort)))+'</div>'+
-      '<dl class="tcard__facts">'+
-        TCARD_ROWS.filter(([k])=> !isBlank(x[k]))
-          .map(([k,lab])=> '<dt>'+t(lab)+'</dt><dd>'+esc(val(x[k]))+'</dd>').join("")+
-      '</dl></article>').join("");
-}
+/* Bấm vào một kỳ trên thanh chọn thì chỉ khối của kỳ đó hiện ra. */
+$("#cohort-tabs").addEventListener("click", e=>{
+  const b = e.target.closest("[data-cohort]"); if(!b) return;
+  $$("#cohort-tabs [data-cohort]").forEach(x=> x.setAttribute("aria-selected", String(x === b)));
+  $$("#archive-list .archive").forEach(a=> a.hidden = a.id !== "archive-"+b.dataset.cohort);
+});
 function renderFaq(){
   $("#faq-list").innerHTML = FAQ.map((q,i)=>
     dropIfBlank(q.a && p(q.a)) ? "" :
@@ -1717,7 +1733,7 @@ function startCountdown(){
 
 /* Mục nào không còn thẻ nào bên trong thì ẩn cả mục, và bỏ luôn link trên thanh
    điều hướng để khách không bấm vào một mục rỗng.                                */
-const OPTIONAL_SECTIONS = [["#track","#testimonials"],["#faq-list","#faq"]];
+const OPTIONAL_SECTIONS = [["#faq-list","#faq"]];
 function hideEmptySections(){
   OPTIONAL_SECTIONS.forEach(([innerSel, secSel])=>{
     const inner = $(innerSel), sec = $(secSel); if(!inner || !sec) return;
@@ -1730,7 +1746,7 @@ function hideEmptySections(){
 /* ---------- render everything ---------- */
 function renderAll(){
   applyStatic(); renderValues(); renderTopics(); renderRail(); renderArchive();
-  renderTestimonials(); renderFaq(); renderGalleries(); applyConfig();
+  renderFaq(); renderGalleries(); applyConfig();
   hideEmptySections();
   applyFilter($(".filters button[aria-pressed='true']")?.dataset.f || "all");
   observeReveal();
@@ -1819,12 +1835,6 @@ $("#faq-list").addEventListener("click", e=>{
   const open = btn.getAttribute("aria-expanded") === "true";
   btn.setAttribute("aria-expanded", String(!open)); panel.hidden = open;
 });
-
-/* ---------- testimonial carousel ---------- */
-const track = $("#track");
-const step = () => Math.min(track.clientWidth * 0.8, 420);
-$("#next").addEventListener("click", ()=> track.scrollBy({left: step(), behavior:"smooth"}));
-$("#prev").addEventListener("click", ()=> track.scrollBy({left:-step(), behavior:"smooth"}));
 
 /* ---------- lightbox ---------- */
 const lb = $("#lightbox"), lbImg = $("#lbImg"), lbCap = $("#lbCap");
@@ -1960,7 +1970,7 @@ function panelHTML(){
     TESTIMONIALS.map((x,i)=>'<div class="item">'+
       F("Họ tên",'data-arr="testimonials.'+i+'.name"',x.name)+
       F("Trường, quốc gia",'data-arr="testimonials.'+i+'.from"',x.from)+
-      F("Kỳ tham gia",'data-arr="testimonials.'+i+'.cohort"',x.cohort)+
+      '<label>Thuộc kỳ<select data-arr="testimonials.'+i+'.programId">'+        PROGRAMS.map(pr=>'<option value="'+pr.id+'"'+(x.programId===pr.id?' selected':'')+'>'+esc(pr.name)+'</option>').join('')+      '</select></label>'+
 F("Đề tài",'data-arr="testimonials.'+i+'.project"',x.project,"area")+      F("Nội dung thực hiện",'data-arr="testimonials.'+i+'.activities"',x.activities,"area")+      F("Kết quả chính",'data-arr="testimonials.'+i+'.results"',x.results,"area")+      F("Mục tiêu",'data-arr="testimonials.'+i+'.goal"',x.goal,"area")+
       '<div class="row"><button class="mini" data-dup="testimonials.'+i+'">Nhân bản</button>'+
       '<button class="mini mini--danger" data-del="testimonials.'+i+'">Xoá</button></div></div>').join("")+

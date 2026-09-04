@@ -32,8 +32,8 @@
 
   <text x="800" y="560"
         font-family="'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif"
-        font-size="42" font-weight="400" letter-spacing="10"
-        fill="#8FA9C8" text-anchor="middle">EMSL INTERNATIONAL RESEARCH INTERNSHIP</text>
+        font-size="40" font-weight="400" letter-spacing="8"
+        fill="#8FA9C8" text-anchor="middle">SSU-UED IRIP 2027</text>
 
   <path d="M480 700 C560 698 610 690 660 660 C700 636 715 560 760 560 C805 560 822 634 862 660
            C912 692 962 700 1120 700"
