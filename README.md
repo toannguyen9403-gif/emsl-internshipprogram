@@ -1,4 +1,3 @@
-[README.md](https://github.com/user-attachments/files/31795023/README.md)
 # Website EMSLab International Research Internship
 
 Thư mục này là **bản hoàn chỉnh, chạy được ngay**. Chỉ cần đưa toàn bộ nội dung

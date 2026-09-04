@@ -12,17 +12,14 @@
       "lab": "https://sites.google.com/view/emsl-ssu/introduction",
       "dept": "",
       "univ": "",
-      "instagram": "",
-      "linkedin": "",
-      "youtube": "",
       "privacy": "",
       "a11y": ""
     },
     "images": {
-      "hero": "assets/working-1.jpg",
-      "upcomingBanner": "assets/campus-lab-environment.jpg",
+      "hero": "",
+      "upcomingBanner": "assets/campus-baird-hall.jpg",
       "topicsDiagram": "assets/research-fields.png",
-      "eligibility": "assets/group-dinner.jpg",
+      "eligibility": "",
       "benefits": "assets/machine-5.jpg",
       "selection": "assets/selection-process.png",
       "labMain": "assets/campus-lab.jpg",
@@ -46,7 +43,7 @@
       "summer-2026-g4": "assets/machine-2.jpg",
       "summer-2026-g5": "assets/campus-lab.jpg",
       "summer-2026-g6": "assets/working-2.jpg",
-      "summer-2026-g7": "assets/working-3.jpg"
+      "summer-2026-g7": ""
     },
     "stats": [
       {
@@ -90,6 +87,7 @@
       "email": "ylee(at)ssu.ac.kr",
       "phone": "+82-2-820-0404 (Tel/Fax)",
       "web": "sites.google.com/view/emsl-ssu",
+      "web2": "iibs.ssu.ac.kr",
       "hours": ""
     },
     "mapEmbed": "https://www.google.com/maps?q=37.4963538,126.9572222&z=17&output=embed",
@@ -137,38 +135,38 @@
   ],
   "people": [
     {
-      "name": "Prof. Y. S. Lee",
+      "name": "Prof. Yunsang Lee",
       "roleKey": "rolePI",
       "field": "Luminescent materials and spectroscopy",
       "mail": "ylee(at)ssu.ac.kr",
       "photo": ""
     },
     {
-      "name": "[Professor's Name]",
-      "roleKey": "roleProf",
-      "field": "[Research Field]",
-      "mail": "[Email]",
-      "photo": ""
-    },
-    {
-      "name": "[Researcher's Name]",
+      "name": "Dr. Sangwon Wi",
       "roleKey": "roleFellow",
       "field": "[Research Field]",
       "mail": "[Email]",
       "photo": ""
     },
     {
-      "name": "[Mentor's Name]",
-      "roleKey": "roleMentor",
+      "name": "Dr. Dongjea Lee",
+      "roleKey": "roleFellow",
       "field": "[Research Field]",
       "mail": "[Email]",
       "photo": ""
     },
     {
-      "name": "[Coordinator's Name]",
-      "roleKey": "roleCoord",
-      "field": "[Program Administration]",
-      "mail": "[Program Email]",
+      "name": "Kim Yujune",
+      "roleKey": "roleMS",
+      "field": "[Research Field]",
+      "mail": "[Email]",
+      "photo": ""
+    },
+    {
+      "name": "Tommy",
+      "roleKey": "roleMS",
+      "field": "[Research Field]",
+      "mail": "[Email]",
       "photo": ""
     }
   ],
