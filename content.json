@@ -21,15 +21,15 @@
       "eligibility": "",
       "benefits": "assets/machine-5.jpg",
       "selection": "assets/selection-process.png",
-      "labMain": "assets/campus-lab.jpg",
+      "labMain": "assets/campus-lab-environment.jpg",
       "labEquip": "assets/machine-4.jpg",
+      "labEquip2": "assets/machine-5.jpg",
+      "labEquip3": "assets/working-3.jpg",
       "labTeam": "assets/group-dinner.jpg",
-      "campus": "assets/campus-view.jpg",
+      "campus": "assets/campus-logo.jpg",
       "map": "",
       "qr": "",
       "logoUniv": "assets/logo.png",
-      "logoDept": "",
-      "logoLab": "",
       "seoul0": "assets/campus-view.jpg",
       "seoul1": "assets/campus-library.jpg",
       "seoul2": "assets/campus-map.jpg",
@@ -60,7 +60,7 @@
     "upcoming": {
       "program": "Summer 2027 Research Internship",
       "dates": "01 July – 20 Aug",
-      "venue": "EMSLab, Department of Physics, Soongsil University, Seoul",
+      "venue": "EMSL, Department of Physics, Soongsil University, Seoul",
       "open": "15 May 2027",
       "eligible": "Senior Student",
       "format": "",
@@ -82,7 +82,7 @@
     },
     "contact": {
       "room": "Baird Hall 01433",
-      "email": "ylee(at)ssu.ac.kr",
+      "email": "ylee@ssu.ac.kr",
       "phone": "+82-2-820-0404 (Tel/Fax)",
       "web": "sites.google.com/view/emsl-ssu",
       "web2": "iibs.ssu.ac.kr",
@@ -125,43 +125,38 @@
       "dates": "01 July – 20 Aug 2027",
       "participants": "4 (2 International / 2 Korean)",
       "topic": "[Research Topic]",
-      "image": "assets/campus-view.jpg"
+      "image": "assets/coming-soon.svg"
     }
   ],
   "people": [
     {
       "name": "Prof. Yunsang Lee",
       "roleKey": "rolePI",
-      "field": "Luminescent materials and spectroscopy",
-      "mail": "ylee(at)ssu.ac.kr",
+      "mail": "ylee@ssu.ac.kr",
       "photo": ""
     },
     {
       "name": "Dr. Sangwon Wi",
       "roleKey": "roleFellow",
-      "field": "[Research Field]",
-      "mail": "[Email]",
+      "mail": "wi@soongsil.ac.kr",
       "photo": ""
     },
     {
       "name": "Dr. Dongjea Lee",
       "roleKey": "roleFellow",
-      "field": "[Research Field]",
-      "mail": "[Email]",
+      "mail": "inmay@ssu.ac.kr",
       "photo": ""
     },
     {
       "name": "Kim Yujune",
       "roleKey": "roleMS",
-      "field": "[Research Field]",
-      "mail": "[Email]",
+      "mail": "comi999958@naver.com",
       "photo": ""
     },
     {
       "name": "Tommy",
       "roleKey": "roleMS",
-      "field": "[Research Field]",
-      "mail": "[Email]",
+      "mail": "tommynguyen@soongsil.ac.kr",
       "photo": ""
     }
   ],
