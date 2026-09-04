@@ -218,16 +218,16 @@ html[data-lang="vi"] .menu a.btn--apply,html[data-lang="ko"] .menu a.btn--apply{
 .hero__glow{position:absolute;width:760px;height:760px;right:-18%;top:-32%;pointer-events:none;
   background:radial-gradient(circle,rgba(27,167,188,.28),transparent 62%)}
 .hero__grid{position:relative;display:grid;justify-items:center;text-align:center}
-.hero__inner{max-width:64ch}
+.hero__inner{max-width:76ch}
 .hero__accent{width:96px;margin:0 auto 1.5rem;border-radius:2px}
 .hero__badge{display:inline-flex;align-items:center;gap:.55rem;background:rgba(242,179,61,.14);
   border:1px solid rgba(242,179,61,.5);color:var(--apply);border-radius:999px;padding:.4rem .9rem;
   font-size:var(--t-xs);font-weight:600;margin-bottom:1.4rem}
 .hero__badge .dot{width:7px;height:7px;border-radius:50%;background:var(--apply)}
-.hero h1{max-width:20ch;margin-inline:auto}
-.hero__tag{font-family:var(--display);font-weight:500;font-size:clamp(1.05rem,2vw,var(--t-md));
+.hero h1{max-width:26ch;margin-inline:auto;text-wrap:balance}
+.hero__tag{text-wrap:balance;font-family:var(--display);font-weight:500;font-size:clamp(1.05rem,2vw,var(--t-md));
   color:var(--data);margin:1.1rem 0 .9rem;letter-spacing:-.01em}
-.hero__lede{color:#C3D4E8;max-width:56ch;margin-inline:auto;font-size:var(--t-md);line-height:1.55}
+.hero__lede{color:#C3D4E8;max-width:64ch;margin-inline:auto;text-wrap:pretty;font-size:var(--t-md);line-height:1.55}
 .hero .btn-row{margin:2.2rem 0 2.4rem;justify-content:center}
 .hero__facts{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:.55rem 1rem;
   padding-top:1.4rem;border-top:1px solid rgba(255,255,255,.14);font-size:var(--t-sm);color:#B9CADF}
@@ -308,7 +308,6 @@ html[data-lang="vi"] .menu a.btn--apply,html[data-lang="ko"] .menu a.btn--apply{
 .tile__icon{width:32px;height:32px;color:var(--data)}
 @media (min-width:1100px){
   #research-grid{grid-template-columns:repeat(var(--topic-cols,3),1fr)}
-  #people-grid{grid-template-columns:repeat(var(--people-cols,4),1fr)}
   #values{grid-template-columns:repeat(var(--value-cols,4),1fr)}
 }
 .frame--contain{background:#fff;border-style:solid;border-color:var(--line)}
@@ -388,6 +387,9 @@ html[data-lang="vi"] .menu a.btn--apply,html[data-lang="ko"] .menu a.btn--apply{
 .tcard blockquote{margin:0;font-size:var(--t-base);color:var(--ink)}
 .tcard .who{font-size:var(--t-sm);color:var(--muted)}
 .tcard .who b{display:block;color:var(--ink);font-size:var(--t-base)}
+.tcard__facts{margin:0;display:grid;gap:.55rem}
+.tcard__facts dt{font-size:var(--t-xs);font-weight:600;color:var(--cobalt);text-transform:uppercase;letter-spacing:.04em}
+.tcard__facts dd{margin:.15rem 0 0;font-size:var(--t-sm);color:var(--ink);line-height:1.5}
 .car-nav{display:flex;gap:.5rem;margin-top:1rem}
 .car-nav button{width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:#fff;
   cursor:pointer;display:grid;place-items:center;color:var(--navy-800)}
@@ -408,8 +410,6 @@ html[data-lang="vi"] .menu a.btn--apply,html[data-lang="ko"] .menu a.btn--apply{
 .person--lead::before{content:"";position:absolute;inset:0 0 auto 0;height:3px;background:var(--spectrum)}
 .person--lead .person__body{padding:1.5rem 1.6rem;gap:.45rem}
 .person--lead h3{font-size:var(--t-lg)}
-@media (max-width:760px){#people-grid{grid-template-columns:repeat(2,1fr)}}
-@media (max-width:420px){#people-grid{grid-template-columns:1fr}}
 
 /* ---------- FAQ ---------- */
 .acc{border-top:1px solid var(--line);max-width:none}
@@ -598,7 +598,6 @@ body.ed-on{padding-right:0}
           </ul>
         </li>
 
-        <li><a href="#people" data-i18n="navPeople">People</a></li>
 
         <li><a href="#contact" data-i18n="navContact">Contact</a></li>
         <li><a class="btn btn--apply btn--sm" href="#apply" id="navApply" data-i18n="applyNow">Apply Now</a></li>
@@ -890,18 +889,6 @@ body.ed-on{padding-right:0}
   </div>
 </section>
 
-<!-- ==================== PEOPLE ==================== -->
-<section class="sec" id="people">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="rule" aria-hidden="true"></div>
-      <h2 data-i18n="peTitle">People and mentors</h2>
-      <p data-i18n="peDeck">Each participant is supervised by a faculty member and works day to day with a graduate mentor.</p>
-    </div>
-    <div class="grid-4" id="people-grid"></div>
-  </div>
-</section>
-
 <!-- ==================== LIFE IN SEOUL ==================== -->
 <section class="sec sec--mist" id="life">
   <div class="wrap">
@@ -1061,7 +1048,7 @@ const CONFIG = {
   },
 
   /* Bố cục: đổi số cột, tỷ lệ khung ảnh, độ rộng trang, khoảng cách section.   */
-  layout: { maxWidth:1200, topicCols:3, peopleCols:4, valueCols:4,
+  layout: { maxWidth:1200, topicCols:3, valueCols:4,
             bannerMin:340, secScale:1 },
 
   /* Nội dung của kỳ sắp tới, hiển thị ở bảng thông tin.                       */
@@ -1192,27 +1179,15 @@ const PROGRAMS = [
   { id:"summer-2026", season:"summer", year:2026, state:"completed", archived:true,
     name:"Summer 2026 Research Internship", dates:"[Start Date – End Date]",
     participants:"[XX]", countries:"[Participating Universities and Countries]",
-    topic:"[Research Topic]", activities:"[Main Activities]", outcomes:"[Results and Achievements]",
     image:"", story:"" },
   { id:"summer-2027", season:"summer", year:2027, state:"open", archived:false,
-    name:"Summer 2027 Research Internship", dates:"[Start Date – End Date]",
-    participants:"[Number of Participants]", topic:"[Research Topic]", image:"" }
+    name:"SSU-UED IRIP 2027", dates:"[Start Date – End Date]",
+    participants:"[Number of Participants]", image:"" }
 ];
 
 
 const TESTIMONIALS = [
-  { name:"Gil Hojun",         from:"Soongsil University, Seoul, Korea", cohort:"Summer 2026 Participant", text:"", photo:"" },
-  { name:"Lee Minjong",       from:"Soongsil University, Seoul, Korea", cohort:"Summer 2026 Participant", text:"", photo:"" },
-  { name:"Ha Phuc Tue Quang", from:"The University of Science and Education, Danang, Vietnam", cohort:"Summer 2026 Participant", text:"", photo:"" },
-  { name:"Dang Vi Thai",      from:"The University of Science and Education, Danang, Vietnam", cohort:"Summer 2026 Participant", text:"", photo:"" }
-];
-
-const PEOPLE = [
-  { name:"Prof. Yunsang Lee", roleKey:"rolePI",     mail:"ylee@ssu.ac.kr",             photo:"" },
-  { name:"Dr. Sangwon Wi",    roleKey:"roleFellow", mail:"wi@soongsil.ac.kr",          photo:"" },
-  { name:"Dr. Dongjea Lee",   roleKey:"roleFellow", mail:"inmay@ssu.ac.kr",            photo:"" },
-  { name:"Kim Yujune",        roleKey:"roleMS",     mail:"comi999958@naver.com",       photo:"" },
-  { name:"Tommy",             roleKey:"roleMS",     mail:"tommynguyen@soongsil.ac.kr", photo:"" }
+  { name:"[Student Name]", from:"[University and Country]", cohort:"[Cohort]", project:"", activities:"", results:"", goal:"", photo:"" }
 ];
 
 /* Each question carries its own answer object. Leave a language empty and the
@@ -1287,6 +1262,7 @@ railDeck:"The internship runs each summer. Select a cohort to open its report, p
 fAll:"All Programs", fSummer:"Summer", fUpcoming:"Upcoming", fCompleted:"Completed",
 stCompleted:"Completed", stOpen:"Applications Open", stUpcoming:"Upcoming", stPlanned:"Planned",
 viewProgram:"View Program", viewStory:"View Full Story",
+lProject:"Project", lActs:"Activities", lKeyResults:"Key results", lGoal:"Goal",
 lDates:"Dates", lParticipants:"Participants", lTopic:"Research topic", lCountries:"Universities and countries",
 lActivities:"Main activities", lOutcomes:"Results", lGallery:"Cohort gallery",
 ovTitle:"Program overview",
@@ -1373,6 +1349,7 @@ railDeck:"Chương trình tổ chức vào mùa hè hằng năm. Chọn một k�
 fAll:"Tất cả", fSummer:"Mùa hè", fUpcoming:"Sắp diễn ra", fCompleted:"Đã hoàn thành",
 stCompleted:"Đã hoàn thành", stOpen:"Đang nhận hồ sơ", stUpcoming:"Sắp diễn ra", stPlanned:"Dự kiến",
 viewProgram:"Xem kỳ này", viewStory:"Xem toàn bộ",
+lProject:"Đề tài", lActs:"Nội dung thực hiện", lKeyResults:"Kết quả chính", lGoal:"Mục tiêu",
 lDates:"Thời gian", lParticipants:"Số người tham gia", lTopic:"Chủ đề nghiên cứu", lCountries:"Trường và quốc gia",
 lActivities:"Hoạt động chính", lOutcomes:"Kết quả", lGallery:"Hình ảnh của kỳ",
 ovTitle:"Tổng quan chương trình",
@@ -1459,6 +1436,7 @@ railDeck:"매년 여름에 운영됩니다. 기수를 선택하면 해당 기수
 fAll:"전체", fSummer:"여름학기", fUpcoming:"예정", fCompleted:"종료",
 stCompleted:"종료", stOpen:"모집 중", stUpcoming:"예정", stPlanned:"계획",
 viewProgram:"기수 보기", viewStory:"전체 보기",
+lProject:"연구 주제", lActs:"수행 내용", lKeyResults:"주요 결과", lGoal:"목표",
 lDates:"기간", lParticipants:"참가 인원", lTopic:"연구 주제", lCountries:"참가 대학 및 국가",
 lActivities:"주요 활동", lOutcomes:"성과", lGallery:"기수 갤러리",
 ovTitle:"프로그램 개요",
@@ -1649,10 +1627,7 @@ function renderArchive(){
   $("#archive-list").innerHTML = PROGRAMS.filter(x=>x.archived).map(pr=>{
     const rows = [[t("lDates"),        pr.dates],
                   [t("lParticipants"), pr.participants],
-                  [t("lCountries"),    pr.countries || "[Participating Universities and Countries]"],
-                  [t("lTopic"),        pr.topic],
-                  [t("lActivities"),   pr.activities || "[Main Activities]"],
-                  [t("lOutcomes"),     pr.outcomes   || "[Results and Achievements]"]]
+                  [t("lCountries"),    pr.countries]]
                  .filter(r=> String(r[1] == null ? "" : r[1]).trim());
     /* Cột thông tin ít nội dung thì xếp dọc, để thư viện ảnh trải hết chiều ngang
        thay vì bỏ trống nửa trang.                                                */
@@ -1678,27 +1653,19 @@ function renderArchive(){
 }
 
 /* ---------- impact, testimonials, people, faq, galleries ---------- */
+/* Mỗi thẻ giới thiệu một sinh viên và đề tài của bạn ấy. Dòng nào chưa điền
+   thì tự ẩn, nên thẻ luôn gọn dù thiếu thông tin.                              */
+const TCARD_ROWS = [["project","lProject"],["activities","lActs"],["results","lKeyResults"],["goal","lGoal"]];
 function renderTestimonials(){
   $("#track").innerHTML = TESTIMONIALS.map((x,i)=>
     dropIfBlank(x.name) ? "" :
-    '<article class="tcard" data-edit-ref="testimonials.'+i+'">'+frame({ratio:"circle",label:"[Photo]",src:x.photo})+
-      (isBlank(x.text) ? '' : '<blockquote>'+esc(val(x.text))+'</blockquote>')+
+    '<article class="tcard" data-edit-ref="testimonials.'+i+'">'+
       '<div class="who"><b>'+esc(val(x.name))+'</b>'+esc(val(x.from))+
-      (isBlank(x.cohort) ? '' : '<br>'+esc(val(x.cohort)))+'</div></article>').join("");
-  hydrateFrames($("#track"));
-}
-/* Nhân sự xếp theo cấp bậc: trưởng phòng thí nghiệm là một thẻ rộng nằm trên,
-   các thành viên còn lại chia đều thành một hàng bên dưới.                     */
-function renderPeople(){
-  $("#people-grid").innerHTML = PEOPLE.map((x,i)=>
-    dropIfBlank(x.name) ? "" :
-    '<article class="person'+(x.roleKey === "rolePI" ? " person--lead" : "")+'" data-edit-ref="people.'+i+'">'+
-      frame({ratio:"portrait",label:"[Insert Profile Photo]",hint:"3:4 · 900 × 1200 px",src:x.photo})+
-      '<div class="person__body"><span class="role">'+t(x.roleKey)+'</span><h3>'+esc(val(x.name))+'</h3>'+
-      (isBlank(x.mail) ? ''
-        : '<a class="mail" href="mailto:'+esc(val(x.mail))+'">'+esc(val(x.mail))+'</a>')+
-      '</div></article>').join("");
-  hydrateFrames($("#people-grid"));
+      (isBlank(x.cohort) ? '' : '<br>'+esc(val(x.cohort)))+'</div>'+
+      '<dl class="tcard__facts">'+
+        TCARD_ROWS.filter(([k])=> !isBlank(x[k]))
+          .map(([k,lab])=> '<dt>'+t(lab)+'</dt><dd>'+esc(val(x[k]))+'</dd>').join("")+
+      '</dl></article>').join("");
 }
 function renderFaq(){
   $("#faq-list").innerHTML = FAQ.map((q,i)=>
@@ -1787,7 +1754,6 @@ function applyLayout(){
   const L = CONFIG.layout || {}, r = document.documentElement.style;
   if(L.maxWidth)   r.setProperty("--wrap", L.maxWidth + "px");
   if(L.topicCols)  r.setProperty("--topic-cols", L.topicCols);
-  if(L.peopleCols) r.setProperty("--people-cols", L.peopleCols);
   if(L.valueCols)  r.setProperty("--value-cols", L.valueCols);
   if(L.bannerMin)  r.setProperty("--banner-min", L.bannerMin + "px");
   if(L.secScale)   r.setProperty("--sec-scale", L.secScale);
@@ -1840,7 +1806,6 @@ async function loadContent(){
         if(v && typeof v === "object" && !Array.isArray(v)){ t[k] = t[k]||{}; merge(t[k],v); }
         else t[k] = v; }); })(CONFIG, d.config);
     if(Array.isArray(d.programs))     PROGRAMS.splice(0, PROGRAMS.length, ...d.programs);
-    if(Array.isArray(d.people))       PEOPLE.splice(0, PEOPLE.length, ...d.people);
     if(Array.isArray(d.testimonials)) TESTIMONIALS.splice(0, TESTIMONIALS.length, ...d.testimonials);
     if(Array.isArray(d.topics)) TOPICS.splice(0, TOPICS.length, ...d.topics);
     if(Array.isArray(d.faq))    FAQ.splice(0, FAQ.length, ...d.faq);
@@ -1883,7 +1848,7 @@ function startCountdown(){
 
 /* Mục nào không còn thẻ nào bên trong thì ẩn cả mục, và bỏ luôn link trên thanh
    điều hướng để khách không bấm vào một mục rỗng.                                */
-const OPTIONAL_SECTIONS = [["#track","#testimonials"],["#people-grid","#people"],["#faq-list","#faq"]];
+const OPTIONAL_SECTIONS = [["#track","#testimonials"],["#faq-list","#faq"]];
 function hideEmptySections(){
   OPTIONAL_SECTIONS.forEach(([innerSel, secSel])=>{
     const inner = $(innerSel), sec = $(secSel); if(!inner || !sec) return;
@@ -1896,7 +1861,7 @@ function hideEmptySections(){
 /* ---------- render everything ---------- */
 function renderAll(){
   applyStatic(); renderValues(); renderTopics(); renderLists(); renderRail(); renderArchive();
-  renderTestimonials(); renderPeople(); renderFaq(); renderGalleries(); applyConfig();
+  renderTestimonials(); renderFaq(); renderGalleries(); applyConfig();
   hideEmptySections();
   applyFilter($(".filters button[aria-pressed='true']")?.dataset.f || "all");
   observeReveal();
@@ -2040,7 +2005,7 @@ function observeReveal(){
    ============================================================================ */
 const ED = { previews:{}, files:{}, live:false, active:false, opened:new Set() };
 const TEXT = { en:{}, vi:{}, ko:{} };
-const ARRS = { programs:PROGRAMS, people:PEOPLE, testimonials:TESTIMONIALS,
+const ARRS = { programs:PROGRAMS, testimonials:TESTIMONIALS,
                topics:TOPICS, faq:FAQ, seoul:SEOUL };
 const CFG_KEYS = ["cohortLabel","cohortBadge","cohortHeading","deadlineText","applicationDeadline","applicationOpenDate",
                   "links","images","stats","upcoming","eligibility","dates","contact","mapEmbed","layout"];
@@ -2077,7 +2042,6 @@ function panelHTML(){
       F("Tên kỳ",'data-arr="programs.'+i+'.name"',pr.name)+
       F("Thời gian",'data-arr="programs.'+i+'.dates"',pr.dates)+
       F("Số người tham gia",'data-arr="programs.'+i+'.participants"',pr.participants)+
-      F("Chủ đề nghiên cứu",'data-arr="programs.'+i+'.topic"',pr.topic)+
       '<label>Trạng thái<select data-arr="programs.'+i+'.state">'+
         ["completed:Đã hoàn thành","open:Đang nhận hồ sơ","upcoming:Sắp diễn ra","planned:Dự kiến"]
         .map(o=>{const[v,t]=o.split(":");return '<option value="'+v+'"'+(pr.state===v?" selected":"")+'>'+t+'</option>';}).join("")+
@@ -2085,8 +2049,6 @@ function panelHTML(){
       '<label>Hiện trong mục lưu trữ<select data-arr="programs.'+i+'.archived">'+
         '<option value="">Không</option><option value="1"'+(pr.archived?" selected":"")+'>Có</option></select></label>'+
       F("Trường và quốc gia",'data-arr="programs.'+i+'.countries"',pr.countries)+
-      F("Hoạt động chính",'data-arr="programs.'+i+'.activities"',pr.activities,"area")+
-      F("Kết quả",'data-arr="programs.'+i+'.outcomes"',pr.outcomes,"area")+
       F("Link bài viết đầy đủ",'data-arr="programs.'+i+'.story"',pr.story)+
       '<div class="row"><button class="mini" data-dup="programs.'+i+'">Nhân bản kỳ này</button>'+
       '<button class="mini mini--danger" data-del="programs.'+i+'">Xoá kỳ này</button></div>'+
@@ -2133,19 +2095,12 @@ function panelHTML(){
   sec("Các kỳ thực tập",
     PROGRAMS.map(progFields).join("")+
     '<div class="row"><button class="mini" data-add="programs">+ Thêm kỳ mới</button></div>')+
-  sec("Nhân sự",
-    PEOPLE.map((x,i)=>'<div class="item"><h4>'+esc(t(x.roleKey))+'</h4>'+
-      F("Họ tên",'data-arr="people.'+i+'.name"',x.name)+
-      F("Email",'data-arr="people.'+i+'.mail"',x.mail)+
-      '<div class="row"><button class="mini" data-dup="people.'+i+'">Nhân bản</button>'+
-      '<button class="mini mini--danger" data-del="people.'+i+'">Xoá</button></div></div>').join("")+
-    '<div class="row"><button class="mini" data-add="people">+ Thêm người</button></div>')+
   sec("Cảm nhận sinh viên",
     TESTIMONIALS.map((x,i)=>'<div class="item">'+
       F("Họ tên",'data-arr="testimonials.'+i+'.name"',x.name)+
       F("Trường, quốc gia",'data-arr="testimonials.'+i+'.from"',x.from)+
       F("Kỳ tham gia",'data-arr="testimonials.'+i+'.cohort"',x.cohort)+
-      F("Nội dung",'data-arr="testimonials.'+i+'.text"',x.text,"area")+
+F("Đề tài",'data-arr="testimonials.'+i+'.project"',x.project,"area")+      F("Nội dung thực hiện",'data-arr="testimonials.'+i+'.activities"',x.activities,"area")+      F("Kết quả chính",'data-arr="testimonials.'+i+'.results"',x.results,"area")+      F("Mục tiêu",'data-arr="testimonials.'+i+'.goal"',x.goal,"area")+
       '<div class="row"><button class="mini" data-dup="testimonials.'+i+'">Nhân bản</button>'+
       '<button class="mini mini--danger" data-del="testimonials.'+i+'">Xoá</button></div></div>').join("")+
     '<div class="row"><button class="mini" data-add="testimonials">+ Thêm cảm nhận</button></div>')+
@@ -2194,7 +2149,6 @@ function panelHTML(){
     '<div class="ed__note">Các ô co giãn theo màn hình nên không kéo tay được; thay vào đó chỉnh bằng các thông số dưới đây, áp dụng đồng bộ cho cả máy tính lẫn điện thoại.</div>'+
     CFIELD("Độ rộng tối đa của trang (px)","layout.maxWidth","number")+
     CFIELD("Số cột — Chủ đề nghiên cứu","layout.topicCols","number")+
-    CFIELD("Số cột — Nhân sự","layout.peopleCols","number")+
     CFIELD("Số cột — Thẻ tổng quan","layout.valueCols","number")+
     CFIELD("Chiều cao tối thiểu ảnh banner (px)","layout.bannerMin","number")+
     CFIELD("Khoảng cách giữa các mục (1 = mặc định)","layout.secScale","number"));
@@ -2401,7 +2355,6 @@ function addItem(name){
   if(name === "programs") PROGRAMS.push({ id:"ky-"+Date.now(), season:"summer", year:new Date().getFullYear(),
     state:"planned", archived:false, name:"[Tên kỳ mới]", dates:"[Start Date – End Date]",
     participants:"[XX]", topic:"[Research Topic]", image:"" });
-  if(name === "people") PEOPLE.push({ name:"[Họ tên]", roleKey:"roleMS", mail:"[Email]", photo:"" });
   if(name === "testimonials") TESTIMONIALS.push({ name:"[Student Name]", from:"[University and Country]",
     cohort:"[Summer 20XX Participant]", text:"[Insert Student Testimonial]", photo:"" });
   if(name === "topics") TOPICS.push({ icon:"atom",
@@ -2454,7 +2407,7 @@ function enableDrops(){
 /* ---- lưu nháp, xuất file ---- */
 function collect(){
   const cfg = {}; CFG_KEYS.forEach(k=> cfg[k] = CONFIG[k]);
-  return { config:cfg, programs:PROGRAMS, people:PEOPLE, testimonials:TESTIMONIALS,
+  return { config:cfg, programs:PROGRAMS, testimonials:TESTIMONIALS,
            topics:TOPICS, faq:FAQ, seoul:SEOUL, text:TEXT };
 }
 function saveDraft(){ try{ localStorage.setItem("emslab-draft", JSON.stringify(collect())); }catch(e){} }
@@ -2463,7 +2416,6 @@ function restoreDraft(){
     const d = JSON.parse(localStorage.getItem("emslab-draft") || "null"); if(!d) return;
     if(d.config) Object.assign(CONFIG, d.config);
     if(d.programs) PROGRAMS.splice(0, PROGRAMS.length, ...d.programs);
-    if(d.people) PEOPLE.splice(0, PEOPLE.length, ...d.people);
     if(d.testimonials) TESTIMONIALS.splice(0, TESTIMONIALS.length, ...d.testimonials);
     if(d.topics) TOPICS.splice(0, TOPICS.length, ...d.topics);
     if(d.faq)    FAQ.splice(0, FAQ.length, ...d.faq);
