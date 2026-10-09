@@ -88,6 +88,10 @@ a{color:var(--cobalt);text-decoration-thickness:1px;text-underline-offset:3px}
 img{max-width:100%;display:block}
 :focus-visible{outline:3px solid var(--data);outline-offset:2px;border-radius:2px}
 [hidden]{display:none !important}
+/* Version-3: isolated views; application content stays unavailable in Edit too. */
+[data-feature="apply"],a[href="#apply"],a[data-link="apply"]{display:none !important}
+#main[data-page]:not([data-page="home"]){padding-top:72px}
+#main:focus,h1[tabindex="-1"]:focus,h2[tabindex="-1"]:focus{outline:none}
 .wrap{width:min(100% - 2.5rem,var(--wrap));margin-inline:auto}
 .skip{position:absolute;left:-9999px;top:0;background:var(--apply);color:var(--navy-800);
   padding:.75rem 1.25rem;z-index:200;font-weight:600}
@@ -162,7 +166,7 @@ img{max-width:100%;display:block}
   text-decoration:none;font-size:.9rem;font-weight:500;padding:.55rem .6rem;border-radius:var(--r-sm);
   background:none;border:0;font-family:var(--body);cursor:pointer;white-space:nowrap}
 .menu a:hover,.menu button.menu__top:hover{color:#fff;background:rgba(255,255,255,.08)}
-.menu a.is-active{color:#fff;box-shadow:inset 0 -2px 0 var(--data)}
+.menu a.is-active,.menu button.menu__top.is-active{color:#fff;box-shadow:inset 0 -2px 0 var(--data)}
 .menu a.btn--apply{background:var(--apply);color:#241900;font-weight:700;padding:.55rem 1.1rem}
 .menu a.btn--apply:hover{background:var(--apply-700);color:#241900}
 /* Vietnamese and Korean labels are longer — tighten the bar so nothing is clipped */
@@ -173,9 +177,11 @@ html[data-lang="vi"] .menu a.btn--apply,html[data-lang="ko"] .menu a.btn--apply{
 .drop{position:absolute;top:calc(100% + 6px);left:0;min-width:232px;background:#fff;border:1px solid var(--line);
   border-radius:var(--r-md);box-shadow:0 18px 42px -18px rgba(6,21,39,.55);padding:.4rem;list-style:none;
   margin:0;opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .16s,transform .16s,visibility .16s}
+.drop::before{content:"";position:absolute;left:0;right:0;top:-8px;height:8px}
 .menu > li:hover > .drop,.menu > li:focus-within > .drop,.drop.is-open{opacity:1;visibility:visible;transform:none}
 .drop a{display:block;color:var(--ink);padding:.55rem .7rem;font-size:var(--t-sm);border-radius:var(--r-sm)}
 .drop a:hover{background:var(--mist);color:var(--cobalt)}
+.drop a.is-active{background:var(--data-soft);color:var(--cobalt-700)}
 .drop a.is-placeholder{color:var(--muted);font-style:italic}
 .drop__note{padding:.35rem .7rem .5rem;font-size:.75rem;color:var(--muted);border-top:1px solid var(--line);margin-top:.3rem}
 .nav__tools{display:flex;align-items:center;gap:.6rem;margin-left:.5rem}
@@ -187,7 +193,7 @@ html[data-lang="vi"] .menu a.btn--apply,html[data-lang="ko"] .menu a.btn--apply{
   padding:.5rem .6rem;cursor:pointer}
 .burger span{display:block;width:20px;height:2px;background:#fff;margin:4px 0}
 
-@media (max-width:1400px){
+@media (max-width:1000px){
   .burger{display:block}
   .nav{backdrop-filter:none}
   html[data-lang="vi"] .menu a,html[data-lang="ko"] .menu a,
@@ -215,24 +221,35 @@ html[data-lang="vi"] .menu a.btn--apply,html[data-lang="ko"] .menu a.btn--apply{
 /* ---------- Hero ---------- */
 .hero{position:relative;background:var(--navy-900);color:#fff;padding:calc(72px + 4rem) 0 3.5rem;overflow:hidden}
 .hero__lattice{position:absolute;inset:0;opacity:.5;pointer-events:none}
-.hero__glow{position:absolute;width:760px;height:760px;right:-18%;top:-32%;pointer-events:none;
+.hero__glow{position:absolute;width:760px;height:760px;left:50%;top:-24%;transform:translateX(-50%);pointer-events:none;
   background:radial-gradient(circle,rgba(27,167,188,.28),transparent 62%)}
 .hero__grid{position:relative;display:grid;justify-items:center;text-align:center}
-.hero__inner{max-width:90ch}
+.hero__inner{width:min(100%,68rem);min-width:0}
 .hero__accent{width:96px;margin:0 auto 1.5rem;border-radius:2px}
 .hero__badge{display:inline-flex;align-items:center;gap:.55rem;background:rgba(242,179,61,.14);
   border:1px solid rgba(242,179,61,.5);color:var(--apply);border-radius:999px;padding:.4rem .9rem;
   font-size:var(--t-xs);font-weight:600;margin-bottom:1.4rem}
 .hero__badge .dot{width:7px;height:7px;border-radius:50%;background:var(--apply)}
-.hero h1{max-width:34ch;margin-inline:auto;text-wrap:balance}
+.hero h1{max-width:30ch;margin-inline:auto;text-wrap:balance;font-size:clamp(1.65rem,3.8vw,3.25rem);line-height:1.16}
+.hero__identity{white-space:nowrap}
 .hero__tag{text-wrap:balance;font-family:var(--display);font-weight:500;font-size:clamp(1.05rem,2vw,var(--t-md));
-  color:var(--data);margin:1.1rem 0 .9rem;letter-spacing:-.01em}
-.hero__lede{color:#C3D4E8;max-width:64ch;margin-inline:auto;text-wrap:pretty;font-size:var(--t-md);line-height:1.55}
+  color:var(--data);max-width:54ch;margin:1.25rem auto 1rem;letter-spacing:-.01em}
+.hero__lede{color:#C3D4E8;max-width:60ch;margin-inline:auto;text-wrap:balance;font-size:clamp(1rem,1.7vw,var(--t-md));line-height:1.6}
 .hero .btn-row{margin:2.2rem 0 2.4rem;justify-content:center}
-.hero__facts{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:.55rem 1rem;
-  padding-top:1.4rem;border-top:1px solid rgba(255,255,255,.14);font-size:var(--t-sm);color:#B9CADF}
+.hero__facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:center;width:100%;max-width:none;
+  margin:0 auto;padding-top:1.4rem;border-top:1px solid rgba(255,255,255,.14);font-size:var(--t-sm);color:#B9CADF}
+.hero__facts .fact{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:center;gap:.25rem .4rem;padding:.15rem .8rem}
+.hero__facts .fact + .fact{border-left:1px solid rgba(255,255,255,.22)}
 .hero__facts b{color:#fff;font-weight:600}
-.hero__facts .sep{color:rgba(255,255,255,.3)}
+.pl-curve{display:block;width:min(100%,1200px);height:80px;margin:2rem auto 0}
+@media (max-width:640px){
+  .hero{padding-top:calc(72px + 2.5rem)}
+  .hero__facts{grid-template-columns:1fr;gap:.6rem}
+  .hero__facts .fact + .fact{border-left:0}
+  .hero .btn-row{margin:1.75rem 0 2rem}
+  .hero .btn{width:100%;justify-content:center}
+  .pl-curve{height:60px;margin-top:1.5rem}
+}
 .spectrum-strip{height:5px;background:var(--spectrum);border-radius:0 0 2px 2px}
 .hero__scroll{position:absolute;bottom:1rem;left:50%;transform:translateX(-50%);color:#7B96B8;font-size:var(--t-xs)}
 
@@ -261,54 +278,76 @@ html[data-lang="vi"] .menu a.btn--apply,html[data-lang="ko"] .menu a.btn--apply{
 .factlist .v{color:#fff;font-weight:500}
 @media (max-width:820px){.upcoming__grid{grid-template-columns:1fr}.factlist li{grid-template-columns:1fr;gap:.1rem}}
 
-/* ---------- Programme rail (timeline of cohorts) ---------- */
-.filters{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:2rem}
-.filters button{background:#fff;border:1px solid var(--line);border-radius:999px;padding:.5rem 1rem;
-  font:500 var(--t-sm)/1 var(--body);color:var(--muted);cursor:pointer}
-.filters button[aria-pressed="true"]{background:var(--navy-800);border-color:var(--navy-800);color:#fff}
-.rail{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.25rem;position:relative}
-.rail::before{content:"";position:absolute;left:0;right:0;top:11px;height:2px;background:var(--line)}
-.cohort{position:relative;padding-top:2.4rem;background:none}
-.cohort::before{content:"";position:absolute;top:4px;left:0;width:16px;height:16px;border-radius:50%;
-  background:#fff;border:3px solid var(--line)}
-.cohort[data-state="completed"]::before{border-color:var(--muted)}
-.cohort[data-state="open"]::before{border-color:var(--apply);box-shadow:0 0 0 5px rgba(242,179,61,.22)}
-.cohort[data-state="upcoming"]::before{border-color:var(--cobalt)}
-.cohort[data-state="planned"]::before{border-color:var(--data)}
-.cohort__inner{border:1px solid var(--line);border-radius:var(--r-md);background:#fff;overflow:hidden;height:100%;
-  display:flex;flex-direction:column}
-.cohort .frame{border-radius:0;border-width:0 0 1px 0;border-style:solid}
-.cohort__body{padding:1.1rem 1.15rem 1.25rem;display:flex;flex-direction:column;gap:.5rem;flex:1}
-.cohort h3{font-size:var(--t-base);font-family:var(--display)}
+/* ---------- Cohort status badges ---------- */
 .tag{display:inline-flex;align-items:center;gap:.4rem;font-size:.72rem;font-weight:600;padding:.25rem .6rem;
   border-radius:999px;width:fit-content}
 .tag--completed{background:#EDF1F6;color:#4A5D75}
 .tag--open{background:#FDF2DA;color:#8A5D06}
 .tag--upcoming{background:#E8EEFC;color:var(--cobalt-700)}
 .tag--planned{background:var(--data-soft);color:#0C6C7A}
-.cohort dl{margin:0;font-size:var(--t-sm);color:var(--muted);display:grid;gap:.15rem}
-.cohort dl div{display:flex;gap:.4rem}
-.cohort dt{color:#7C90A8}
-.cohort .btn{margin-top:auto;justify-content:center}
-@media (max-width:640px){.rail::before{display:none}.cohort{padding-top:0}.cohort::before{display:none}}
 
-/* ---------- Value cards / research tiles ---------- */
-.grid-4{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.5rem}
+/* ---------- About IRIP / research tiles ---------- */
+.about-intro{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(240px,.8fr);
+  align-items:center;gap:clamp(2rem,5vw,4.5rem);margin-bottom:2.5rem}
+.about-intro__copy{min-width:0}
+.about-eyebrow{display:block;color:#0C6C7A;font-size:var(--t-xs);font-weight:600;
+  letter-spacing:.12em;text-transform:uppercase;margin-bottom:1rem}
+.about-intro h2{font-size:var(--t-lg);color:var(--cobalt-700);margin-bottom:1rem}
+.about-headline{font-family:var(--display);font-size:clamp(2rem,3.3vw,2.8rem);font-weight:700;
+  line-height:1.15;letter-spacing:-.03em;color:var(--ink);margin:0 0 1.25rem;max-width:23ch;text-wrap:balance}
+.about-deck{color:var(--muted);font-size:var(--t-base);line-height:1.75;margin:0;max-width:66ch}
+.about-facts{margin:0;background:var(--paper);border:1px solid var(--line);border-radius:16px;
+  padding:1.5rem 1.75rem;box-shadow:var(--shadow)}
+.about-facts__item{display:flex;align-items:center;gap:1.25rem;padding:1.05rem 0}
+.about-facts__item + .about-facts__item{border-top:1px solid var(--line)}
+.about-facts dt{font-family:var(--display);font-size:2.15rem;font-weight:700;line-height:1.1;
+  letter-spacing:-.04em;color:var(--cobalt-700);flex:0 0 3.8ch}
+.about-facts dd{margin:0;font-size:var(--t-sm);font-weight:500;line-height:1.4;color:var(--muted)}
+.about-features{display:grid;grid-template-columns:repeat(var(--value-cols,2),minmax(0,1fr));gap:1.5rem}
+.about-card{min-width:0;background:var(--paper);border:1px solid var(--line);border-radius:16px;
+  padding:clamp(1.5rem,3vw,2rem);position:relative}
+.about-card__top{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem}
+.about-card__icon{display:grid;place-items:center;width:52px;height:52px;border-radius:14px;
+  background:#ECF1FC;color:var(--cobalt-700)}
+.about-card .value__icon{width:30px;height:30px;color:inherit}
+.about-card__number{font:500 1rem/1 var(--display);letter-spacing:.08em;color:var(--muted)}
+.about-card h3{font-size:clamp(1.4rem,2.2vw,1.65rem);line-height:1.2;margin-bottom:.75rem;text-wrap:balance}
+.about-card__deck{font-size:var(--t-base);line-height:1.65;color:var(--muted);margin:0;max-width:none}
+.about-card__details{margin:1.5rem 0 0;display:grid;gap:1.15rem;padding-top:1.5rem;border-top:1px solid var(--line)}
+.about-card__details dt{font-size:var(--t-sm);font-weight:600;line-height:1.4;margin-bottom:.35rem}
+.about-card__details dd{font-size:var(--t-sm);color:var(--muted);line-height:1.65;margin:0}
+.about-card--academic{background:var(--navy-800);border-color:var(--navy-800);color:#fff}
+.about-card--academic .about-card__icon{background:rgba(27,167,188,.15);color:#71D1DD}
+.about-card--academic .about-card__number{color:#9FB6D2}
+.about-card--academic .about-card__deck,.about-card--academic .about-card__details dd{color:#C5D4E7}
+.about-card--academic .about-card__details{border-color:rgba(255,255,255,.17)}
+.about-card--community .about-card__icon{background:var(--data-soft);color:#0C6C7A}
+.about-card--culture .about-card__icon{background:#F4EFFC;color:#6542A4}
+@media (max-width:900px){
+  .about-intro{grid-template-columns:1fr;gap:1.75rem}
+  .about-headline{max-width:28ch}
+  .about-facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));padding:1.25rem}
+  .about-facts__item{flex-direction:column;align-items:flex-start;gap:.6rem;padding:.25rem 1rem}
+  .about-facts__item + .about-facts__item{border-top:0;border-left:1px solid var(--line)}
+  .about-facts dt{flex-basis:auto}
+}
+@media (max-width:700px){.about-features{grid-template-columns:1fr}}
+@media (max-width:440px){
+  .about-facts{padding:1rem .5rem}
+  .about-facts__item{padding:.25rem .6rem}
+  .about-facts dt{font-size:1.65rem}
+  .about-facts dd{font-size:var(--t-xs)}
+}
 .grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
-.about__grid{align-items:start}
 .grid-2{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:clamp(1.5rem,3vw,2.5rem)}
 .grid-2 h3,.panel h3,.archive__body h4{margin-bottom:.6rem}
-.value{display:flex;flex-direction:column;gap:.6rem}
 .value__icon{width:44px;height:44px;color:var(--cobalt)}
-.value h3{font-size:var(--t-base);font-family:var(--display)}
-.value p{color:var(--muted);font-size:var(--t-sm);margin:0}
 .tile{border:1px solid var(--line);border-left:3px solid var(--data);background:#fff;border-radius:0 var(--r-md) var(--r-md) 0;
   overflow:hidden;display:flex;flex-direction:column}
 .tile__body{padding:1.1rem 1.25rem 1.35rem;display:flex;flex-direction:column;gap:.55rem}
 .tile__icon{width:32px;height:32px;color:var(--data)}
 @media (min-width:1100px){
   #research-grid{grid-template-columns:repeat(var(--topic-cols,3),1fr)}
-  #values{grid-template-columns:repeat(var(--value-cols,4),1fr)}
 }
 .frame--contain{background:#fff;border-style:solid;border-color:var(--line)}
 .frame--contain img{object-fit:contain;padding:1rem;background:#fff}
@@ -471,10 +510,9 @@ html[data-lang="vi"] .menu a.btn--apply,html[data-lang="ko"] .menu a.btn--apply{
   color:var(--navy-800)}
 .social a:hover{border-color:var(--cobalt);color:var(--cobalt);background:#F5F8FE}
 .foot{background:var(--navy-900);color:#B9CADF;padding:3rem 0 1.5rem;font-size:var(--t-sm)}
-.foot__top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:2rem;padding-bottom:2rem;
+.foot__top{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:clamp(1.5rem,4vw,3rem);padding-bottom:2rem;
   border-bottom:1px solid rgba(255,255,255,.12)}
-@media (max-width:820px){.foot__top{grid-template-columns:1fr 1fr}}
-@media (max-width:520px){.foot__top{grid-template-columns:1fr}}
+@media (max-width:820px){.foot__top{grid-template-columns:1fr}}
 .foot h4{color:#fff;margin-bottom:.9rem;font-size:var(--t-sm);font-family:var(--body);font-weight:600}
 .foot ul{list-style:none;padding:0;margin:0;display:grid;gap:.5rem}
 .foot a{color:#B9CADF;text-decoration:none}
@@ -559,7 +597,7 @@ body.ed-on{padding-right:0}
 .ed-drop{position:absolute;inset:0;z-index:5;background:rgba(31,82,200,.12);border:2px dashed var(--cobalt);
   display:grid;place-items:center;font:700 var(--t-xs)/1.3 var(--body);color:var(--cobalt);text-align:center;padding:.5rem}
 @media print{
-  .nav,.totop,.lightbox,.car-nav,.filters{display:none !important}
+  .nav,.totop,.lightbox,.car-nav{display:none !important}
   body{color:#000}.sec--dark,.hero,.cta,.upcoming,.foot{background:#fff !important;color:#000 !important}
   .acc__panel,.panel{display:block !important}
 }
@@ -575,43 +613,27 @@ body.ed-on{padding-right:0}
     <a class="brand" href="#home">
       <span class="brand__mark"><img src="assets/logo.png" alt="Soongsil University"></span>
       <span class="brand__txt">
-        <span class="brand__name">SSU&#8211;UED</span>
+        <span class="brand__name">SSU-UED</span>
         <span class="brand__sub" data-i18n="brandSub">International Research Internship Program</span>
       </span>
     </a>
 
     <nav aria-label="Main">
       <ul class="menu" id="menu">
-        <li><a href="#home" data-i18n="navHome">Home</a></li>
-
-        <li>
-          <button class="menu__top" aria-expanded="false" aria-haspopup="true">
+        <li><a href="#home" data-page-link="home" data-i18n="navHome">Home</a></li>
+        <li id="programMenu">
+          <button type="button" class="menu__top" id="programToggle" data-page-group="programs" aria-expanded="false" aria-controls="programDrop">
             <span data-i18n="navPrograms">Programs</span>
             <svg class="caret" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4.5 6 8.5 10 4.5"/></svg>
           </button>
-          <ul class="drop">
-            <li><a href="#upcoming" data-i18n="navUpcoming">Upcoming Program</a></li>
-            <li><a href="#programs" data-i18n="navTimeline">Program Timeline</a></li>
-            <li><a href="#archive" data-i18n="navPast">Past Programs</a></li>
+          <ul class="drop" id="programDrop" hidden>
+            <li><a href="#upcoming" data-page-link="upcoming" data-i18n="navUpcoming">Upcoming Program</a></li>
+            <li><a href="#archive" data-page-link="archive" data-i18n="navPast">Past Programs</a></li>
+            <li><a href="#about-irip" data-page-link="about-irip" data-i18n="navAboutIrip">About IRIP</a></li>
           </ul>
         </li>
-
-        <li>
-          <button class="menu__top" aria-expanded="false" aria-haspopup="true">
-            <span data-i18n="navPast">Past Programs</span>
-            <svg class="caret" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4.5 6 8.5 10 4.5"/></svg>
-          </button>
-          <ul class="drop">
-            <li><a href="#archive-summer-2026">Summer 2026</a></li>
-            <li class="drop__note" data-i18n="dropNotePast">New cohorts are added in the PROGRAMS list in the script.</li>
-          </ul>
-        </li>
-
-        <li><a href="#research" data-i18n="navResearch">Research Topics</a></li>
-        <li><a href="#faq" data-i18n="navFaq">FAQ</a></li>
-
-        <li><a href="#contact" data-i18n="navContact">Contact</a></li>
-        <li><a class="btn btn--apply btn--sm" href="#apply" id="navApply" data-i18n="applyNow">Apply Now</a></li>
+        <li><a href="#research" data-page-link="research" data-i18n="navResearch">Research Topics</a></li>
+        <li><a href="#contact" data-page-link="contact" data-i18n="navContact">Contact</a></li>
       </ul>
     </nav>
 
@@ -628,9 +650,9 @@ body.ed-on{padding-right:0}
   </div>
 </header>
 
-<main id="main">
+<main id="main" data-page="home" tabindex="-1">
 <!-- ============================ HERO ============================ -->
-<section class="hero" id="home">
+<section class="hero" id="home" data-page="home">
   <svg class="hero__lattice" aria-hidden="true" width="100%" height="100%">
     <defs>
       <pattern id="lattice" width="66" height="66" patternUnits="userSpaceOnUse" patternTransform="rotate(15)">
@@ -650,14 +672,12 @@ body.ed-on{padding-right:0}
       <p class="hero__tag" data-i18n="heroTag">Explore Physics. Experience Research. Connect Globally.</p>
       <p class="hero__lede" data-i18n="heroLede">A six-week research internship hosted by EMSL, Department of Physics, Soongsil University.</p>
       <div class="btn-row">
-        <a class="btn btn--apply" href="#overview" data-i18n="heroDetails">Learn More About Details</a>
-        <a class="btn btn--ghost" href="#overview" data-i18n="explore">Explore the Program</a>
+        <a class="btn btn--apply" href="#about-irip" data-i18n="heroDetails">Learn More About Details</a>
+        <a class="btn btn--ghost" href="#about-irip" data-i18n="explore">Explore the Program</a>
       </div>
       <p class="hero__facts">
         <span class="fact"><span data-i18n="factDuration">Duration:</span> <b>6 Weeks</b></span>
-        <span class="sep">|</span>
         <span class="fact"><span data-i18n="factLocation">Location:</span> <b>Seoul, South Korea</b></span>
-        <span class="sep">|</span>
         <span class="fact"><span data-i18n="factHost">Host:</span> <b>Soongsil University</b></span>
       </p>
     </div>
@@ -666,8 +686,7 @@ body.ed-on{padding-right:0}
   <!-- Phổ phát xạ: hai đỉnh, hai đầu đường phải bằng nhau (y=88) thì mới cân. -->
   <!-- Phổ phát xạ: một đỉnh chính giữa, hai đỉnh phụ bằng nhau hai bên.
        Toạ độ sinh từ ba hàm Gauss nên đường hoàn toàn đối xứng và mượt. -->
-  <svg class="pl-curve" viewBox="0 0 1200 90" preserveAspectRatio="none" aria-hidden="true"
-       style="display:block;width:100%;height:96px;margin-top:2rem">
+  <svg class="pl-curve" viewBox="0 0 1200 90" preserveAspectRatio="none" aria-hidden="true">
     <defs>
       <linearGradient id="plfill" x1="0" x2="0" y1="0" y2="1">
         <stop offset="0" stop-color="#1BA7BC" stop-opacity=".34"/>
@@ -687,7 +706,7 @@ body.ed-on{padding-right:0}
 </section>
 
 <!-- ==================== UPCOMING PROGRAMME (FEATURED) ==================== -->
-<section class="sec upcoming" id="upcoming">
+<section class="sec upcoming" id="upcoming" data-page="upcoming" hidden>
   <div class="wrap">
     <div class="sec-head">
       <div class="rule" aria-hidden="true"></div>
@@ -712,7 +731,7 @@ body.ed-on{padding-right:0}
 
         <ul class="factlist" id="factlist"></ul>
 
-        <div class="btn-row" style="margin-top:1.75rem">
+        <div class="btn-row" style="margin-top:1.75rem" data-feature="apply" hidden>
           <a class="btn btn--apply" href="#apply" data-i18n="applyNow">Apply Now</a>
         </div>
       </div>
@@ -730,38 +749,28 @@ body.ed-on{padding-right:0}
   </div>
 </section>
 
-<!-- ==================== PROGRAMME TIMELINE ==================== -->
-<section class="sec" id="programs">
+<!-- ==================== ABOUT IRIP ==================== -->
+<section class="sec sec--mist" id="about-irip" data-page="about-irip" hidden>
   <div class="wrap">
-    <div class="sec-head">
-      <div class="rule" aria-hidden="true"></div>
-      <h2 data-i18n="railTitle">Program timeline</h2>
-      <p data-i18n="railDeck">The internship runs each summer. Select a cohort to open its report, photographs and results.</p>
+    <div class="about-intro" data-edit-ref="about.aboutIripTitle">
+      <div class="about-intro__copy">
+        <span class="about-eyebrow" data-i18n="aboutEyebrow"></span>
+        <h2 data-i18n="aboutIripTitle">About IRIP</h2>
+        <p class="about-headline" data-i18n="aboutHeadline"></p>
+        <p class="about-deck" data-i18n="ovDeck"></p>
+      </div>
+      <dl class="about-facts">
+        <div class="about-facts__item"><dt data-i18n="aboutDurationValue">6</dt><dd data-i18n="aboutDurationLabel"></dd></div>
+        <div class="about-facts__item"><dt data-i18n="aboutMentorValue">1:1</dt><dd data-i18n="aboutMentorLabel"></dd></div>
+        <div class="about-facts__item"><dt data-i18n="aboutLanguageValue">100%</dt><dd data-i18n="aboutLanguageLabel"></dd></div>
+      </dl>
     </div>
-    <div class="filters" role="group" aria-label="Filter cohorts">
-      <button type="button" data-f="all" aria-pressed="true" data-i18n="fAll">All Programs</button>
-      <button type="button" data-f="ahead" aria-pressed="false" data-i18n="fUpcoming">Upcoming</button>
-      <button type="button" data-f="completed" aria-pressed="false" data-i18n="fCompleted">Completed</button>
-    </div>
-    <div class="rail" id="rail"></div>
-  </div>
-</section>
-
-<!-- ==================== PROGRAMME OVERVIEW ==================== -->
-<section class="sec sec--mist" id="overview">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="rule" aria-hidden="true"></div>
-      <h2 data-i18n="ovTitle">Program overview</h2>
-      <p data-i18n="ovDeck">EMSL hosts the internship each summer. Each cohort spends about six weeks inside a working solid-state physics laboratory, on a defined research problem, with a graduate mentor.</p>
-    </div>
-    <div class="grid-4" id="values"></div>
-    <p class="note" data-i18n="ovNote">The internship is a research placement, not a lecture course. Participants join an active project and are expected to produce and present their own data.</p>
+    <div class="about-features" id="values"></div>
   </div>
 </section>
 
 <!-- ==================== RESEARCH TOPICS ==================== -->
-<section class="sec" id="research">
+<section class="sec" id="research" data-page="research" hidden>
   <div class="wrap">
     <div class="sec-head">
       <div class="rule" aria-hidden="true"></div>
@@ -796,7 +805,7 @@ body.ed-on{padding-right:0}
 
 <!-- ==================== PROGRAMME DETAILS (TABS) ==================== -->
 <!-- ==================== PAST PROGRAMMES ARCHIVE ==================== -->
-<section class="sec" id="archive">
+<section class="sec" id="archive" data-page="archive" hidden>
   <div class="wrap">
     <div class="sec-head">
       <div class="rule" aria-hidden="true"></div>
@@ -810,7 +819,7 @@ body.ed-on{padding-right:0}
 </section>
 
 <!-- ==================== LIFE IN SEOUL ==================== -->
-<section class="sec sec--mist" id="life">
+<section class="sec sec--mist" id="life" data-page="about-irip" hidden>
   <div class="wrap">
     <div class="sec-head">
       <div class="rule" aria-hidden="true"></div>
@@ -822,7 +831,7 @@ body.ed-on{padding-right:0}
 </section>
 
 <!-- ==================== FAQ ==================== -->
-<section class="sec" id="faq">
+<section class="sec" id="faq" data-page="about-irip" hidden>
   <div class="wrap">
     <div class="sec-head">
       <div class="rule" aria-hidden="true"></div>
@@ -834,7 +843,7 @@ body.ed-on{padding-right:0}
 </section>
 
 <!-- ==================== APPLICATION CTA ==================== -->
-<section class="sec cta" id="apply">
+<section class="sec cta" id="apply" data-feature="apply" hidden>
   <svg class="hero__lattice" aria-hidden="true" width="100%" height="100%"><rect width="100%" height="100%" fill="url(#lattice)"/></svg>
   <div class="wrap cta__inner">
     <div>
@@ -858,7 +867,7 @@ body.ed-on{padding-right:0}
 </section>
 
 <!-- ==================== CONTACT ==================== -->
-<section class="sec contact" id="contact">
+<section class="sec contact" id="contact" data-page="contact" hidden>
   <div class="wrap">
     <div class="sec-head">
       <div class="rule" aria-hidden="true"></div>
@@ -902,9 +911,9 @@ body.ed-on{padding-right:0}
       <div>
         <h4 data-i18n="ftQuick">Quick links</h4>
         <ul>
-          <li><a href="#upcoming" data-i18n="navUpcoming">Upcoming Program</a></li>
-          <li><a href="#faq" data-i18n="navFaq">FAQ</a></li>
-          <li><a href="#apply" data-i18n="applyNow">Apply Now</a></li>
+          <li><a href="#home" data-i18n="navHome">Home</a></li>
+          <li><a href="#about-irip" data-i18n="navAboutIrip">About IRIP</a></li>
+          <li><a href="#contact" data-i18n="navContact">Contact</a></li>
         </ul>
       </div>
       <div>
@@ -967,7 +976,7 @@ const CONFIG = {
   },
 
   /* Bố cục: đổi số cột, tỷ lệ khung ảnh, độ rộng trang, khoảng cách section.   */
-  layout: { maxWidth:1200, topicCols:3, valueCols:4,
+  layout: { maxWidth:1200, topicCols:3, valueCols:2,
             bannerMin:340, secScale:1 },
 
   /* Nội dung của kỳ sắp tới, hiển thị ở bảng thông tin.                       */
@@ -1008,19 +1017,31 @@ const ICON = {
   clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/>'
 };
 
-const VALUES = [
-  { icon:"flask",   en:["Hands-on research","Interns join an ongoing project and run their own samples and measurements."],
-                    vi:["Nghiên cứu thực hành","Thực tập sinh tham gia một đề tài đang triển khai, tự chế tạo mẫu và tự đo."],
-                    ko:["실험 중심 연구","진행 중인 연구 과제에 참여하여 시료 제작과 측정을 직접 수행합니다."] },
-  { icon:"mentor",  en:["Academic mentoring","A faculty supervisor sets the problem; a graduate mentor works alongside you daily."],
-                    vi:["Hướng dẫn học thuật","Giảng viên đặt bài toán nghiên cứu; nghiên cứu sinh hướng dẫn trực tiếp hằng ngày."],
-                    ko:["학술 지도","지도교수가 연구 주제를 설정하고, 대학원생 멘토가 일상적으로 함께합니다."] },
-  { icon:"globe",   en:["International community","Cohorts are mixed by country and university, and the working language is English."],
-                    vi:["Cộng đồng quốc tế","Mỗi kỳ quy tụ sinh viên từ nhiều quốc gia và trường khác nhau; ngôn ngữ làm việc là tiếng Anh."],
-                    ko:["국제적 연구 환경","여러 국가와 대학의 학생이 함께하며, 공용어는 영어입니다."] },
-  { icon:"culture", en:["Cultural experience","Time in Seoul outside the laboratory is part of the program, not an afterthought."],
-                    vi:["Trải nghiệm văn hóa","Thời gian trải nghiệm Seoul ngoài phòng thí nghiệm là một phần của chương trình."],
-                    ko:["문화 체험","연구실 밖 서울에서의 경험도 프로그램의 일부입니다."] }
+/* About cards use the same translated text keys as live editing and export. */
+const ABOUT_FEATURES = [
+  {id:"research", icon:"flask", title:"aboutResearchTitle", deck:"aboutResearchDeck",
+    details:[["aboutProcessLabel","aboutProcessBody"],["aboutMentorDetailLabel","aboutMentorDetailBody"]]},
+  {id:"academic", icon:"mentor", title:"aboutAcademicTitle", deck:"aboutAcademicDeck",
+    details:[["aboutMethodsLabel","aboutMethodsBody"],["aboutReportsLabel","aboutReportsBody"],
+             ["aboutPublicationLabel","aboutPublicationBody"]]},
+  {id:"community", icon:"globe", title:"aboutCommunityTitle", deck:"aboutCommunityDeck"},
+  {id:"culture", icon:"culture", title:"aboutCultureTitle", deck:"aboutCultureDeck"}
+];
+const ABOUT_FIELDS = [
+  ["aboutIripTitle","Tên mục"],["aboutEyebrow","Dòng mở đầu"],
+  ["aboutHeadline","Tiêu đề giới thiệu"],["ovDeck","Giới thiệu chương trình"],
+  ["aboutDurationValue","Thời lượng — giá trị"],["aboutDurationLabel","Thời lượng — nhãn"],
+  ["aboutMentorValue","Mentor — giá trị"],["aboutMentorLabel","Mentor — nhãn"],
+  ["aboutLanguageValue","Tiếng Anh — giá trị"],["aboutLanguageLabel","Tiếng Anh — nhãn"],
+  ["aboutResearchTitle","01 · Nghiên cứu — tiêu đề"],["aboutResearchDeck","01 · Nghiên cứu — mở đầu"],
+  ["aboutProcessLabel","01 · Quy trình — nhãn"],["aboutProcessBody","01 · Quy trình — nội dung"],
+  ["aboutMentorDetailLabel","01 · Mentor — nhãn"],["aboutMentorDetailBody","01 · Mentor — nội dung"],
+  ["aboutAcademicTitle","02 · Học thuật — tiêu đề"],["aboutAcademicDeck","02 · Học thuật — mở đầu"],
+  ["aboutMethodsLabel","02 · Phương pháp — nhãn"],["aboutMethodsBody","02 · Phương pháp — nội dung"],
+  ["aboutReportsLabel","02 · Báo cáo — nhãn"],["aboutReportsBody","02 · Báo cáo — nội dung"],
+  ["aboutPublicationLabel","02 · Công bố — nhãn"],["aboutPublicationBody","02 · Công bố — nội dung"],
+  ["aboutCommunityTitle","03 · Cộng đồng — tiêu đề"],["aboutCommunityDeck","03 · Cộng đồng — nội dung"],
+  ["aboutCultureTitle","04 · Seoul — tiêu đề"],["aboutCultureDeck","04 · Seoul — nội dung"]
 ];
 
 const TOPICS = [
@@ -1055,7 +1076,7 @@ const TOPICS = [
 
 
 
-/* --- Cohorts. Add a new object here and it appears in the timeline,
+/* --- Cohorts. Archived or completed entries appear in Past Programs,
        in the archive (when archived:true) and in the navigation list. --- */
 const PROGRAMS = [
   { id:"summer-2026", season:"summer", year:2026, state:"completed", archived:true,
@@ -1120,8 +1141,35 @@ const ARCHIVE_FRAMES = [
    ============================================================================ */
 const I18N = {
 en:{
+aboutEyebrow:"SSU-UED IRIP",
+aboutHeadline:"Six-week research internship",
+aboutDurationLabel:"Weeks in the lab",
+aboutMentorLabel:"Mentor guidance",
+aboutLanguageLabel:"English for academic work",
+aboutResearchTitle:"Hands-on research",
+aboutResearchDeck:"Participants take part in experimental work within their research project.",
+aboutProcessLabel:"Experimental work",
+aboutProcessBody:"Activities include preparing materials, fabricating samples, operating modern optical and physical measurement equipment, and collecting experimental data.",
+aboutMentorDetailLabel:"1:1 mentoring",
+aboutMentorDetailBody:"Mentors provide direct guidance, support with technical problems and daily scientific discussion in the laboratory.",
+aboutAcademicTitle:"Academic development",
+aboutAcademicDeck:"Research activities include data analysis, literature review and project presentations.",
+aboutMethodsLabel:"Research methods",
+aboutMethodsBody:"Students practise data analysis, scientific literature review and critical thinking.",
+aboutReportsLabel:"Weekly presentations and feedback",
+aboutReportsBody:"Students present their project progress each week and receive feedback on their work.",
+aboutPublicationLabel:"Possible research outputs",
+aboutPublicationBody:"Promising results may be developed into a co-authored paper in an SCI/SCIE-indexed international journal or a presentation at a scientific conference.",
+aboutCommunityTitle:"International community",
+aboutCommunityDeck:"Academic discussions, group meetings, laboratory seminars and research presentations are conducted entirely in English, providing regular practice in scientific communication.",
+aboutCultureTitle:"Life and culture in Seoul",
+aboutCultureDeck:"Outside laboratory hours, students can experience student life in Seoul, local food, landmarks and the city's urban culture.",
+aboutDurationValue:"6",
+aboutMentorValue:"1:1",
+aboutLanguageValue:"100%",
+
 skip:"Skip to main content", brandSub:"International Research Internship Program",
-navHome:"Home", navPrograms:"Programs", navUpcoming:"Upcoming Program", navTimeline:"Program Timeline",
+navHome:"Home", navPrograms:"Programs", navUpcoming:"Upcoming Program", navAboutIrip:"About IRIP", aboutIripTitle:"About IRIP",
 navSummer:"Summer Internship", navPast:"Past Programs", dropNotePast:"New cohorts are added in the PROGRAMS list in the script.",
 navDetails:"Program Details", navOverview:"Overview", navResearch:"Research Topics", navSchedule:"Schedule",
 navEligibility:"Eligibility", navApplication:"Application", navFaq:"FAQ", navAbout:"About EMSL",
@@ -1139,17 +1187,13 @@ fProgram:"Program", fDates:"Dates", fDuration:"Duration", approxSix:"Approximate
 fDeadline:"Application deadline", fEligible:"Eligible students", fFormat:"Format", fSeats:"Participants",
 fLanguage:"Working language", viewDetails:"View Program Details",
 bannerNote:"Use a wide photograph of the laboratory, an instrument in operation, or the previous cohort at work.",
-railTitle:"Program timeline",
-railDeck:"The internship runs each summer. Select a cohort to open its report, photographs and results.",
-fAll:"All Programs", fSummer:"Summer", fUpcoming:"Upcoming", fCompleted:"Completed",
 stCompleted:"Completed", stOpen:"Applications Open", stUpcoming:"Upcoming", stPlanned:"Planned",
 viewProgram:"View Program", viewStory:"View Full Story",
 lProject:"Project", lActs:"Activities", lKeyResults:"Key results", lGoal:"Goal", lStudents:"Participants and their projects",
 lDates:"Dates", lParticipants:"Participants", lTopic:"Research topic", lCountries:"Universities and countries",
 lActivities:"Main activities", lOutcomes:"Results", lGallery:"Cohort gallery",
 ovTitle:"Program overview",
-ovDeck:"EMSL hosts the internship each summer. Each cohort spends about six weeks inside a working solid-state physics laboratory, on a defined research problem, with a graduate mentor.",
-ovNote:"The internship is a research placement, not a lecture course. Participants join an active project and are expected to produce and present their own data.",
+ovDeck:"SSU-UED IRIP is planned as an annual summer program in Seoul. During six weeks in a solid-state physics laboratory, students carry out an independent research project with support from experienced mentors.",
 raTitle:"Research areas",
 raDeck:"Internship topics are assigned from the laboratory's active research lines. Confirm the topic list for your cohort with the program coordinator before applying.",
 wkTitle:"Six-week program structure", wkDeck:"A typical cohort follows the sequence below, from safety training to the final presentation.",
@@ -1209,14 +1253,41 @@ docTitle:"SSU-UED International Research Internship Program — Soongsil Univers
 metaDesc:"A six-week research internship programme run jointly by Soongsil University, Seoul and the University of Science and Education, Danang."
 },
 vi:{
+aboutEyebrow:"SSU-UED IRIP",
+aboutHeadline:"Thực tập nghiên cứu trong sáu tuần",
+aboutDurationLabel:"Tuần trong phòng thí nghiệm",
+aboutMentorLabel:"Hướng dẫn từ mentor",
+aboutLanguageLabel:"Tiếng Anh trong hoạt động học thuật",
+aboutResearchTitle:"Nghiên cứu thực hành",
+aboutResearchDeck:"Sinh viên tham gia công việc thực nghiệm trong đề tài nghiên cứu của mình.",
+aboutProcessLabel:"Công việc thực nghiệm",
+aboutProcessBody:"Các hoạt động gồm chuẩn bị vật liệu, chế tạo mẫu, vận hành thiết bị đo quang học và vật lý hiện đại, và thu thập dữ liệu thực nghiệm.",
+aboutMentorDetailLabel:"Hướng dẫn 1:1 cùng mentor",
+aboutMentorDetailBody:"Mentor hướng dẫn trực tiếp, hỗ trợ xử lý vấn đề kỹ thuật và thảo luận chuyên môn hằng ngày trong phòng thí nghiệm.",
+aboutAcademicTitle:"Phát triển kỹ năng học thuật",
+aboutAcademicDeck:"Các hoạt động nghiên cứu bao gồm phân tích dữ liệu, tổng quan tài liệu và báo cáo đề tài.",
+aboutMethodsLabel:"Phương pháp nghiên cứu",
+aboutMethodsBody:"Sinh viên rèn luyện kỹ năng phân tích dữ liệu, tổng quan tài liệu khoa học và tư duy phản biện.",
+aboutReportsLabel:"Báo cáo hằng tuần và góp ý",
+aboutReportsBody:"Sinh viên báo cáo tiến độ đề tài mỗi tuần và nhận góp ý về công việc nghiên cứu.",
+aboutPublicationLabel:"Khả năng công bố kết quả nghiên cứu",
+aboutPublicationBody:"Những kết quả có triển vọng có thể được phát triển thành bài báo đồng tác giả trên tạp chí quốc tế chuyên ngành thuộc SCI/SCIE hoặc báo cáo tại hội nghị khoa học.",
+aboutCommunityTitle:"Cộng đồng quốc tế",
+aboutCommunityDeck:"Trao đổi học thuật, họp nhóm, seminar phòng thí nghiệm và báo cáo nghiên cứu đều sử dụng tiếng Anh, giúp sinh viên thường xuyên thực hành giao tiếp khoa học.",
+aboutCultureTitle:"Đời sống và văn hóa tại Seoul",
+aboutCultureDeck:"Ngoài giờ làm việc trong phòng thí nghiệm, sinh viên có thể trải nghiệm đời sống sinh viên tại Seoul, tìm hiểu ẩm thực địa phương, các địa danh và văn hóa đô thị.",
+aboutDurationValue:"6",
+aboutMentorValue:"1:1",
+aboutLanguageValue:"100%",
+
 skip:"Bỏ qua tới nội dung chính", brandSub:"Chương trình thực tập nghiên cứu quốc tế",
-navHome:"Trang chủ", navPrograms:"Chương trình", navUpcoming:"Kỳ sắp mở", navTimeline:"Dòng thời gian",
+navHome:"Trang chủ", navPrograms:"Chương trình", navUpcoming:"Kỳ sắp mở", navAboutIrip:"Giới thiệu IRIP", aboutIripTitle:"Giới thiệu IRIP",
 navSummer:"Thực tập mùa hè", navPast:"Các kỳ đã diễn ra", dropNotePast:"Thêm kỳ mới trong danh sách PROGRAMS ở phần script.",
 navDetails:"Thông tin chương trình", navOverview:"Tổng quan", navResearch:"Chủ đề nghiên cứu", navSchedule:"Lịch trình",
 navEligibility:"Điều kiện", navApplication:"Hồ sơ đăng ký", navFaq:"Câu hỏi thường gặp", navAbout:"Giới thiệu EMSL",
 navLab:"Phòng thí nghiệm", navLabResearch:"Nghiên cứu", navPeople:"Nhân sự", navFacilities:"Trang thiết bị",
 navGallery:"Thư viện ảnh", navContact:"Liên hệ", applyNow:"Đăng ký", heroDetails:"Xem chi tiết chương trình", explore:"Tìm hiểu chương trình",
-heroTitle:"Chương trình thực tập nghiên cứu quốc tế SSU-UED",
+heroTitle:"SSU-UED Chương trình thực tập nghiên cứu quốc tế",
 heroTag:"Khám phá vật lý. Trải nghiệm nghiên cứu. Kết nối quốc tế.",
 heroLede:"Chương trình thực tập nghiên cứu sáu tuần do Đại học Soongsil (Seoul) và Trường Đại học Sư phạm — Đại học Đà Nẵng phối hợp tổ chức.",
 factDuration:"Thời lượng:", factLocation:"Địa điểm:", factHost:"Đơn vị tổ chức:",
@@ -1228,17 +1299,13 @@ fProgram:"Chương trình", fDates:"Thời gian", fDuration:"Thời lượng", a
 fDeadline:"Hạn nộp hồ sơ", fEligible:"Đối tượng", fFormat:"Hình thức", fSeats:"Số lượng",
 fLanguage:"Ngôn ngữ làm việc", viewDetails:"Xem thông tin chương trình",
 bannerNote:"Nên dùng ảnh ngang chụp phòng thí nghiệm, thiết bị đang vận hành hoặc kỳ thực tập trước.",
-railTitle:"Dòng thời gian chương trình",
-railDeck:"Chương trình tổ chức vào mùa hè hằng năm. Chọn một kỳ để xem báo cáo, hình ảnh và kết quả.",
-fAll:"Tất cả", fSummer:"Mùa hè", fUpcoming:"Sắp diễn ra", fCompleted:"Đã hoàn thành",
 stCompleted:"Đã hoàn thành", stOpen:"Đang nhận hồ sơ", stUpcoming:"Sắp diễn ra", stPlanned:"Dự kiến",
 viewProgram:"Xem kỳ này", viewStory:"Xem toàn bộ",
 lProject:"Đề tài", lActs:"Nội dung thực hiện", lKeyResults:"Kết quả chính", lGoal:"Mục tiêu", lStudents:"Sinh viên tham gia và đề tài",
 lDates:"Thời gian", lParticipants:"Số người tham gia", lTopic:"Chủ đề nghiên cứu", lCountries:"Trường và quốc gia",
 lActivities:"Hoạt động chính", lOutcomes:"Kết quả", lGallery:"Hình ảnh của kỳ",
 ovTitle:"Tổng quan chương trình",
-ovDeck:"EMSL tổ chức chương trình vào mùa hè hằng năm. Mỗi kỳ kéo dài khoảng sáu tuần trong một phòng thí nghiệm vật lý chất rắn đang hoạt động, với một đề tài cụ thể và một người hướng dẫn là học viên sau đại học.",
-ovNote:"Đây là chương trình nghiên cứu, không phải khóa học lý thuyết. Người tham gia làm việc trong một đề tài thực tế và phải tự thu thập, trình bày dữ liệu của mình.",
+ovDeck:"SSU-UED IRIP dự kiến được tổ chức hằng năm vào mùa hè tại Seoul. Trong sáu tuần tại phòng thí nghiệm vật lý chất rắn, sinh viên thực hiện một đề tài nghiên cứu độc lập với sự hỗ trợ của các mentor có kinh nghiệm.",
 raTitle:"Lĩnh vực nghiên cứu",
 raDeck:"Đề tài thực tập được phân công từ các hướng nghiên cứu đang triển khai của phòng thí nghiệm. Hãy xác nhận danh mục đề tài của kỳ với điều phối viên trước khi đăng ký.",
 wkTitle:"Cấu trúc chương trình sáu tuần", wkDeck:"Một kỳ thực tập thường diễn ra theo trình tự sau, từ huấn luyện an toàn đến báo cáo tổng kết.",
@@ -1298,8 +1365,35 @@ docTitle:"Chương trình thực tập nghiên cứu quốc tế SSU-UED — Đ�
 metaDesc:"Chương trình thực tập nghiên cứu sáu tuần do Đại học Soongsil (Seoul) và Trường Đại học Sư phạm — Đại học Đà Nẵng phối hợp tổ chức."
 },
 ko:{
+aboutEyebrow:"SSU-UED IRIP",
+aboutHeadline:"6주 연구 인턴십",
+aboutDurationLabel:"주간의 연구실 경험",
+aboutMentorLabel:"멘토 지도",
+aboutLanguageLabel:"영어로 진행하는 학술 활동",
+aboutResearchTitle:"실험 중심 연구",
+aboutResearchDeck:"참가 학생은 자신의 연구 프로젝트와 관련된 실험 활동에 참여합니다.",
+aboutProcessLabel:"실험 활동",
+aboutProcessBody:"주요 활동은 재료 준비, 시료 제작, 현대적인 광학·물성 측정 장비 운용과 실험 데이터 수집입니다.",
+aboutMentorDetailLabel:"1:1 멘토 지도",
+aboutMentorDetailBody:"멘토는 직접 지도하고 기술적 문제 해결을 지원하며 연구실에서 매일 학술 토론을 진행합니다.",
+aboutAcademicTitle:"학술 역량 개발",
+aboutAcademicDeck:"연구 활동에는 데이터 분석, 문헌 검토와 프로젝트 발표가 포함됩니다.",
+aboutMethodsLabel:"연구 방법",
+aboutMethodsBody:"학생은 데이터 분석, 과학 문헌 검토와 비판적 사고를 연습합니다.",
+aboutReportsLabel:"주간 발표와 피드백",
+aboutReportsBody:"학생은 매주 프로젝트 진행 상황을 발표하고 연구에 대한 피드백을 받습니다.",
+aboutPublicationLabel:"연구 성과 발표 가능성",
+aboutPublicationBody:"유망한 결과는 SCI/SCIE 등재 국제 전문 학술지의 공동 저자 논문이나 학술대회 발표로 발전할 수 있습니다.",
+aboutCommunityTitle:"국제 커뮤니티",
+aboutCommunityDeck:"학술 토론, 그룹 미팅, 연구실 세미나와 연구 발표는 모두 영어로 진행되며, 학생은 과학적 의사소통을 꾸준히 연습할 수 있습니다.",
+aboutCultureTitle:"서울의 생활과 문화",
+aboutCultureDeck:"연구실 업무 시간 외에는 서울의 학생 생활, 현지 음식, 주요 명소와 도시 문화를 접할 수 있습니다.",
+aboutDurationValue:"6",
+aboutMentorValue:"1:1",
+aboutLanguageValue:"100%",
+
 skip:"본문으로 건너뛰기", brandSub:"국제 연구 인턴십 프로그램",
-navHome:"홈", navPrograms:"프로그램", navUpcoming:"모집 예정 프로그램", navTimeline:"프로그램 연혁",
+navHome:"홈", navPrograms:"프로그램", navUpcoming:"모집 예정 프로그램", navAboutIrip:"IRIP 소개", aboutIripTitle:"IRIP 소개",
 navSummer:"여름학기 인턴십", navPast:"지난 프로그램", dropNotePast:"새 기수는 스크립트의 PROGRAMS 목록에 추가합니다.",
 navDetails:"프로그램 안내", navOverview:"개요", navResearch:"연구 주제", navSchedule:"일정",
 navEligibility:"지원 자격", navApplication:"지원 서류", navFaq:"자주 묻는 질문", navAbout:"EMSL 소개",
@@ -1317,17 +1411,13 @@ fProgram:"프로그램", fDates:"기간", fDuration:"운영 기간", approxSix:"
 fDeadline:"지원 마감", fEligible:"지원 대상", fFormat:"운영 방식", fSeats:"모집 인원",
 fLanguage:"사용 언어", viewDetails:"프로그램 안내 보기",
 bannerNote:"연구실 전경, 장비 운용 장면, 이전 기수의 활동 사진 등 가로형 이미지를 권장합니다.",
-railTitle:"프로그램 연혁",
-railDeck:"매년 여름에 운영됩니다. 기수를 선택하면 해당 기수의 기록과 사진, 결과를 볼 수 있습니다.",
-fAll:"전체", fSummer:"여름학기", fUpcoming:"예정", fCompleted:"종료",
 stCompleted:"종료", stOpen:"모집 중", stUpcoming:"예정", stPlanned:"계획",
 viewProgram:"기수 보기", viewStory:"전체 보기",
 lProject:"연구 주제", lActs:"수행 내용", lKeyResults:"주요 결과", lGoal:"목표", lStudents:"참가자 및 연구 주제",
 lDates:"기간", lParticipants:"참가 인원", lTopic:"연구 주제", lCountries:"참가 대학 및 국가",
 lActivities:"주요 활동", lOutcomes:"성과", lGallery:"기수 갤러리",
 ovTitle:"프로그램 개요",
-ovDeck:"EMSL은 매년 여름 인턴십을 운영합니다. 각 기수는 약 6주 동안 고체물리 연구실에서 지정된 연구 주제를 수행하며, 대학원생 멘토와 함께 일합니다.",
-ovNote:"본 프로그램은 강의가 아니라 연구 참여 과정입니다. 참가자는 진행 중인 과제에 합류하여 직접 데이터를 얻고 발표합니다.",
+ovDeck:"SSU-UED IRIP는 서울에서 매년 여름 운영할 예정인 프로그램입니다. 참가 학생은 고체물리 연구실에서 6주 동안 경험이 있는 멘토의 지원을 받으며 독립적인 연구 프로젝트를 수행합니다.",
 raTitle:"연구 분야",
 raDeck:"인턴십 주제는 연구실에서 진행 중인 연구 분야에서 배정됩니다. 지원 전 해당 기수의 주제 목록을 프로그램 담당자에게 확인하십시오.",
 wkTitle:"6주 프로그램 구성", wkDeck:"일반적인 기수는 안전 교육부터 최종 발표까지 아래 순서로 진행됩니다.",
@@ -1391,7 +1481,8 @@ metaDesc:"숭실대학교(서울)와 다낭 사범대학교가 공동으로 운�
 /* ============================================================================
    4. RENDERING AND BEHAVIOUR — no editing needed below this line.
    ============================================================================ */
-let lang = localStorage.getItem("emslab-lang") || "en";
+let lang = localStorage.getItem("emslab-v3-lang") || "en";
+if(!["en","vi","ko"].includes(lang)) lang = "en";
 const t   = k => (I18N[lang] && I18N[lang][k]) || I18N.en[k] || k;
 const p   = o => o[lang] || o.en;
 const $   = (s,r=document) => r.querySelector(s);
@@ -1456,12 +1547,31 @@ function applyStatic(){
   $$(".lang button").forEach(b=> b.setAttribute("aria-pressed", String(b.dataset.lang === lang)));
 }
 
+/* Keep the programme identity with the first word, including after language
+   switches or Edit rerenders. The editable/exported value stays plain text. */
+function formatHeroTitle(){
+  const heading = $("#home h1");
+  const title = heading.textContent;
+  const prefix = title.match(/^SSU-UED\s+\S+/);
+  if(!prefix) return;
+  const identity = document.createElement("span");
+  identity.className = "hero__identity";
+  identity.textContent = prefix[0];
+  heading.replaceChildren(identity, document.createTextNode(title.slice(prefix[0].length)));
+}
+
 /* ---------- values, research, weeks, lists ---------- */
 function renderValues(){
-  $("#values").innerHTML = VALUES.map(v=>{
-    const [h,b] = p(v);
-    return '<article class="value">'+svg(v.icon)+'<h3>'+h+'</h3><p>'+b+'</p></article>';
-  }).join("");
+  const text = (tag, key, cls="")=> '<'+tag+' data-i18n="'+key+'"'+
+    (cls ? ' class="'+cls+'"' : '')+'>'+esc(t(key))+'</'+tag+'>';
+  $("#values").innerHTML = ABOUT_FEATURES.map((v,i)=>
+    '<article class="about-card about-card--'+v.id+'" data-edit-ref="about.'+v.title+'">'+
+      '<div class="about-card__top"><span class="about-card__icon" aria-hidden="true">'+svg(v.icon)+'</span>'+
+      '<span class="about-card__number" aria-hidden="true">0'+(i+1)+'</span></div>'+
+      text("h3",v.title)+text("p",v.deck,"about-card__deck")+
+      (v.details ? '<dl class="about-card__details">'+v.details.map(([label,body])=>
+        '<div>'+text("dt",label)+text("dd",body)+'</div>').join("")+'</dl>' : '')+
+    '</article>').join("");
 }
 function renderTopics(){
   $("#research-grid").innerHTML = TOPICS.map((x,i)=>
@@ -1471,42 +1581,13 @@ function renderTopics(){
     '</ul></div></article>').join("");
 }
 
-/* ---------- cohort rail ---------- */
+/* ---------- cohort state labels ---------- */
 const stateLabel = s => ({completed:"stCompleted",open:"stOpen",upcoming:"stUpcoming",planned:"stPlanned"})[s];
-function renderRail(){
-  $("#rail").innerHTML = PROGRAMS.map(pr=>
-    '<article class="cohort" data-state="'+pr.state+'" data-season="'+pr.season+'" data-id="'+pr.id+'"'+
-      ' data-edit-ref="programs.'+PROGRAMS.indexOf(pr)+'">'+
-      '<div class="cohort__inner">'+
-        frame({ratio:"16x9",label:"[Insert Program Photo]",src:pr.image})+
-        '<div class="cohort__body">'+
-          '<span class="tag tag--'+pr.state+'">'+t(stateLabel(pr.state))+'</span>'+
-          '<h3>'+pr.name+'</h3>'+
-          '<dl>'+
-            [[t("lDates"), pr.dates], [t("lParticipants"), pr.participants]]
-              .filter(r=> !isBlank(r[1]))
-              .map(r=> '<div><dt>'+r[0]+':&nbsp;</dt><dd style="margin:0">'+val(r[1])+'</dd></div>').join("")+
-          '</dl>'+
-          '<a class="btn btn--ghost btn--sm" href="#'+(pr.archived?("archive-"+pr.id):"upcoming")+'">'+t("viewProgram")+'</a>'+
-        '</div>'+
-      '</div>'+
-    '</article>'
-  ).join("");
-  hydrateFrames($("#rail"));
-}
-function applyFilter(f){
-  $$("#rail .cohort").forEach(c=>{
-    const st = c.dataset.state, se = c.dataset.season;
-    const show = f==="all" || f===se || (f==="completed"&&st==="completed") ||
-                 (f==="ahead" && ["open","upcoming","planned"].includes(st));
-    c.hidden = !show;
-  });
-  $$(".filters button").forEach(b=> b.setAttribute("aria-pressed", String(b.dataset.f===f)));
-}
 
 /* ---------- archive ---------- */
 /* Bốn dòng thông tin đề tài trên thẻ sinh viên. */
 const TCARD_ROWS = [["project","lProject"],["activities","lActs"],["results","lKeyResults"],["goal","lGoal"]];
+let selectedCohort = null;
 
 /* Một thẻ sinh viên: tên, trường, rồi bốn dòng đề tài. Dòng nào trống thì bỏ. */
 function studentCard(x, i){
@@ -1521,10 +1602,11 @@ function studentCard(x, i){
 /* Mục "Past programs": thanh chọn kỳ ở trên, mỗi kỳ là một khối gồm bảng thông
    tin, thư viện ảnh và danh sách sinh viên cùng đề tài của họ.                  */
 function renderArchive(){
-  const list = PROGRAMS.slice().sort((a,b)=> (a.year||0) - (b.year||0));
+  const list = PROGRAMS.filter(pr=>pr.archived || pr.state === "completed").sort((a,b)=> (a.year||0) - (b.year||0));
+  if(!list.some(pr=>pr.id === selectedCohort)) selectedCohort = list[0]?.id || null;
 
   $("#cohort-tabs").innerHTML = list.map((pr,i)=>
-    '<button type="button" role="tab" data-cohort="'+pr.id+'" aria-selected="'+(i===0)+'">'+
+    '<button type="button" role="tab" data-cohort="'+pr.id+'" aria-selected="'+(pr.id===selectedCohort)+'">'+
       esc(pr.name)+'</button>').join("");
 
   $("#archive-list").innerHTML = list.map((pr,i)=>{
@@ -1538,7 +1620,7 @@ function renderArchive(){
                                  .filter(([s])=> s.programId === pr.id && !dropIfBlank(s.name));
 
     return '<article class="archive" id="archive-'+pr.id+'" role="tabpanel"'+
-      ' data-edit-ref="programs.'+PROGRAMS.indexOf(pr)+'"'+(i === 0 ? '' : ' hidden')+'>'+
+      ' data-edit-ref="programs.'+PROGRAMS.indexOf(pr)+'"'+(pr.id === selectedCohort ? '' : ' hidden')+'>'+
       '<div class="archive__head"><div><span class="tag tag--'+pr.state+'">'+t(stateLabel(pr.state))+'</span>'+
         '<h3 style="margin-top:.4rem">'+esc(val(pr.name))+'</h3></div>'+
         (pr.story ? '<a class="btn btn--ghost btn--sm" href="'+pr.story+'" target="_blank" rel="noopener">'+t("viewStory")+'</a>' : '')+'</div>'+
@@ -1560,8 +1642,7 @@ function renderArchive(){
 /* Bấm vào một kỳ trên thanh chọn thì chỉ khối của kỳ đó hiện ra. */
 $("#cohort-tabs").addEventListener("click", e=>{
   const b = e.target.closest("[data-cohort]"); if(!b) return;
-  $$("#cohort-tabs [data-cohort]").forEach(x=> x.setAttribute("aria-selected", String(x === b)));
-  $$("#archive-list .archive").forEach(a=> a.hidden = a.id !== "archive-"+b.dataset.cohort);
+  navigateTo("archive-"+b.dataset.cohort);
 });
 function renderFaq(){
   $("#faq-list").innerHTML = FAQ.map((q,i)=>
@@ -1650,7 +1731,8 @@ function applyLayout(){
   const L = CONFIG.layout || {}, r = document.documentElement.style;
   if(L.maxWidth)   r.setProperty("--wrap", L.maxWidth + "px");
   if(L.topicCols)  r.setProperty("--topic-cols", L.topicCols);
-  if(L.valueCols)  r.setProperty("--value-cols", L.valueCols);
+  L.valueCols = Math.max(1, Math.min(2, Math.round(Number(L.valueCols) || 2)));
+  r.setProperty("--value-cols", L.valueCols);
   if(L.bannerMin)  r.setProperty("--banner-min", L.bannerMin + "px");
   if(L.secScale)   r.setProperty("--sec-scale", L.secScale);
 }
@@ -1707,7 +1789,10 @@ async function loadContent(){
     if(Array.isArray(d.faq))    FAQ.splice(0, FAQ.length, ...d.faq);
     if(Array.isArray(d.seoul))  SEOUL.splice(0, SEOUL.length, ...d.seoul);
     if(d.faqAnswers) Object.entries(d.faqAnswers).forEach(([i,a])=>{ if(FAQ[i]) FAQ[i].a = a; });
-    if(d.text) ["en","vi","ko"].forEach(l=> Object.assign(I18N[l], d.text[l]||{}));
+    if(d.text) ["en","vi","ko"].forEach(l=>{
+      Object.assign(I18N[l], d.text[l]||{});
+      Object.assign(TEXT[l], d.text[l]||{});
+    });
   }catch(e){ /* không có file, dùng nội dung mặc định */ }
 }
 function applyEmbeds(){
@@ -1720,7 +1805,9 @@ function applyEmbeds(){
 }
 
 /* ---------- countdown ---------- */
+let countdownTimer;
 function startCountdown(){
+  clearInterval(countdownTimer);
   const box = $("#countdown"); if(!box) return;
   const set = (k,v)=> box.querySelector('[data-cd="'+k+'"]').textContent = v;
   const openAt = CONFIG.applicationOpenDate ? new Date(CONFIG.applicationOpenDate).getTime() : NaN;
@@ -1739,7 +1826,7 @@ function startCountdown(){
     set("m", String(Math.floor(gap/60000)%60).padStart(2,"0"));
     set("s", String(Math.floor(gap/1000)%60).padStart(2,"0"));
   };
-  run(); setInterval(run, 1000);
+  run(); countdownTimer = setInterval(run, 1000);
 }
 
 /* Mục nào không còn thẻ nào bên trong thì ẩn cả mục, và bỏ luôn link trên thanh
@@ -1749,77 +1836,169 @@ function hideEmptySections(){
   OPTIONAL_SECTIONS.forEach(([innerSel, secSel])=>{
     const inner = $(innerSel), sec = $(secSel); if(!inner || !sec) return;
     const empty = !EDIT_MODE && inner.children.length === 0;
-    sec.hidden = empty;
+    sec.dataset.empty = String(empty);
     $$('a[href="'+secSel+'"]').forEach(a=> (a.closest("li") || a).hidden = empty);
   });
 }
 
 /* ---------- render everything ---------- */
 function renderAll(){
-  applyStatic(); renderValues(); renderTopics(); renderRail(); renderArchive();
+  renderValues(); applyStatic(); formatHeroTitle(); renderTopics(); renderArchive();
   renderFaq(); renderGalleries(); applyConfig();
   hideEmptySections();
-  applyFilter($(".filters button[aria-pressed='true']")?.dataset.f || "all");
+  applyPageVisibility();
   observeReveal();
-  if(typeof ED !== "undefined" && ED.active) markEditable();
+  if(typeof ED !== "undefined" && ED.active){ markEditable(); setLive(ED.live, true); }
 }
 
 /* ---------- navigation ---------- */
+/* Each section has one owning view. Only direct main sections are toggled;
+   research tabs, cohort tabs and FAQ answers retain their own hidden state. */
+const PAGE_TARGETS = {
+  home:"home", upcoming:"upcoming", archive:"archive",
+  "about-irip":"about-irip", life:"about-irip", faq:"about-irip",
+  research:"research", contact:"contact"
+};
+const canonicalTarget = id => ({programs:"upcoming", overview:"about-irip"})[id] || id;
+function hashTarget(){
+  try{ return decodeURIComponent(location.hash.slice(1)) || "home"; }
+  catch(e){ return "home"; }
+}
+function pageForTarget(id){
+  id = canonicalTarget(id);
+  return PAGE_TARGETS[id] || (id.startsWith("archive-") ? "archive" : "home");
+}
+let activePage = pageForTarget(hashTarget());
+function applyPageVisibility(){
+  $("#main").dataset.page = activePage;
+  $$("#main > section").forEach(sec=>{
+    sec.hidden = sec.dataset.page !== activePage || sec.dataset.empty === "true";
+  });
+  $$("[data-feature='apply'], a[href='#apply'], a[data-link='apply']").forEach(el=> el.hidden = true);
+  $$(".menu [data-page-link]").forEach(a=>{
+    const on = a.dataset.pageLink === activePage;
+    a.classList.toggle("is-active", on);
+    if(on) a.setAttribute("aria-current", "page");
+    else a.removeAttribute("aria-current");
+  });
+  $("#programToggle").classList.toggle("is-active", ["upcoming","archive","about-irip"].includes(activePage));
+}
+function selectCohort(id){
+  if(!document.getElementById("archive-"+id)) return;
+  selectedCohort = id;
+  $$("#cohort-tabs [data-cohort]").forEach(b=> b.setAttribute("aria-selected", String(b.dataset.cohort === id)));
+  $$("#archive-list .archive").forEach(a=> a.hidden = a.id !== "archive-"+id);
+}
+function navigateTo(id, {historyMode="push", focus=true}={}){
+  id = canonicalTarget(id);
+  if(!PAGE_TARGETS[id] && !(id.startsWith("archive-") && document.getElementById(id))) id = "home";
+  activePage = pageForTarget(id);
+  if(id.startsWith("archive-")) selectCohort(id.slice(8));
+  applyPageVisibility();
+  closeMenu();
+  const hash = "#"+id;
+  if(historyMode === "replace") history.replaceState(null, "", hash);
+  else if(historyMode === "push" && location.hash !== hash) history.pushState(null, "", hash);
+  const first = $$("#main > section").find(sec=> !sec.hidden);
+  const primary = ["home","upcoming","archive","about-irip","research","contact"].includes(id);
+  const target = primary ? first : (document.getElementById(id) || first);
+  const visibleTarget = target && !target.hidden ? target : first;
+  const heading = visibleTarget && $("h1,h2,h3", visibleTarget);
+  if(focus && heading){ heading.tabIndex = -1; heading.focus({preventScroll:true}); }
+  if(primary || !visibleTarget) window.scrollTo({top:0, behavior:"instant"});
+  else visibleTarget.scrollIntoView({block:"start", behavior:"instant"});
+  observeReveal();
+}
 const nav = $("#nav"), menu = $("#menu"), burger = $("#burger");
+const programMenu = $("#programMenu"), programToggle = $("#programToggle"), programDrop = $("#programDrop");
+const mobileNavigation = matchMedia("(max-width:1000px)");
+let programCloseTimer;
+function setProgramMenu(open){
+  clearTimeout(programCloseTimer);
+  programDrop.hidden = !open;
+  programDrop.classList.toggle("is-open", open);
+  programToggle.setAttribute("aria-expanded", String(open));
+}
+programMenu.addEventListener("pointerenter", ()=>{
+  if(!mobileNavigation.matches) setProgramMenu(true);
+});
+programMenu.addEventListener("pointerleave", ()=>{
+  if(mobileNavigation.matches) return;
+  programCloseTimer = setTimeout(()=>{
+    if(!programMenu.matches(":hover") && !programMenu.contains(document.activeElement)) setProgramMenu(false);
+  }, 120);
+});
+programMenu.addEventListener("focusin", ()=>{
+  if(!mobileNavigation.matches) setProgramMenu(true);
+});
+programMenu.addEventListener("focusout", e=>{
+  if(!programMenu.contains(e.relatedTarget) && !programMenu.matches(":hover")) setProgramMenu(false);
+});
+programToggle.addEventListener("click", e=>{
+  const toggle = mobileNavigation.matches || e.detail === 0;
+  setProgramMenu(toggle ? programDrop.hidden : true);
+});
+programToggle.addEventListener("keydown", e=>{
+  if(e.key !== "ArrowDown") return;
+  e.preventDefault(); setProgramMenu(true); $("a", programDrop).focus();
+});
+function syncMenuAccessibility(){
+  const unavailable = mobileNavigation.matches && !menu.classList.contains("is-open");
+  menu.inert = unavailable;
+  if(unavailable) menu.setAttribute("aria-hidden", "true");
+  else menu.removeAttribute("aria-hidden");
+}
+function closeMenu(){
+  setProgramMenu(false);
+  menu.classList.remove("is-open");
+  burger.setAttribute("aria-expanded", "false");
+  document.body.style.overflow = "";
+  syncMenuAccessibility();
+}
 burger.addEventListener("click", ()=>{
   const open = menu.classList.toggle("is-open");
   burger.setAttribute("aria-expanded", String(open));
   document.body.style.overflow = open ? "hidden" : "";
+  syncMenuAccessibility();
 });
-$$(".menu__top").forEach(btn=>{
-  btn.addEventListener("click", e=>{
-    e.stopPropagation();
-    const drop = btn.nextElementSibling, open = drop.classList.contains("is-open");
-    $$(".drop").forEach(d=>d.classList.remove("is-open"));
-    $$(".menu__top").forEach(b=>b.setAttribute("aria-expanded","false"));
-    if(!open){ drop.classList.add("is-open"); btn.setAttribute("aria-expanded","true"); }
-  });
-});
+mobileNavigation.addEventListener("change", closeMenu);
+syncMenuAccessibility();
 document.addEventListener("click", e=>{
-  if(!e.target.closest(".menu")){ $$(".drop").forEach(d=>d.classList.remove("is-open"));
-    $$(".menu__top").forEach(b=>b.setAttribute("aria-expanded","false")); }
+  if(!programMenu.contains(e.target)) setProgramMenu(false);
+  const a = e.target.closest("a[href^='#']");
+  if(!a || e.defaultPrevented || e.button !== 0 || e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return;
+  if(ED.live && a.isContentEditable) return;
+  const href = a.getAttribute("href");
+  if(href === "#") return;
+  if(href === "#main"){
+    e.preventDefault();
+    $("#main").focus({preventScroll:true});
+    window.scrollTo({top:0, behavior:"instant"});
+    return;
+  }
+  e.preventDefault();
+  let id;
+  try{ id = decodeURIComponent(href.slice(1)); }catch(err){ id = "home"; }
+  navigateTo(id);
 });
 document.addEventListener("keydown", e=>{
   if(e.key !== "Escape") return;
-  $$(".drop").forEach(d=>d.classList.remove("is-open"));
-  if(menu.classList.contains("is-open")) burger.click();
+  if(!programDrop.hidden){ programToggle.focus(); setProgramMenu(false); }
+  if(menu.classList.contains("is-open")){ closeMenu(); burger.focus(); }
   if(!$("#lightbox").hidden) closeLightbox();
 });
-menu.addEventListener("click", e=>{
-  const a = e.target.closest("a[href^='#']"); if(!a) return;
-  if(a.dataset.filter) applyFilter(a.dataset.filter);
-  if(a.dataset.tab) selectTab(a.dataset.tab);
-  $$(".drop").forEach(d=>d.classList.remove("is-open"));
-  if(menu.classList.contains("is-open")) burger.click();
-});
+addEventListener("hashchange", ()=> navigateTo(hashTarget(), {historyMode:"none"}));
 addEventListener("scroll", ()=>{
   nav.classList.toggle("is-solid", scrollY > 40);
   $("#totop").classList.toggle("is-on", scrollY > 700);
 }, {passive:true});
 
-/* active section highlight */
-const spy = new IntersectionObserver(entries=>{
-  entries.forEach(en=>{
-    const link = $('.menu a[href="#'+en.target.id+'"]');
-    if(link && en.isIntersecting){ $$(".menu a").forEach(a=>a.classList.remove("is-active")); link.classList.add("is-active"); }
-  });
-}, {rootMargin:"-45% 0px -50% 0px"});
-["home","upcoming","overview","research","gallery","contact"].forEach(id=>{ const s = document.getElementById(id); if(s) spy.observe(s); });
-
 /* ---------- language ---------- */
 $$(".lang button").forEach(b=> b.addEventListener("click", ()=>{
-  lang = b.dataset.lang; localStorage.setItem("emslab-lang", lang); renderAll();
+  lang = b.dataset.lang; localStorage.setItem("emslab-v3-lang", lang); renderAll();
+  if(ED.active){ drawPanel(); markLangRow(); }
+  startCountdown();
 }));
-
-/* ---------- filters ---------- */
-$(".filters").addEventListener("click", e=>{
-  const b = e.target.closest("button"); if(b) applyFilter(b.dataset.f);
-});
 
 /* ---------- tabs ---------- */
 function selectTab(name){
@@ -1881,7 +2060,7 @@ function observeReveal(){
   revealObs = revealObs || new IntersectionObserver(entries=>{
     entries.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add("is-in"); revealObs.unobserve(en.target); } });
   }, {rootMargin:"0px 0px -12% 0px"});
-  $$(".sec-head, .archive, .cohort, .stat").forEach(el=>{
+  $$(".sec-head, .archive, .stat").forEach(el=>{
     if(el.classList.contains("is-in")) return;
     const r = el.getBoundingClientRect();
     if(r.top < innerHeight && r.bottom > 0) return;   /* already on screen — show at once */
@@ -1916,9 +2095,9 @@ function panelHTML(){
   const L = CONFIG.links, IM = CONFIG.images;
   const imgLabels = { upcomingBanner:"Banner kỳ sắp tới",
     topicsDiagram:"Sơ đồ chủ đề nghiên cứu",
-    map:"Ảnh bản đồ", qr:"Mã QR",
+    map:"Ảnh bản đồ",
     logoUniv:"Logo trường (chân trang)" };
-  const linkLabels = { apply:"Nút Apply Now", guide:"Tài liệu chương trình", lab:"Trang EMSL",
+  const linkLabels = { lab:"Trang EMSL",
     iibs:"Trang IIBS",
     privacy:"Chính sách bảo mật", a11y:"Khả năng tiếp cận" };
 
@@ -1943,12 +2122,11 @@ function panelHTML(){
       '<button class="mini mini--danger" data-del="programs.'+i+'">Xoá kỳ này</button></div>'+
     '</div></details>';
 
-  return ''+
+  return '<div class="ed__note">PROGRAMS có ba mục riêng: Upcoming Program, Past Programs và About IRIP. Chọn mục con để chỉ xem nội dung cần sửa. About IRIP chứa tổng quan chương trình, Life in Seoul và FAQ. Program Timeline đã được xoá. Apply vẫn ẩn, kể cả trong Edit; dữ liệu được giữ để khôi phục sau.</div>'+
   sec("Kỳ sắp tới",
     '<div class="ed__note">Ô nào để trống thì dòng đó biến mất khỏi bảng thông tin và các dòng dưới tự nhích lên.</div>'+
     CFIELD("Dòng chữ trên hero","cohortBadge")+
     CFIELD("Tiêu đề mục nổi bật","cohortHeading")+
-    CFIELD("Tên kỳ (ở khối cuối trang)","cohortLabel")+
     CFIELD("Hạn nộp (hiển thị)","deadlineText")+
     CFIELD("Hạn nộp (cho đồng hồ đếm ngược)","applicationDeadline","datetime-local")+
     CFIELD("Ngày mở đơn (hiển thị)","upcoming.open")+
@@ -1960,6 +2138,10 @@ function panelHTML(){
     CFIELD("Hình thức","upcoming.format")+
     CFIELD("Số lượng","upcoming.seats")+
     CFIELD("Ngôn ngữ làm việc","upcoming.language"), true)+
+  sec("About IRIP ("+lang.toUpperCase()+")",
+    '<div class="ed__note">Nội dung dưới đây thuộc ngôn ngữ đang chọn. Có thể sửa từng dòng trên trang hoặc nhập tại đây; cả hai cách đều được lưu và xuất trong text của content.json. Cập nhật cả ba ngôn ngữ khi thay đổi nội dung.</div>'+
+    ABOUT_FIELDS.map(([key,label])=> F(label,'data-text="'+key+'"',t(key),
+      /Deck$|Body$|Headline$/.test(key) ? "area" : "text")).join(""))+
   sec("Liên hệ",
     CFIELD("Phòng, toà nhà","contact.room")+CFIELD("Email","contact.email")+
     CFIELD("Điện thoại","contact.phone")+CFIELD("Website EMSL","contact.web","url")+
@@ -2031,7 +2213,7 @@ F("Đề tài",'data-arr="testimonials.'+i+'.project"',x.project,"area")+      F
     '<div class="ed__note">Các ô co giãn theo màn hình nên không kéo tay được; thay vào đó chỉnh bằng các thông số dưới đây, áp dụng đồng bộ cho cả máy tính lẫn điện thoại.</div>'+
     CFIELD("Độ rộng tối đa của trang (px)","layout.maxWidth","number")+
     CFIELD("Số cột — Chủ đề nghiên cứu","layout.topicCols","number")+
-    CFIELD("Số cột — Thẻ tổng quan","layout.valueCols","number")+
+    F("Số cột — About IRIP (1 hoặc 2)",'data-cfg="layout.valueCols" min="1" max="2" step="1"',CONFIG.layout.valueCols,"number")+
     CFIELD("Chiều cao tối thiểu ảnh banner (px)","layout.bannerMin","number")+
     CFIELD("Khoảng cách giữa các mục (1 = mặc định)","layout.secScale","number"));
 }
@@ -2096,22 +2278,25 @@ function initEditor(){
       if(copy.archived) copy.archived = false;
       ARRS[n].splice(+i+1, 0, copy); drawPanel(); saveDraft(); queueRender(); }
     if(del){ e.preventDefault();
-      const [n,i] = del.dataset.del.split("."); ARRS[n].splice(+i,1); drawPanel(); queueRender(); }
+      const [n,i] = del.dataset.del.split("."); ARRS[n].splice(+i,1); drawPanel(); saveDraft(); queueRender(); }
   });
   $("#edHide").onclick = ()=>{ box.classList.remove("is-open"); fab.hidden = false; };
   fab.onclick = ()=>{ box.classList.add("is-open"); fab.hidden = true; };
   $("#edLive").onchange = e => setLive(e.target.checked);
   $("#edLangRow").addEventListener("click", e=>{
     const btn = e.target.closest("[data-edlang]"); if(!btn) return;
-    lang = btn.dataset.edlang; localStorage.setItem("emslab-lang", lang);
+    lang = btn.dataset.edlang; localStorage.setItem("emslab-v3-lang", lang);
     renderAll(); drawPanel(); markLangRow();
+    startCountdown();
     status("Đang xem bản " + lang.toUpperCase() + ". Nội dung nhập ở đây thuộc bản này.");
   });
   markLangRow();
   $("#edSave").onclick = exportJSON;
   $("#edImgs").onclick = downloadImages;
-  $("#edReset").onclick = ()=>{ localStorage.removeItem("emslab-draft"); location.reload(); };
-  $("#edExit").onclick = ()=>{ location.href = location.pathname; };
+  $("#edReset").onclick = ()=>{ localStorage.removeItem("emslab-v3-draft"); location.reload(); };
+  $("#edExit").onclick = ()=>{
+    const url = new URL(location.href); url.searchParams.delete("edit"); location.href = url.href;
+  };
   enableDrops();
   setLive(true);
   status("Sẵn sàng. Bấm ✎ trên mỗi khối, hoặc gõ trực tiếp lên chữ trong trang.");
@@ -2120,7 +2305,7 @@ function secTitle(n){
   const L = lang.toUpperCase();
   return { programs:"Các kỳ thực tập", people:"Nhân sự", testimonials:"Cảm nhận sinh viên",
            topics:"Chủ đề nghiên cứu ("+L+")", faq:"Câu hỏi và trả lời FAQ ("+L+")",
-           seoul:"Khung ảnh mục Life in Seoul" }[n];
+           seoul:"Khung ảnh mục Life in Seoul", about:"About IRIP ("+L+")" }[n];
 }
 /* Gắn nút ✎ lên từng khối trên trang để bấm là nhảy thẳng tới ô nhập tương ứng */
 function markEditable(){
@@ -2139,7 +2324,7 @@ function jumpTo(ref){
   ED.opened.add(secTitle(n)); drawPanel();
   const box = $("#ed"), fab = $("#edFab");
   if(box) box.classList.add("is-open"); if(fab) fab.hidden = true;
-  const inp = $('#edBody [data-arr^="'+n+'.'+i+'."]');
+  const inp = n === "about" ? $('#edBody [data-text="'+i+'"]') : $('#edBody [data-arr^="'+n+'.'+i+'."]');
   if(!inp) return;
   let d = inp.closest("details");
   while(d){ d.open = true; d = d.parentElement && d.parentElement.closest("details"); }
@@ -2207,7 +2392,16 @@ document.addEventListener("toggle", e=>{
 
 function onField(e){
   const el = e.target;
-  if(el.dataset.cfg){ setDeep(CONFIG, el.dataset.cfg, el.value); }
+  if(el.dataset.text){
+    I18N[lang][el.dataset.text] = el.value;
+    TEXT[lang][el.dataset.text] = el.value;
+  }
+  else if(el.dataset.cfg){
+    const val = el.dataset.cfg === "layout.valueCols"
+      ? Math.max(1, Math.min(2, Math.round(Number(el.value) || 2))) : el.value;
+    if(el.dataset.cfg === "layout.valueCols") el.value = val;
+    setDeep(CONFIG, el.dataset.cfg, val);
+  }
   else if(el.dataset.arr){
     const parts = el.dataset.arr.split(".");
     const n = parts.shift(), i = +parts.shift(), obj = ARRS[n][i];
@@ -2262,7 +2456,10 @@ document.addEventListener("input", e=>{
   if(!ED.live) return;
   const el = e.target; if(el.contentEditable !== "true") return;
   const txt = el.textContent;
-  if(el.dataset.i18n){ I18N[lang][el.dataset.i18n] = txt; TEXT[lang][el.dataset.i18n] = txt; }
+  if(el.dataset.i18n){
+    I18N[lang][el.dataset.i18n] = txt; TEXT[lang][el.dataset.i18n] = txt;
+    const f = $('[data-text="'+el.dataset.i18n+'"]'); if(f) f.value = txt;
+  }
   else if(el.dataset.bind){
     setDeep(CONFIG, el.dataset.bind, txt);
     const f = $('[data-cfg="'+el.dataset.bind+'"]'); if(f) f.value = txt;
@@ -2292,10 +2489,10 @@ function collect(){
   return { config:cfg, programs:PROGRAMS, testimonials:TESTIMONIALS,
            topics:TOPICS, faq:FAQ, seoul:SEOUL, text:TEXT };
 }
-function saveDraft(){ try{ localStorage.setItem("emslab-draft", JSON.stringify(collect())); }catch(e){} }
+function saveDraft(){ try{ localStorage.setItem("emslab-v3-draft", JSON.stringify(collect())); }catch(e){} }
 function restoreDraft(){
   try{
-    const d = JSON.parse(localStorage.getItem("emslab-draft") || "null"); if(!d) return;
+    const d = JSON.parse(localStorage.getItem("emslab-v3-draft") || "null"); if(!d) return;
     if(d.config) Object.assign(CONFIG, d.config);
     if(d.programs) PROGRAMS.splice(0, PROGRAMS.length, ...d.programs);
     if(d.testimonials) TESTIMONIALS.splice(0, TESTIMONIALS.length, ...d.testimonials);
@@ -2333,6 +2530,7 @@ function status(m){ const el = $("#edStatus"); if(el) el.textContent = m; }
   renderAll();
   startCountdown();
   if(EDIT_MODE) initEditor();
+  navigateTo(hashTarget(), {historyMode:"replace", focus:false});
 })();
 </script>
 </body>
