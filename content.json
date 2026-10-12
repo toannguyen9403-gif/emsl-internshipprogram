@@ -35,18 +35,29 @@
     },
     "upcoming": {
       "program": "SSU-UED IRIP 2027",
-      "dates": "01 July – 20 Aug",
+      "dates": {
+        "en": "1 July – 20 August 2027",
+        "vi": "1 tháng 7 – 20 tháng 8 năm 2027",
+        "ko": "2027년 7월 1일 – 8월 20일"
+      },
       "venue": "Soongsil University, Seoul",
       "open": "15 May 2027",
-      "eligible": "Senior Student",
+      "eligible": {
+        "en": "Senior students",
+        "vi": "Sinh viên năm cuối",
+        "ko": "졸업 학년 재학생"
+      },
       "format": "",
-      "seats": "2 (Vietnamese)",
+      "seats": {
+        "en": "2 or more",
+        "vi": "Từ 2 sinh viên trở lên",
+        "ko": "2명 이상"
+      },
       "language": "English/ Korean"
     },
     "contact": {
       "room": "Baird Hall 01433",
       "email": "ylee@ssu.ac.kr",
-      "phone": "+82-2-820-0404 (Tel/Fax)",
       "web": "sites.google.com/view/emsl-ssu",
       "web2": "iibs.ssu.ac.kr",
       "hours": ""
@@ -81,8 +92,8 @@
       "state": "open",
       "archived": false,
       "name": "SSU-UED IRIP 2027",
-      "dates": "01 July – 20 Aug 2027",
-      "participants": "2 (Vietnamese)",
+      "dates": "1 July – 20 August 2027",
+      "participants": "2 or more",
       "image": "assets/coming-soon.svg"
     }
   ],
@@ -367,14 +378,14 @@
   "text": {
     "en": {
       "aboutEyebrow": "SSU-UED IRIP",
-      "aboutHeadline": "Six-week research internship",
-      "ovDeck": "SSU-UED IRIP is planned as an annual summer program in Seoul. During six weeks in a solid-state physics laboratory, students carry out an independent research project with support from experienced mentors.",
+      "aboutHeadline": "Seven-week research internship",
+      "ovDeck": "SSU-UED IRIP is planned as an annual summer program in Seoul. During seven weeks in a solid-state physics laboratory, students carry out an independent research project with support from experienced mentors.",
       "aboutDurationLabel": "Weeks in the lab",
       "aboutMentorLabel": "Mentor guidance",
       "aboutLanguageLabel": "English for academic work",
-      "aboutResearchTitle": "Hands-on research",
+      "aboutResearchTitle": "Experimental research",
       "aboutResearchDeck": "Participants take part in experimental work within their research project.",
-      "aboutProcessLabel": "Experimental work",
+      "aboutProcessLabel": "Experiments",
       "aboutProcessBody": "Activities include preparing materials, fabricating samples, operating modern optical and physical measurement equipment, and collecting experimental data.",
       "aboutMentorDetailLabel": "1:1 mentoring",
       "aboutMentorDetailBody": "Mentors provide direct guidance, support with technical problems and daily scientific discussion in the laboratory.",
@@ -390,20 +401,28 @@
       "aboutCommunityDeck": "Academic discussions, group meetings, laboratory seminars and research presentations are conducted entirely in English, providing regular practice in scientific communication.",
       "aboutCultureTitle": "Life and culture in Seoul",
       "aboutCultureDeck": "Outside laboratory hours, students can experience student life in Seoul, local food, landmarks and the city's urban culture.",
-      "aboutDurationValue": "6",
+      "aboutDurationValue": "7",
       "aboutMentorValue": "1:1",
-      "aboutLanguageValue": "100%"
+      "aboutLanguageValue": "100%",
+      "heroLede": "A seven-week research internship programme run jointly by Soongsil University, Seoul and the University of Science and Education, Danang.",
+      "metaDesc": "A seven-week research internship programme run jointly by Soongsil University, Seoul and the University of Science and Education, Danang.",
+      "rtTitle": "Luminescent Optical Materials and Their Applications",
+      "approxSeven": "7 weeks",
+      "durVal": "7 Weeks",
+      "heroDetails": "About IRIP",
+      "wkTitle": "Seven-week program structure",
+      "dcHelpBody": "State the research area you want to join, the experimental or computational skills you already have, and what you expect to learn in seven weeks. One page is enough."
     },
     "vi": {
       "aboutEyebrow": "SSU-UED IRIP",
-      "aboutHeadline": "Thực tập nghiên cứu trong sáu tuần",
-      "ovDeck": "SSU-UED IRIP dự kiến được tổ chức hằng năm vào mùa hè tại Seoul. Trong sáu tuần tại phòng thí nghiệm vật lý chất rắn, sinh viên thực hiện một đề tài nghiên cứu độc lập với sự hỗ trợ của các mentor có kinh nghiệm.",
+      "aboutHeadline": "Thực tập nghiên cứu trong bảy tuần",
+      "ovDeck": "SSU-UED IRIP dự kiến được tổ chức hằng năm vào mùa hè tại Seoul. Trong bảy tuần tại phòng thí nghiệm vật lý chất rắn, sinh viên thực hiện một đề tài nghiên cứu độc lập với sự hỗ trợ của các mentor có kinh nghiệm.",
       "aboutDurationLabel": "Tuần trong phòng thí nghiệm",
       "aboutMentorLabel": "Hướng dẫn từ mentor",
       "aboutLanguageLabel": "Tiếng Anh trong hoạt động học thuật",
-      "aboutResearchTitle": "Nghiên cứu thực hành",
+      "aboutResearchTitle": "Nghiên cứu thực nghiệm",
       "aboutResearchDeck": "Sinh viên tham gia công việc thực nghiệm trong đề tài nghiên cứu của mình.",
-      "aboutProcessLabel": "Công việc thực nghiệm",
+      "aboutProcessLabel": "Thí nghiệm",
       "aboutProcessBody": "Các hoạt động gồm chuẩn bị vật liệu, chế tạo mẫu, vận hành thiết bị đo quang học và vật lý hiện đại, và thu thập dữ liệu thực nghiệm.",
       "aboutMentorDetailLabel": "Hướng dẫn 1:1 cùng mentor",
       "aboutMentorDetailBody": "Mentor hướng dẫn trực tiếp, hỗ trợ xử lý vấn đề kỹ thuật và thảo luận chuyên môn hằng ngày trong phòng thí nghiệm.",
@@ -419,20 +438,28 @@
       "aboutCommunityDeck": "Trao đổi học thuật, họp nhóm, seminar phòng thí nghiệm và báo cáo nghiên cứu đều sử dụng tiếng Anh, giúp sinh viên thường xuyên thực hành giao tiếp khoa học.",
       "aboutCultureTitle": "Đời sống và văn hóa tại Seoul",
       "aboutCultureDeck": "Ngoài giờ làm việc trong phòng thí nghiệm, sinh viên có thể trải nghiệm đời sống sinh viên tại Seoul, tìm hiểu ẩm thực địa phương, các địa danh và văn hóa đô thị.",
-      "aboutDurationValue": "6",
+      "aboutDurationValue": "7",
       "aboutMentorValue": "1:1",
-      "aboutLanguageValue": "100%"
+      "aboutLanguageValue": "100%",
+      "heroLede": "Chương trình thực tập nghiên cứu bảy tuần do Đại học Soongsil (Seoul) và Trường Đại học Sư phạm — Đại học Đà Nẵng phối hợp tổ chức.",
+      "metaDesc": "Chương trình thực tập nghiên cứu bảy tuần do Đại học Soongsil (Seoul) và Trường Đại học Sư phạm — Đại học Đà Nẵng phối hợp tổ chức.",
+      "rtTitle": "Vật liệu quang học phát quang và ứng dụng",
+      "approxSeven": "7 tuần",
+      "durVal": "7 tuần",
+      "heroDetails": "Giới thiệu IRIP",
+      "wkTitle": "Cấu trúc chương trình bảy tuần",
+      "dcHelpBody": "Nêu rõ hướng nghiên cứu muốn tham gia, các kỹ năng thực nghiệm hoặc tính toán đã có, và điều muốn học được trong bảy tuần. Một trang là đủ."
     },
     "ko": {
       "aboutEyebrow": "SSU-UED IRIP",
-      "aboutHeadline": "6주 연구 인턴십",
-      "ovDeck": "SSU-UED IRIP는 서울에서 매년 여름 운영할 예정인 프로그램입니다. 참가 학생은 고체물리 연구실에서 6주 동안 경험이 있는 멘토의 지원을 받으며 독립적인 연구 프로젝트를 수행합니다.",
+      "aboutHeadline": "7주 연구 인턴십",
+      "ovDeck": "SSU-UED IRIP는 서울에서 매년 여름 운영할 예정인 프로그램입니다. 참가 학생은 고체물리 연구실에서 7주 동안 경험이 있는 멘토의 지원을 받으며 독립적인 연구 프로젝트를 수행합니다.",
       "aboutDurationLabel": "주간의 연구실 경험",
       "aboutMentorLabel": "멘토 지도",
       "aboutLanguageLabel": "영어로 진행하는 학술 활동",
-      "aboutResearchTitle": "실험 중심 연구",
+      "aboutResearchTitle": "실험 연구",
       "aboutResearchDeck": "참가 학생은 자신의 연구 프로젝트와 관련된 실험 활동에 참여합니다.",
-      "aboutProcessLabel": "실험 활동",
+      "aboutProcessLabel": "실험",
       "aboutProcessBody": "주요 활동은 재료 준비, 시료 제작, 현대적인 광학·물성 측정 장비 운용과 실험 데이터 수집입니다.",
       "aboutMentorDetailLabel": "1:1 멘토 지도",
       "aboutMentorDetailBody": "멘토는 직접 지도하고 기술적 문제 해결을 지원하며 연구실에서 매일 학술 토론을 진행합니다.",
@@ -448,9 +475,17 @@
       "aboutCommunityDeck": "학술 토론, 그룹 미팅, 연구실 세미나와 연구 발표는 모두 영어로 진행되며, 학생은 과학적 의사소통을 꾸준히 연습할 수 있습니다.",
       "aboutCultureTitle": "서울의 생활과 문화",
       "aboutCultureDeck": "연구실 업무 시간 외에는 서울의 학생 생활, 현지 음식, 주요 명소와 도시 문화를 접할 수 있습니다.",
-      "aboutDurationValue": "6",
+      "aboutDurationValue": "7",
       "aboutMentorValue": "1:1",
-      "aboutLanguageValue": "100%"
+      "aboutLanguageValue": "100%",
+      "heroLede": "숭실대학교(서울)와 다낭 사범대학교가 공동으로 운영하는 7주 연구 인턴십 프로그램입니다.",
+      "metaDesc": "숭실대학교(서울)와 다낭 사범대학교가 공동으로 운영하는 7주 연구 인턴십 프로그램입니다.",
+      "rtTitle": "발광 광학 소재와 응용",
+      "approxSeven": "7주",
+      "durVal": "7주",
+      "heroDetails": "IRIP 소개",
+      "wkTitle": "7주 프로그램 구성",
+      "dcHelpBody": "참여하고자 하는 연구 분야, 보유한 실험·전산 역량, 7주 동안 배우고자 하는 내용을 기술하십시오. 한 장이면 충분합니다."
     }
   }
 }

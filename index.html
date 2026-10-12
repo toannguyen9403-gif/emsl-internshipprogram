@@ -4,11 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SSU-UED International Research Internship Program — Soongsil University</title>
-<meta name="description" content="A six-week research internship programme run jointly by Soongsil University, Seoul and the University of Science and Education, Danang.">
+<meta name="description" content="A seven-week research internship programme run jointly by Soongsil University, Seoul and the University of Science and Education, Danang.">
 <meta name="theme-color" content="#0A1E3C">
 <meta property="og:type" content="website">
 <meta property="og:title" content="SSU-UED International Research Internship Program">
-<meta property="og:description" content="A six-week research internship programme run jointly by Soongsil University, Seoul and the University of Science and Education, Danang.">
+<meta property="og:description" content="A seven-week research internship programme run jointly by Soongsil University, Seoul and the University of Science and Education, Danang.">
 <meta property="og:url" content="https://toannguyen9403-gif.github.io/emsl-internshipprogram/">
 <meta property="og:site_name" content="Soongsil University">
 <meta property="og:image" content="https://toannguyen9403-gif.github.io/emsl-internshipprogram/assets/og-preview.png">
@@ -22,9 +22,9 @@
   "@context":"https://schema.org",
   "@type":"EducationalOccupationalProgram",
   "name":"SSU-UED International Research Internship Program",
-  "description":"A six-week research internship programme run jointly by Soongsil University, Seoul and the University of Science and Education, Danang.",
+  "description":"A seven-week research internship programme run jointly by Soongsil University, Seoul and the University of Science and Education, Danang.",
   "programType":"Internship",
-  "timeToComplete":"P6W",
+  "timeToComplete":"P7W",
   "provider":{
     "@type":"CollegeOrUniversity",
     "name":"Soongsil University",
@@ -154,9 +154,6 @@ img{max-width:100%;display:block}
 .nav .wrap{width:min(100% - 2.5rem,1400px)}
 .nav__inner{display:flex;align-items:center;gap:1rem;height:72px}
 .brand{display:flex;align-items:center;gap:.7rem;text-decoration:none;color:#fff;flex:0 0 auto}
-.brand__mark{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;
-  height:38px;padding:.3rem .5rem;background:#fff;border-radius:var(--r-sm)}
-.brand__mark img{height:22px;width:auto;display:block}
 .brand__txt{display:flex;flex-direction:column;line-height:1.15}
 .brand__name{font-family:var(--display);font-weight:700;font-size:1rem;letter-spacing:-.01em}
 .brand__sub{font-size:.7rem;color:#9FB6D2;letter-spacing:.01em}
@@ -263,14 +260,7 @@ html[data-lang="vi"] .menu a.btn--apply,html[data-lang="ko"] .menu a.btn--apply{
 .upcoming__aside{display:flex;flex-direction:column}
 .upcoming__aside .frame{flex:1;aspect-ratio:auto;min-height:var(--banner-min,340px)}
 .upcoming h2{color:#fff}
-.deadline{display:flex;flex-wrap:wrap;gap:1.5rem;align-items:flex-end;background:rgba(242,179,61,.1);
-  border:1px solid rgba(242,179,61,.35);border-radius:var(--r-md);padding:1.25rem 1.4rem;margin:1.5rem 0}
-.countdown{display:flex;gap:1rem}
-.cd__unit{text-align:center;min-width:58px}
-.cd__num{font-family:var(--display);font-size:var(--t-xl);font-weight:700;color:var(--apply);line-height:1}
-.cd__lab{font-size:.7rem;color:#B9CADF;margin-top:.3rem}
-.deadline__meta{font-size:var(--t-sm);color:#D8E4F2}
-.deadline__meta b{display:block;color:#fff;font-size:var(--t-base)}
+.upcoming .sec-head p{color:#B9CADF}
 .factlist{list-style:none;padding:0;margin:0;border-top:1px solid rgba(255,255,255,.14)}
 .factlist li{display:grid;grid-template-columns:minmax(120px,180px) 1fr;gap:1rem;padding:.7rem 0;
   border-bottom:1px solid rgba(255,255,255,.14);font-size:var(--t-sm)}
@@ -316,11 +306,6 @@ html[data-lang="vi"] .menu a.btn--apply,html[data-lang="ko"] .menu a.btn--apply{
 .about-card__details{margin:1.5rem 0 0;display:grid;gap:1.15rem;padding-top:1.5rem;border-top:1px solid var(--line)}
 .about-card__details dt{font-size:var(--t-sm);font-weight:600;line-height:1.4;margin-bottom:.35rem}
 .about-card__details dd{font-size:var(--t-sm);color:var(--muted);line-height:1.65;margin:0}
-.about-card--academic{background:var(--navy-800);border-color:var(--navy-800);color:#fff}
-.about-card--academic .about-card__icon{background:rgba(27,167,188,.15);color:#71D1DD}
-.about-card--academic .about-card__number{color:#9FB6D2}
-.about-card--academic .about-card__deck,.about-card--academic .about-card__details dd{color:#C5D4E7}
-.about-card--academic .about-card__details{border-color:rgba(255,255,255,.17)}
 .about-card--community .about-card__icon{background:var(--data-soft);color:#0C6C7A}
 .about-card--culture .about-card__icon{background:#F4EFFC;color:#6542A4}
 @media (max-width:900px){
@@ -355,28 +340,8 @@ html[data-lang="vi"] .menu a.btn--apply,html[data-lang="ko"] .menu a.btn--apply{
 .tile p{font-size:var(--t-sm);color:var(--muted);margin:0}
 .tile .frame{border-radius:0;border-width:1px 0 0 0;border-style:dashed}
 
-/* ---------- Six-week schedule ---------- */
-.weeks{display:grid;gap:0;counter-reset:wk;border-top:1px solid var(--line)}
-.week{display:grid;grid-template-columns:auto 175px 1fr;gap:1.25rem;align-items:baseline;padding:1.15rem 0;
-  border-bottom:1px solid var(--line)}
-.week__n{font-family:var(--display);font-weight:700;font-size:var(--t-md);color:var(--cobalt);min-width:2.2ch}
-.week__label{font-weight:600;font-size:var(--t-sm);color:var(--muted)}
-.week p{margin:0;font-size:var(--t-base)}
-.week__bar{grid-column:1/-1;height:3px;border-radius:2px;background:var(--line);margin-top:.6rem}
-.week__bar span{display:block;height:100%;border-radius:2px;background:var(--spectrum)}
-@media (max-width:640px){.week{grid-template-columns:auto 1fr;gap:.6rem 1rem}.week__label{grid-column:2}.week p{grid-column:2}}
 .note{font-size:var(--t-sm);color:var(--muted);border-left:3px solid var(--line);padding-left:1rem;margin-top:1.5rem}
 
-/* ---------- Tabs (programme details) ---------- */
-.tabs{display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:2.25rem}
-.tabs button{position:relative;background:#fff;border:1px solid var(--line);border-radius:999px;
-  padding:.6rem 1.25rem;font:600 var(--t-sm)/1.1 var(--display);color:var(--muted);cursor:pointer;
-  transition:color .18s,background .18s,border-color .18s,box-shadow .18s}
-.tabs button:hover{color:var(--navy-800);border-color:var(--cobalt)}
-.tabs button[aria-selected="true"]{color:#fff;background:var(--navy-800);border-color:var(--navy-800);
-  box-shadow:0 8px 20px rgba(10,30,60,.20)}
-.tabs button[aria-selected="true"]::after{content:"";position:absolute;left:1.25rem;right:1.25rem;
-  bottom:-9px;height:3px;border-radius:2px;background:var(--spectrum)}
 .panel{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,4vw,3rem)}
 .panel[hidden]{display:none}
 .panel--stack,.panel--stack.is-solo{grid-template-columns:1fr}
@@ -611,7 +576,6 @@ body.ed-on{padding-right:0}
   <div class="wrap nav__inner">
     <!-- Logo Đại học Soongsil, đặt trên nền trắng để nổi trên thanh navy. -->
     <a class="brand" href="#home">
-      <span class="brand__mark"><img src="assets/logo.png" alt="Soongsil University"></span>
       <span class="brand__txt">
         <span class="brand__name">SSU-UED</span>
         <span class="brand__sub" data-i18n="brandSub">International Research Internship Program</span>
@@ -670,13 +634,12 @@ body.ed-on{padding-right:0}
       <p class="hero__badge"><span class="dot"></span><span id="heroBadge">Summer 2027 · [Application Status]</span></p>
       <h1 data-i18n="heroTitle">SSU-UED International Research Internship Program</h1>
       <p class="hero__tag" data-i18n="heroTag">Explore Physics. Experience Research. Connect Globally.</p>
-      <p class="hero__lede" data-i18n="heroLede">A six-week research internship hosted by EMSL, Department of Physics, Soongsil University.</p>
+      <p class="hero__lede" data-i18n="heroLede">A seven-week research internship hosted by EMSL, Department of Physics, Soongsil University.</p>
       <div class="btn-row">
-        <a class="btn btn--apply" href="#about-irip" data-i18n="heroDetails">Learn More About Details</a>
-        <a class="btn btn--ghost" href="#about-irip" data-i18n="explore">Explore the Program</a>
+        <a class="btn btn--apply" href="#about-irip" data-i18n="heroDetails">About IRIP</a>
       </div>
       <p class="hero__facts">
-        <span class="fact"><span data-i18n="factDuration">Duration:</span> <b>6 Weeks</b></span>
+        <span class="fact"><span data-i18n="factDuration">Duration:</span> <b data-i18n="durVal">7 Weeks</b></span>
         <span class="fact"><span data-i18n="factLocation">Location:</span> <b>Seoul, South Korea</b></span>
         <span class="fact"><span data-i18n="factHost">Host:</span> <b>Soongsil University</b></span>
       </p>
@@ -716,19 +679,6 @@ body.ed-on{padding-right:0}
 
     <div class="upcoming__grid">
       <div>
-        <div class="deadline">
-          <div class="countdown" id="countdown" aria-live="polite">
-            <div class="cd__unit"><div class="cd__num" data-cd="d">--</div><div class="cd__lab" data-i18n="days">Days</div></div>
-            <div class="cd__unit"><div class="cd__num" data-cd="h">--</div><div class="cd__lab" data-i18n="hours">Hours</div></div>
-            <div class="cd__unit"><div class="cd__num" data-cd="m">--</div><div class="cd__lab" data-i18n="minutes">Minutes</div></div>
-            <div class="cd__unit"><div class="cd__num" data-cd="s">--</div><div class="cd__lab" data-i18n="seconds">Seconds</div></div>
-          </div>
-          <div class="deadline__meta">
-            <span id="cdLabel" data-i18n="untilDeadline">Remaining until the application deadline</span>
-            <b id="cdTarget">[Application Deadline]</b>
-          </div>
-        </div>
-
         <ul class="factlist" id="factlist"></ul>
 
         <div class="btn-row" style="margin-top:1.75rem" data-feature="apply" hidden>
@@ -760,7 +710,7 @@ body.ed-on{padding-right:0}
         <p class="about-deck" data-i18n="ovDeck"></p>
       </div>
       <dl class="about-facts">
-        <div class="about-facts__item"><dt data-i18n="aboutDurationValue">6</dt><dd data-i18n="aboutDurationLabel"></dd></div>
+        <div class="about-facts__item"><dt data-i18n="aboutDurationValue">7</dt><dd data-i18n="aboutDurationLabel"></dd></div>
         <div class="about-facts__item"><dt data-i18n="aboutMentorValue">1:1</dt><dd data-i18n="aboutMentorLabel"></dd></div>
         <div class="about-facts__item"><dt data-i18n="aboutLanguageValue">100%</dt><dd data-i18n="aboutLanguageLabel"></dd></div>
       </dl>
@@ -774,18 +724,10 @@ body.ed-on{padding-right:0}
   <div class="wrap">
     <div class="sec-head">
       <div class="rule" aria-hidden="true"></div>
-      <h2 data-i18n="rtTitle">Research topics</h2>
-      <p data-i18n="rtDeck">Every topic builds on one core subject — luminescent materials. Internship projects are assigned from the five directions below.</p>
+      <h2 data-i18n="rtTitle">Luminescent Optical Materials and Their Applications</h2>
     </div>
 
-    <!-- Mỗi phòng thí nghiệm tham gia là một tab. Khi có khoa mới tham gia,
-         thêm một <button role="tab"> ở đây và một khối .panel tương ứng bên dưới. -->
-    <div class="tabs" role="tablist" aria-label="Laboratory">
-      <button role="tab" id="tab-emsl"   aria-controls="p-emsl"   aria-selected="true"  data-i18n="labEmsl">EMSL · Physics</button>
-      <button role="tab" id="tab-others" aria-controls="p-others" aria-selected="false" data-i18n="labOthers">Other departments</button>
-    </div>
-
-    <div class="panel panel--stack" role="tabpanel" id="p-emsl" aria-labelledby="tab-emsl">
+    <div class="panel panel--stack">
       <div>
         <figure class="frame frame--16x9 frame--contain" data-slot="topicsDiagram" style="margin-bottom:2.5rem">
           <img alt="" hidden>
@@ -797,9 +739,6 @@ body.ed-on{padding-right:0}
       </div>
     </div>
 
-    <div class="panel panel--stack" role="tabpanel" id="p-others" aria-labelledby="tab-others" hidden>
-      <p class="note" data-i18n="labOthersNote">No other department has joined the programme yet. This space is reserved for future partner laboratories.</p>
-    </div>
   </div>
 </section>
 
@@ -882,7 +821,6 @@ body.ed-on{padding-right:0}
           <dt data-i18n="coUniv">University</dt><dd>Soongsil University</dd>
           <dt data-i18n="coAddr">Address</dt><dd><span data-bind="contact.room">Baird Hall 01433</span><br>Sangdo-ro 369, Seoul 06978, Republic of Korea</dd>
           <dt data-i18n="coEmail">Email</dt><dd data-bind="contact.email">ylee@ssu.ac.kr</dd>
-          <dt data-i18n="coPhone">Telephone</dt><dd data-bind="contact.phone">[Phone Number]</dd>
           <dt data-i18n="coWebLab">EMSL website</dt><dd data-weblink="contact.web">sites.google.com/view/emsl-ssu</dd>
           <dt data-i18n="coWebInst">IIBS website</dt><dd data-weblink="contact.web2">iibs.ssu.ac.kr</dd>
           <dt data-i18n="coHours">Office hours</dt><dd data-bind="contact.hours">[Office Hours]</dd>
@@ -946,12 +884,11 @@ body.ed-on{padding-right:0}
    1. CONTROL PANEL — everything you normally need to edit lives in this block.
    ============================================================================ */
 const CONFIG = {
-  /* Application deadline in ISO form, e.g. "2027-03-15T23:59:00+09:00".
-     Leave empty ("") and the counter shows "--" instead of a countdown.      */
+  /* Application dates retained for the hidden Apply feature.
+     Upcoming Program has no registration dates or countdown.               */
   applicationDeadline: "",
 
-  /* Ngày mở đơn. Nếu ngày này còn ở tương lai, đồng hồ đếm ngược tới đây;
-     qua ngày đó rồi thì tự chuyển sang đếm tới hạn nộp.                       */
+  /* Dữ liệu Apply đang ẩn, không có trường chỉnh sửa trên giao diện.        */
   applicationOpenDate: "",
 
   /* Text shown in the hero badge, the featured heading and the CTA block.    */
@@ -982,15 +919,15 @@ const CONFIG = {
   /* Nội dung của kỳ sắp tới, hiển thị ở bảng thông tin.                       */
   upcoming: {
     program:"Summer 2027 Research Internship",
-    dates:"[Start Date] – [End Date]",
+    dates:{"en": "1 July – 20 August 2027", "vi": "1 tháng 7 – 20 tháng 8 năm 2027", "ko": "2027년 7월 1일 – 8월 20일"},
     venue:"EMSL, Department of Physics, Soongsil University, Seoul",
     open:"[Application Opens]",
-    eligible:"",
+    eligible:{"en": "Senior students", "vi": "Sinh viên năm cuối", "ko": "졸업 학년 재학생"},
     format:"",
-    seats:"[Number of Participants]",
+    seats:{"en": "2 or more", "vi": "Từ 2 sinh viên trở lên", "ko": "2명 이상"},
     language:"[Language of Instruction]"
   },
-  contact: { room:"Baird Hall 01433", email:"ylee@ssu.ac.kr", phone:"+82-2-820-0404 (Tel/Fax)",
+  contact: { room:"Baird Hall 01433", email:"ylee@ssu.ac.kr",
              web:"sites.google.com/view/emsl-ssu", web2:"iibs.ssu.ac.kr", hours:"[Office Hours]" },
 
   /* Google Maps: Share > Embed a map > copy the src="..." value only.          */
@@ -1141,14 +1078,15 @@ const ARCHIVE_FRAMES = [
    ============================================================================ */
 const I18N = {
 en:{
+durVal:"7 Weeks",
 aboutEyebrow:"SSU-UED IRIP",
-aboutHeadline:"Six-week research internship",
+aboutHeadline:"Seven-week research internship",
 aboutDurationLabel:"Weeks in the lab",
 aboutMentorLabel:"Mentor guidance",
 aboutLanguageLabel:"English for academic work",
-aboutResearchTitle:"Hands-on research",
+aboutResearchTitle:"Experimental research",
 aboutResearchDeck:"Participants take part in experimental work within their research project.",
-aboutProcessLabel:"Experimental work",
+aboutProcessLabel:"Experiments",
 aboutProcessBody:"Activities include preparing materials, fabricating samples, operating modern optical and physical measurement equipment, and collecting experimental data.",
 aboutMentorDetailLabel:"1:1 mentoring",
 aboutMentorDetailBody:"Mentors provide direct guidance, support with technical problems and daily scientific discussion in the laboratory.",
@@ -1164,7 +1102,7 @@ aboutCommunityTitle:"International community",
 aboutCommunityDeck:"Academic discussions, group meetings, laboratory seminars and research presentations are conducted entirely in English, providing regular practice in scientific communication.",
 aboutCultureTitle:"Life and culture in Seoul",
 aboutCultureDeck:"Outside laboratory hours, students can experience student life in Seoul, local food, landmarks and the city's urban culture.",
-aboutDurationValue:"6",
+aboutDurationValue:"7",
 aboutMentorValue:"1:1",
 aboutLanguageValue:"100%",
 
@@ -1174,16 +1112,16 @@ navSummer:"Summer Internship", navPast:"Past Programs", dropNotePast:"New cohort
 navDetails:"Program Details", navOverview:"Overview", navResearch:"Research Topics", navSchedule:"Schedule",
 navEligibility:"Eligibility", navApplication:"Application", navFaq:"FAQ", navAbout:"About EMSL",
 navLab:"Laboratory", navLabResearch:"Research", navPeople:"People", navFacilities:"Facilities",
-navGallery:"Gallery", navContact:"Contact", applyNow:"Apply", heroDetails:"Learn More About Details", explore:"Explore the Program",
+navGallery:"Gallery", navContact:"Contact", applyNow:"Apply", heroDetails:"About IRIP", explore:"Explore the Program",
 heroTitle:"SSU-UED International Research Internship Program",
 heroTag:"Explore Physics. Experience Research. Connect Globally.",
-heroLede:"A six-week research internship programme run jointly by Soongsil University, Seoul and the University of Science and Education, Danang.",
+heroLede:"A seven-week research internship programme run jointly by Soongsil University, Seoul and the University of Science and Education, Danang.",
 factDuration:"Duration:", factLocation:"Location:", factHost:"Host:",
 upcomingDeck:"Applications for the next cohort are handled by the EMSL program office. Key dates and requirements are listed below.",
 days:"Days", hours:"Hours", minutes:"Minutes", seconds:"Seconds",
 untilDeadline:"Remaining until the application deadline",
 untilOpen:"Remaining until applications open", fOpens:"Application opens",
-fProgram:"Program", fDates:"Dates", fDuration:"Duration", approxSix:"Approximately 6 weeks", fVenue:"Location",
+fProgram:"Program", fDates:"Dates", fDuration:"Duration", approxSeven:"7 weeks", fVenue:"Location",
 fDeadline:"Application deadline", fEligible:"Eligible students", fFormat:"Format", fSeats:"Participants",
 fLanguage:"Working language", viewDetails:"View Program Details",
 bannerNote:"Use a wide photograph of the laboratory, an instrument in operation, or the previous cohort at work.",
@@ -1193,10 +1131,10 @@ lProject:"Project", lActs:"Activities", lKeyResults:"Key results", lGoal:"Goal",
 lDates:"Dates", lParticipants:"Participants", lTopic:"Research topic", lCountries:"Universities and countries",
 lActivities:"Main activities", lOutcomes:"Results", lGallery:"Cohort gallery",
 ovTitle:"Program overview",
-ovDeck:"SSU-UED IRIP is planned as an annual summer program in Seoul. During six weeks in a solid-state physics laboratory, students carry out an independent research project with support from experienced mentors.",
+ovDeck:"SSU-UED IRIP is planned as an annual summer program in Seoul. During seven weeks in a solid-state physics laboratory, students carry out an independent research project with support from experienced mentors.",
 raTitle:"Research areas",
 raDeck:"Internship topics are assigned from the laboratory's active research lines. Confirm the topic list for your cohort with the program coordinator before applying.",
-wkTitle:"Six-week program structure", wkDeck:"A typical cohort follows the sequence below, from safety training to the final presentation.",
+wkTitle:"Seven-week program structure", wkDeck:"A typical cohort follows the sequence below, from safety training to the final presentation.",
 wkNote:"Program activities may vary depending on the research topic and semester.", week:"Week",
 pdTitle:"Program details", pdDeck:"Requirements, benefits, documents and dates. Items in square brackets are confirmed each semester by the program office.",
 tabEligibility:"Eligibility", tabBenefits:"What participants receive", tabDocuments:"Application documents",
@@ -1206,7 +1144,7 @@ elNote:"Previous laboratory experience is not assumed. Training on each instrume
 bnTitle:"Included in the program", dcTitle:"Documents to submit",
 dcNote:"Submit all documents as a single PDF unless the application form states otherwise.",
 dcHelp:"Preparing the statement of purpose",
-dcHelpBody:"State the research area you want to join, the experimental or computational skills you already have, and what you expect to learn in six weeks. One page is enough.",
+dcHelpBody:"State the research area you want to join, the experimental or computational skills you already have, and what you expect to learn in seven weeks. One page is enough.",
 downloadGuide:"Download Program Guide", slTitle:"How participants are selected",
 dtTitle:"Key dates for the coming cohort", dtOpen:"Application opens", dtClose:"Application deadline",
 dtInterview:"Interview period", dtResult:"Result announcement", dtProgram:"Program period",
@@ -1219,7 +1157,7 @@ imTitle:"Program highlights", imDeck:"Figures are updated by the program office 
 statTotal:"Participants in total", statIntl:"International students", statKorean:"Korean students",
 labEmsl:"EMSL · Physics", labOthers:"Other departments",
 labOthersNote:"No other department has joined the programme yet. This space is reserved for future partner laboratories.",
-rtTitle:"Research topics",
+rtTitle:"Luminescent Optical Materials and Their Applications",
 rtDeck:"Every topic builds on one core subject — luminescent materials. Internship projects are assigned from the five directions below.",
 tsTitle:"Student experiences", tsDeck:"The students who have taken part in the programme.",
 abTitle:"About EMSL", abDeck:"The Electronic Materials Spectroscopy Laboratory belongs to the Department of Physics & IIBS, Soongsil University, Seoul, Republic of Korea.",
@@ -1250,17 +1188,18 @@ ftQuick:"Quick links", ftArchive:"Program archive", ftAll:"All cohorts", ftInfo:
 ftPrivacy:"Privacy notice", ftA11y:"Accessibility", ftRights:"All rights reserved.",
 close:"Close", linkUnset:"[Link not set]",
 docTitle:"SSU-UED International Research Internship Program — Soongsil University",
-metaDesc:"A six-week research internship programme run jointly by Soongsil University, Seoul and the University of Science and Education, Danang."
+metaDesc:"A seven-week research internship programme run jointly by Soongsil University, Seoul and the University of Science and Education, Danang."
 },
 vi:{
+durVal:"7 tuần",
 aboutEyebrow:"SSU-UED IRIP",
-aboutHeadline:"Thực tập nghiên cứu trong sáu tuần",
+aboutHeadline:"Thực tập nghiên cứu trong bảy tuần",
 aboutDurationLabel:"Tuần trong phòng thí nghiệm",
 aboutMentorLabel:"Hướng dẫn từ mentor",
 aboutLanguageLabel:"Tiếng Anh trong hoạt động học thuật",
-aboutResearchTitle:"Nghiên cứu thực hành",
+aboutResearchTitle:"Nghiên cứu thực nghiệm",
 aboutResearchDeck:"Sinh viên tham gia công việc thực nghiệm trong đề tài nghiên cứu của mình.",
-aboutProcessLabel:"Công việc thực nghiệm",
+aboutProcessLabel:"Thí nghiệm",
 aboutProcessBody:"Các hoạt động gồm chuẩn bị vật liệu, chế tạo mẫu, vận hành thiết bị đo quang học và vật lý hiện đại, và thu thập dữ liệu thực nghiệm.",
 aboutMentorDetailLabel:"Hướng dẫn 1:1 cùng mentor",
 aboutMentorDetailBody:"Mentor hướng dẫn trực tiếp, hỗ trợ xử lý vấn đề kỹ thuật và thảo luận chuyên môn hằng ngày trong phòng thí nghiệm.",
@@ -1276,7 +1215,7 @@ aboutCommunityTitle:"Cộng đồng quốc tế",
 aboutCommunityDeck:"Trao đổi học thuật, họp nhóm, seminar phòng thí nghiệm và báo cáo nghiên cứu đều sử dụng tiếng Anh, giúp sinh viên thường xuyên thực hành giao tiếp khoa học.",
 aboutCultureTitle:"Đời sống và văn hóa tại Seoul",
 aboutCultureDeck:"Ngoài giờ làm việc trong phòng thí nghiệm, sinh viên có thể trải nghiệm đời sống sinh viên tại Seoul, tìm hiểu ẩm thực địa phương, các địa danh và văn hóa đô thị.",
-aboutDurationValue:"6",
+aboutDurationValue:"7",
 aboutMentorValue:"1:1",
 aboutLanguageValue:"100%",
 
@@ -1286,16 +1225,16 @@ navSummer:"Thực tập mùa hè", navPast:"Các kỳ đã diễn ra", dropNoteP
 navDetails:"Thông tin chương trình", navOverview:"Tổng quan", navResearch:"Chủ đề nghiên cứu", navSchedule:"Lịch trình",
 navEligibility:"Điều kiện", navApplication:"Hồ sơ đăng ký", navFaq:"Câu hỏi thường gặp", navAbout:"Giới thiệu EMSL",
 navLab:"Phòng thí nghiệm", navLabResearch:"Nghiên cứu", navPeople:"Nhân sự", navFacilities:"Trang thiết bị",
-navGallery:"Thư viện ảnh", navContact:"Liên hệ", applyNow:"Đăng ký", heroDetails:"Xem chi tiết chương trình", explore:"Tìm hiểu chương trình",
+navGallery:"Thư viện ảnh", navContact:"Liên hệ", applyNow:"Đăng ký", heroDetails:"Giới thiệu IRIP", explore:"Tìm hiểu chương trình",
 heroTitle:"SSU-UED Chương trình thực tập nghiên cứu quốc tế",
 heroTag:"Khám phá vật lý. Trải nghiệm nghiên cứu. Kết nối quốc tế.",
-heroLede:"Chương trình thực tập nghiên cứu sáu tuần do Đại học Soongsil (Seoul) và Trường Đại học Sư phạm — Đại học Đà Nẵng phối hợp tổ chức.",
+heroLede:"Chương trình thực tập nghiên cứu bảy tuần do Đại học Soongsil (Seoul) và Trường Đại học Sư phạm — Đại học Đà Nẵng phối hợp tổ chức.",
 factDuration:"Thời lượng:", factLocation:"Địa điểm:", factHost:"Đơn vị tổ chức:",
 upcomingDeck:"Việc tiếp nhận hồ sơ do văn phòng chương trình EMSL phụ trách. Các mốc thời gian và yêu cầu chính được liệt kê dưới đây.",
 days:"Ngày", hours:"Giờ", minutes:"Phút", seconds:"Giây",
 untilDeadline:"Thời gian còn lại đến hạn nộp hồ sơ",
 untilOpen:"Thời gian còn lại đến ngày mở đơn", fOpens:"Ngày mở đơn",
-fProgram:"Chương trình", fDates:"Thời gian", fDuration:"Thời lượng", approxSix:"Khoảng 6 tuần", fVenue:"Địa điểm",
+fProgram:"Chương trình", fDates:"Thời gian", fDuration:"Thời lượng", approxSeven:"7 tuần", fVenue:"Địa điểm",
 fDeadline:"Hạn nộp hồ sơ", fEligible:"Đối tượng", fFormat:"Hình thức", fSeats:"Số lượng",
 fLanguage:"Ngôn ngữ làm việc", viewDetails:"Xem thông tin chương trình",
 bannerNote:"Nên dùng ảnh ngang chụp phòng thí nghiệm, thiết bị đang vận hành hoặc kỳ thực tập trước.",
@@ -1305,10 +1244,10 @@ lProject:"Đề tài", lActs:"Nội dung thực hiện", lKeyResults:"Kết qu�
 lDates:"Thời gian", lParticipants:"Số người tham gia", lTopic:"Chủ đề nghiên cứu", lCountries:"Trường và quốc gia",
 lActivities:"Hoạt động chính", lOutcomes:"Kết quả", lGallery:"Hình ảnh của kỳ",
 ovTitle:"Tổng quan chương trình",
-ovDeck:"SSU-UED IRIP dự kiến được tổ chức hằng năm vào mùa hè tại Seoul. Trong sáu tuần tại phòng thí nghiệm vật lý chất rắn, sinh viên thực hiện một đề tài nghiên cứu độc lập với sự hỗ trợ của các mentor có kinh nghiệm.",
+ovDeck:"SSU-UED IRIP dự kiến được tổ chức hằng năm vào mùa hè tại Seoul. Trong bảy tuần tại phòng thí nghiệm vật lý chất rắn, sinh viên thực hiện một đề tài nghiên cứu độc lập với sự hỗ trợ của các mentor có kinh nghiệm.",
 raTitle:"Lĩnh vực nghiên cứu",
 raDeck:"Đề tài thực tập được phân công từ các hướng nghiên cứu đang triển khai của phòng thí nghiệm. Hãy xác nhận danh mục đề tài của kỳ với điều phối viên trước khi đăng ký.",
-wkTitle:"Cấu trúc chương trình sáu tuần", wkDeck:"Một kỳ thực tập thường diễn ra theo trình tự sau, từ huấn luyện an toàn đến báo cáo tổng kết.",
+wkTitle:"Cấu trúc chương trình bảy tuần", wkDeck:"Một kỳ thực tập thường diễn ra theo trình tự sau, từ huấn luyện an toàn đến báo cáo tổng kết.",
 wkNote:"Hoạt động có thể thay đổi tùy theo đề tài nghiên cứu và học kỳ.", week:"Tuần",
 pdTitle:"Thông tin chương trình", pdDeck:"Điều kiện, quyền lợi, hồ sơ và mốc thời gian. Các mục trong ngoặc vuông được văn phòng chương trình xác nhận theo từng kỳ.",
 tabEligibility:"Điều kiện", tabBenefits:"Quyền lợi", tabDocuments:"Hồ sơ đăng ký",
@@ -1318,7 +1257,7 @@ elNote:"Chương trình không yêu cầu kinh nghiệm phòng thí nghiệm tr�
 bnTitle:"Chương trình bao gồm", dcTitle:"Hồ sơ cần nộp",
 dcNote:"Nộp toàn bộ hồ sơ trong một tệp PDF, trừ khi mẫu đơn quy định khác.",
 dcHelp:"Cách viết bài luận mục tiêu",
-dcHelpBody:"Nêu rõ hướng nghiên cứu muốn tham gia, các kỹ năng thực nghiệm hoặc tính toán đã có, và điều muốn học được trong sáu tuần. Một trang là đủ.",
+dcHelpBody:"Nêu rõ hướng nghiên cứu muốn tham gia, các kỹ năng thực nghiệm hoặc tính toán đã có, và điều muốn học được trong bảy tuần. Một trang là đủ.",
 downloadGuide:"Tải tài liệu chương trình", slTitle:"Quy trình tuyển chọn",
 dtTitle:"Mốc thời gian của kỳ sắp tới", dtOpen:"Mở đăng ký", dtClose:"Hạn nộp hồ sơ",
 dtInterview:"Thời gian phỏng vấn", dtResult:"Công bố kết quả", dtProgram:"Thời gian chương trình",
@@ -1331,7 +1270,7 @@ imTitle:"Kết quả nổi bật", imDeck:"Số liệu được văn phòng chư
 statTotal:"Tổng số sinh viên tham gia", statIntl:"Sinh viên quốc tế", statKorean:"Sinh viên Hàn Quốc",
 labEmsl:"EMSL · Vật lý", labOthers:"Khoa khác",
 labOthersNote:"Hiện chưa có khoa nào khác tham gia chương trình. Phần này để dành cho các phòng thí nghiệm sẽ hợp tác sau này.",
-rtTitle:"Chủ đề nghiên cứu",
+rtTitle:"Vật liệu quang học phát quang và ứng dụng",
 rtDeck:"Mọi chủ đề đều xoay quanh vật liệu phát quang. Đề tài thực tập được phân công từ năm hướng dưới đây.",
 tsTitle:"Trải nghiệm của sinh viên", tsDeck:"Những sinh viên đã tham gia chương trình.",
 abTitle:"Giới thiệu EMSL", abDeck:"Electronic Materials Spectroscopy Laboratory trực thuộc Khoa Vật lý & IIBS, Đại học Soongsil, Seoul, Hàn Quốc.",
@@ -1362,17 +1301,18 @@ ftQuick:"Liên kết nhanh", ftArchive:"Lưu trữ chương trình", ftAll:"Tấ
 ftPrivacy:"Chính sách bảo mật", ftA11y:"Khả năng tiếp cận", ftRights:"Bảo lưu mọi quyền.",
 close:"Đóng", linkUnset:"[Chưa gán liên kết]",
 docTitle:"Chương trình thực tập nghiên cứu quốc tế SSU-UED — Đại học Soongsil",
-metaDesc:"Chương trình thực tập nghiên cứu sáu tuần do Đại học Soongsil (Seoul) và Trường Đại học Sư phạm — Đại học Đà Nẵng phối hợp tổ chức."
+metaDesc:"Chương trình thực tập nghiên cứu bảy tuần do Đại học Soongsil (Seoul) và Trường Đại học Sư phạm — Đại học Đà Nẵng phối hợp tổ chức."
 },
 ko:{
+durVal:"7주",
 aboutEyebrow:"SSU-UED IRIP",
-aboutHeadline:"6주 연구 인턴십",
+aboutHeadline:"7주 연구 인턴십",
 aboutDurationLabel:"주간의 연구실 경험",
 aboutMentorLabel:"멘토 지도",
 aboutLanguageLabel:"영어로 진행하는 학술 활동",
-aboutResearchTitle:"실험 중심 연구",
+aboutResearchTitle:"실험 연구",
 aboutResearchDeck:"참가 학생은 자신의 연구 프로젝트와 관련된 실험 활동에 참여합니다.",
-aboutProcessLabel:"실험 활동",
+aboutProcessLabel:"실험",
 aboutProcessBody:"주요 활동은 재료 준비, 시료 제작, 현대적인 광학·물성 측정 장비 운용과 실험 데이터 수집입니다.",
 aboutMentorDetailLabel:"1:1 멘토 지도",
 aboutMentorDetailBody:"멘토는 직접 지도하고 기술적 문제 해결을 지원하며 연구실에서 매일 학술 토론을 진행합니다.",
@@ -1388,7 +1328,7 @@ aboutCommunityTitle:"국제 커뮤니티",
 aboutCommunityDeck:"학술 토론, 그룹 미팅, 연구실 세미나와 연구 발표는 모두 영어로 진행되며, 학생은 과학적 의사소통을 꾸준히 연습할 수 있습니다.",
 aboutCultureTitle:"서울의 생활과 문화",
 aboutCultureDeck:"연구실 업무 시간 외에는 서울의 학생 생활, 현지 음식, 주요 명소와 도시 문화를 접할 수 있습니다.",
-aboutDurationValue:"6",
+aboutDurationValue:"7",
 aboutMentorValue:"1:1",
 aboutLanguageValue:"100%",
 
@@ -1398,16 +1338,16 @@ navSummer:"여름학기 인턴십", navPast:"지난 프로그램", dropNotePast:
 navDetails:"프로그램 안내", navOverview:"개요", navResearch:"연구 주제", navSchedule:"일정",
 navEligibility:"지원 자격", navApplication:"지원 서류", navFaq:"자주 묻는 질문", navAbout:"EMSL 소개",
 navLab:"연구실", navLabResearch:"연구", navPeople:"구성원", navFacilities:"연구 시설",
-navGallery:"갤러리", navContact:"연락처", applyNow:"지원", heroDetails:"프로그램 자세히 보기", explore:"프로그램 살펴보기",
+navGallery:"갤러리", navContact:"연락처", applyNow:"지원", heroDetails:"IRIP 소개", explore:"프로그램 살펴보기",
 heroTitle:"SSU-UED 국제 연구 인턴십 프로그램",
 heroTag:"물리를 탐구하고, 연구를 경험하고, 세계와 연결됩니다.",
-heroLede:"숭실대학교(서울)와 다낭 사범대학교가 공동으로 운영하는 6주 연구 인턴십 프로그램입니다.",
+heroLede:"숭실대학교(서울)와 다낭 사범대학교가 공동으로 운영하는 7주 연구 인턴십 프로그램입니다.",
 factDuration:"기간:", factLocation:"장소:", factHost:"주관:",
 upcomingDeck:"다음 기수의 지원 접수는 EMSL 프로그램 사무국이 담당합니다. 주요 일정과 요건은 아래와 같습니다.",
 days:"일", hours:"시간", minutes:"분", seconds:"초",
 untilDeadline:"지원 마감까지 남은 시간",
 untilOpen:"지원 접수 시작까지 남은 시간", fOpens:"지원 접수 시작",
-fProgram:"프로그램", fDates:"기간", fDuration:"운영 기간", approxSix:"약 6주", fVenue:"장소",
+fProgram:"프로그램", fDates:"기간", fDuration:"운영 기간", approxSeven:"7주", fVenue:"장소",
 fDeadline:"지원 마감", fEligible:"지원 대상", fFormat:"운영 방식", fSeats:"모집 인원",
 fLanguage:"사용 언어", viewDetails:"프로그램 안내 보기",
 bannerNote:"연구실 전경, 장비 운용 장면, 이전 기수의 활동 사진 등 가로형 이미지를 권장합니다.",
@@ -1417,10 +1357,10 @@ lProject:"연구 주제", lActs:"수행 내용", lKeyResults:"주요 결과", lG
 lDates:"기간", lParticipants:"참가 인원", lTopic:"연구 주제", lCountries:"참가 대학 및 국가",
 lActivities:"주요 활동", lOutcomes:"성과", lGallery:"기수 갤러리",
 ovTitle:"프로그램 개요",
-ovDeck:"SSU-UED IRIP는 서울에서 매년 여름 운영할 예정인 프로그램입니다. 참가 학생은 고체물리 연구실에서 6주 동안 경험이 있는 멘토의 지원을 받으며 독립적인 연구 프로젝트를 수행합니다.",
+ovDeck:"SSU-UED IRIP는 서울에서 매년 여름 운영할 예정인 프로그램입니다. 참가 학생은 고체물리 연구실에서 7주 동안 경험이 있는 멘토의 지원을 받으며 독립적인 연구 프로젝트를 수행합니다.",
 raTitle:"연구 분야",
 raDeck:"인턴십 주제는 연구실에서 진행 중인 연구 분야에서 배정됩니다. 지원 전 해당 기수의 주제 목록을 프로그램 담당자에게 확인하십시오.",
-wkTitle:"6주 프로그램 구성", wkDeck:"일반적인 기수는 안전 교육부터 최종 발표까지 아래 순서로 진행됩니다.",
+wkTitle:"7주 프로그램 구성", wkDeck:"일반적인 기수는 안전 교육부터 최종 발표까지 아래 순서로 진행됩니다.",
 wkNote:"세부 활동은 연구 주제와 학기에 따라 달라질 수 있습니다.", week:"주차",
 pdTitle:"프로그램 안내", pdDeck:"지원 자격, 지원 내용, 제출 서류 및 일정입니다. 대괄호 항목은 매 학기 사무국이 확정합니다.",
 tabEligibility:"지원 자격", tabBenefits:"제공 사항", tabDocuments:"제출 서류",
@@ -1430,7 +1370,7 @@ elNote:"사전 실험 경험은 요구하지 않습니다. 모든 장비는 사�
 bnTitle:"프로그램 제공 사항", dcTitle:"제출 서류",
 dcNote:"지원 양식에 별도 안내가 없으면 모든 서류를 하나의 PDF로 제출하십시오.",
 dcHelp:"학업계획서 작성 안내",
-dcHelpBody:"참여하고자 하는 연구 분야, 보유한 실험·전산 역량, 6주 동안 배우고자 하는 내용을 기술하십시오. 한 장이면 충분합니다.",
+dcHelpBody:"참여하고자 하는 연구 분야, 보유한 실험·전산 역량, 7주 동안 배우고자 하는 내용을 기술하십시오. 한 장이면 충분합니다.",
 downloadGuide:"프로그램 안내서 내려받기", slTitle:"선발 절차",
 dtTitle:"다음 기수 주요 일정", dtOpen:"지원 접수 시작", dtClose:"지원 마감",
 dtInterview:"면접 기간", dtResult:"결과 발표", dtProgram:"프로그램 기간",
@@ -1443,7 +1383,7 @@ imTitle:"프로그램 성과", imDeck:"수치는 각 기수 종료 후 사무국
 statTotal:"총 참가 인원", statIntl:"외국인 학생", statKorean:"한국인 학생",
 labEmsl:"EMSL · 물리학", labOthers:"기타 학과",
 labOthersNote:"아직 참여한 다른 학과가 없습니다. 향후 협력 연구실을 위해 마련된 공간입니다.",
-rtTitle:"연구 주제",
+rtTitle:"발광 광학 소재와 응용",
 rtDeck:"모든 주제는 발광 재료를 중심으로 합니다. 인턴십 과제는 아래 다섯 방향에서 배정됩니다.",
 tsTitle:"참가자 후기", tsDeck:"프로그램에 참여한 학생들입니다.",
 abTitle:"EMSL 소개", abDeck:"Electronic Materials Spectroscopy Laboratory는 대한민국 서울, 숭실대학교 물리학과 및 IIBS 소속 연구실입니다.",
@@ -1474,7 +1414,7 @@ ftQuick:"바로가기", ftArchive:"프로그램 기록", ftAll:"전체 기수", 
 ftPrivacy:"개인정보 처리방침", ftA11y:"접근성", ftRights:"All rights reserved.",
 close:"닫기", linkUnset:"[링크 미설정]",
 docTitle:"SSU-UED 국제 연구 인턴십 프로그램 — 숭실대학교",
-metaDesc:"숭실대학교(서울)와 다낭 사범대학교가 공동으로 운영하는 6주 연구 인턴십 프로그램입니다."
+metaDesc:"숭실대학교(서울)와 다낭 사범대학교가 공동으로 운영하는 7주 연구 인턴십 프로그램입니다."
 }
 };
 
@@ -1722,6 +1662,7 @@ function applyConfig(){
 }
 /* Đọc một đường dẫn dạng "upcoming.dates" trong CONFIG */
 const dig = (o,path)=> path.split(".").reduce((a,k)=> (a==null?a:a[k]), o);
+const configValue = v => v && typeof v === "object" ? (v[lang] ?? v.en ?? "") : v;
 function setDeep(o,path,v){
   const ks = path.split("."), last = ks.pop();
   let t = o; ks.forEach(k=>{ if(typeof t[k] !== "object" || t[k] === null) t[k] = {}; t = t[k]; });
@@ -1740,10 +1681,8 @@ function applyLayout(){
 const FACTS = [
   ["upcoming.program",  "fProgram"],
   ["upcoming.dates",    "fDates"],
-  [null,                "fDuration", "approxSix"],
+  [null,                "fDuration", "approxSeven"],
   ["upcoming.venue",    "fVenue"],
-  ["upcoming.open",     "fOpens"],
-  ["deadlineText",      "fDeadline"],
   ["upcoming.eligible", "fEligible"],
   ["upcoming.format",   "fFormat"],
   ["upcoming.seats",    "fSeats"],
@@ -1752,7 +1691,8 @@ const FACTS = [
 function renderFacts(){
   const box = $("#factlist"); if(!box) return;
   box.innerHTML = FACTS.map(([path,k,fixed])=>{
-    const v = fixed ? t(fixed) : (dig(CONFIG, path) || "");
+    const raw = fixed ? t(fixed) : (dig(CONFIG, path) || "");
+    const v = configValue(raw);
     if(isBlank(v)) return "";
     return '<li><span class="k" data-i18n="'+k+'">'+t(k)+'</span>'+
            '<span class="v"'+(path ? ' data-bind="'+path+'"' : '')+'>'+esc(v)+'</span></li>';
@@ -1760,7 +1700,8 @@ function renderFacts(){
 }
 function applyBindings(){
   $$("[data-bind]").forEach(el=>{
-    const v = dig(CONFIG, el.dataset.bind);
+    const raw = dig(CONFIG, el.dataset.bind);
+    const v = configValue(raw);
     if(typeof v !== "string") return;
     const empty = isBlank(v);
     el.textContent = empty ? "" : v;
@@ -1802,31 +1743,6 @@ function applyEmbeds(){
     f.innerHTML = '<iframe src="'+CONFIG.mapEmbed+'" title="Campus map" loading="lazy" '+
                   'referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>';
   }
-}
-
-/* ---------- countdown ---------- */
-let countdownTimer;
-function startCountdown(){
-  clearInterval(countdownTimer);
-  const box = $("#countdown"); if(!box) return;
-  const set = (k,v)=> box.querySelector('[data-cd="'+k+'"]').textContent = v;
-  const openAt = CONFIG.applicationOpenDate ? new Date(CONFIG.applicationOpenDate).getTime() : NaN;
-  const toOpen = !isNaN(openAt) && openAt > Date.now();
-  const lab = $("#cdLabel"), tgt = $("#cdTarget");
-  if(lab) lab.dataset.i18n = toOpen ? "untilOpen" : "untilDeadline";
-  if(lab) lab.textContent = t(toOpen ? "untilOpen" : "untilDeadline");
-  if(tgt) tgt.textContent = toOpen ? (CONFIG.upcoming.open || "") : CONFIG.deadlineText;
-  if(!toOpen && !CONFIG.applicationDeadline){ ["d","h","m","s"].forEach(k=>set(k,"--")); return; }
-  const end = toOpen ? openAt : new Date(CONFIG.applicationDeadline).getTime();
-  const run = ()=>{
-    const gap = end - Date.now();
-    if(isNaN(end) || gap <= 0){ ["d","h","m","s"].forEach(k=>set(k,"0")); return; }
-    set("d", Math.floor(gap/86400000));
-    set("h", String(Math.floor(gap/3600000)%24).padStart(2,"0"));
-    set("m", String(Math.floor(gap/60000)%60).padStart(2,"0"));
-    set("s", String(Math.floor(gap/1000)%60).padStart(2,"0"));
-  };
-  run(); countdownTimer = setInterval(run, 1000);
 }
 
 /* Mục nào không còn thẻ nào bên trong thì ẩn cả mục, và bỏ luôn link trên thanh
@@ -1997,26 +1913,8 @@ addEventListener("scroll", ()=>{
 $$(".lang button").forEach(b=> b.addEventListener("click", ()=>{
   lang = b.dataset.lang; localStorage.setItem("emslab-v3-lang", lang); renderAll();
   if(ED.active){ drawPanel(); markLangRow(); }
-  startCountdown();
-}));
 
-/* ---------- tabs ---------- */
-function selectTab(name){
-  $$('.tabs [role="tab"]').forEach(tb=>{
-    const on = tb.id === "tab-"+name;
-    tb.setAttribute("aria-selected", String(on));
-    document.getElementById(tb.getAttribute("aria-controls")).hidden = !on;
-  });
-}
-$(".tabs").addEventListener("click", e=>{
-  const tb = e.target.closest('[role="tab"]'); if(tb) selectTab(tb.id.replace("tab-",""));
-});
-$(".tabs").addEventListener("keydown", e=>{
-  if(!["ArrowRight","ArrowLeft"].includes(e.key)) return;
-  const tabs = $$('.tabs [role="tab"]'), i = tabs.indexOf(document.activeElement); if(i < 0) return;
-  const nx = tabs[(i + (e.key === "ArrowRight" ? 1 : tabs.length - 1)) % tabs.length];
-  nx.focus(); selectTab(nx.id.replace("tab-",""));
-});
+}));
 
 /* ---------- accordion ---------- */
 $("#faq-list").addEventListener("click", e=>{
@@ -2089,7 +1987,20 @@ const F = (label, attr, val, type) =>
     ? '<textarea '+attr+'>'+esc(val)+'</textarea>'
     : '<input type="'+(type||"text")+'" '+attr+' value="'+esc(val)+'">')+'</label>';
 
-const CFIELD = (label, path, type) => F(label, 'data-cfg="'+path+'"', dig(CONFIG,path)||"", type);
+const CFIELD = (label, path, type) => {
+  const raw = dig(CONFIG,path), localized = raw && typeof raw === "object" && !Array.isArray(raw);
+  return F(label+(localized ? " ("+lang.toUpperCase()+")" : ""),
+    'data-cfg="'+path+(localized ? "."+lang : "")+'"', configValue(raw)||"", type);
+};
+/* Old exports used one shared string for these fields. Preserve that text while
+   converting the structure so each language can be edited independently. */
+function normalizeUpcoming(){
+  ["dates","eligible","seats"].forEach(k=>{
+    const v = CONFIG.upcoming[k];
+    if(typeof v === "string") CONFIG.upcoming[k] = {en:v, vi:v, ko:v};
+  });
+  delete CONFIG.contact.phone;
+}
 
 function panelHTML(){
   const L = CONFIG.links, IM = CONFIG.images;
@@ -2127,10 +2038,6 @@ function panelHTML(){
     '<div class="ed__note">Ô nào để trống thì dòng đó biến mất khỏi bảng thông tin và các dòng dưới tự nhích lên.</div>'+
     CFIELD("Dòng chữ trên hero","cohortBadge")+
     CFIELD("Tiêu đề mục nổi bật","cohortHeading")+
-    CFIELD("Hạn nộp (hiển thị)","deadlineText")+
-    CFIELD("Hạn nộp (cho đồng hồ đếm ngược)","applicationDeadline","datetime-local")+
-    CFIELD("Ngày mở đơn (hiển thị)","upcoming.open")+
-    CFIELD("Ngày mở đơn (cho đồng hồ đếm ngược)","applicationOpenDate","datetime-local")+
     CFIELD("Tên chương trình","upcoming.program")+
     CFIELD("Thời gian","upcoming.dates")+
     CFIELD("Địa điểm","upcoming.venue")+
@@ -2138,13 +2045,19 @@ function panelHTML(){
     CFIELD("Hình thức","upcoming.format")+
     CFIELD("Số lượng","upcoming.seats")+
     CFIELD("Ngôn ngữ làm việc","upcoming.language"), true)+
+  sec("Home và Research ("+lang.toUpperCase()+")",
+    '<div class="ed__note">Chỉnh nội dung theo ngôn ngữ đang chọn. Thời lượng, ngày thực tập, đối tượng và số người tham gia cần được cập nhật nhất quán ở cả ba bản.</div>'+
+    [["heroLede","Home — giới thiệu"],["heroDetails","Home — nút About IRIP"],
+     ["durVal","Home — thời lượng"],["approxSeven","Upcoming — thời lượng"],
+     ["rtTitle","Research — tiêu đề"],["metaDesc","Mô tả website"]]
+      .map(([key,label])=>F(label,'data-text="'+key+'"',t(key),"area")).join(""))+
   sec("About IRIP ("+lang.toUpperCase()+")",
     '<div class="ed__note">Nội dung dưới đây thuộc ngôn ngữ đang chọn. Có thể sửa từng dòng trên trang hoặc nhập tại đây; cả hai cách đều được lưu và xuất trong text của content.json. Cập nhật cả ba ngôn ngữ khi thay đổi nội dung.</div>'+
     ABOUT_FIELDS.map(([key,label])=> F(label,'data-text="'+key+'"',t(key),
       /Deck$|Body$|Headline$/.test(key) ? "area" : "text")).join(""))+
   sec("Liên hệ",
     CFIELD("Phòng, toà nhà","contact.room")+CFIELD("Email","contact.email")+
-    CFIELD("Điện thoại","contact.phone")+CFIELD("Website EMSL","contact.web","url")+
+    CFIELD("Website EMSL","contact.web","url")+
     CFIELD("Website IIBS","contact.web2","url")+
     CFIELD("Giờ làm việc","contact.hours"))+
   sec("Liên kết các nút",
@@ -2287,7 +2200,7 @@ function initEditor(){
     const btn = e.target.closest("[data-edlang]"); if(!btn) return;
     lang = btn.dataset.edlang; localStorage.setItem("emslab-v3-lang", lang);
     renderAll(); drawPanel(); markLangRow();
-    startCountdown();
+
     status("Đang xem bản " + lang.toUpperCase() + ". Nội dung nhập ở đây thuộc bản này.");
   });
   markLangRow();
@@ -2442,7 +2355,7 @@ function addItem(name){
   drawPanel(); saveDraft(); queueRender();
 }
 let rt;
-function queueRender(){ clearTimeout(rt); rt = setTimeout(()=>{ renderAll(); startCountdown(); if(ED.live) setLive(true, true); markLangRow(); }, 260); }
+function queueRender(){ clearTimeout(rt); rt = setTimeout(()=>{ renderAll(); if(ED.live) setLive(true, true); markLangRow(); }, 260); }
 
 /* ---- sửa chữ trực tiếp trên trang ---- */
 function setLive(on, quiet){
@@ -2461,8 +2374,10 @@ document.addEventListener("input", e=>{
     const f = $('[data-text="'+el.dataset.i18n+'"]'); if(f) f.value = txt;
   }
   else if(el.dataset.bind){
-    setDeep(CONFIG, el.dataset.bind, txt);
-    const f = $('[data-cfg="'+el.dataset.bind+'"]'); if(f) f.value = txt;
+    const raw = dig(CONFIG, el.dataset.bind);
+    const path = raw && typeof raw === "object" ? el.dataset.bind+"."+lang : el.dataset.bind;
+    setDeep(CONFIG, path, txt);
+    const f = $('[data-cfg="'+path+'"]'); if(f) f.value = txt;
   } else return;
   saveDraft();
 });
@@ -2500,8 +2415,12 @@ function restoreDraft(){
     if(d.faq)    FAQ.splice(0, FAQ.length, ...d.faq);
     if(d.seoul)  SEOUL.splice(0, SEOUL.length, ...d.seoul);
     if(d.faqAnswers) Object.entries(d.faqAnswers).forEach(([i,a])=>{ if(FAQ[i]) FAQ[i].a = a; });
-    if(d.text){ Object.assign(TEXT, d.text); ["en","vi","ko"].forEach(l=> Object.assign(I18N[l], d.text[l]||{})); }
+    if(d.text) ["en","vi","ko"].forEach(l=>{
+      Object.assign(TEXT[l], d.text[l]||{});
+      Object.assign(I18N[l], d.text[l]||{});
+    });
   }catch(e){}
+  normalizeUpcoming();
 }
 function dl(name, blob){
   const a = document.createElement("a");
@@ -2527,8 +2446,9 @@ function status(m){ const el = $("#edStatus"); if(el) el.textContent = m; }
 /* ---------- boot ---------- */
 (async ()=>{
   await loadContent();
+  normalizeUpcoming();
   renderAll();
-  startCountdown();
+
   if(EDIT_MODE) initEditor();
   navigateTo(hashTarget(), {historyMode:"replace", focus:false});
 })();
